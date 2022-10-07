@@ -77,7 +77,7 @@ const UpdateCourse = () => {
               id="courseName"
               name="courseName"
               placeholder="HTML"
-              value={courseName || ""}
+              value={courseName}
               onChange={handleInputChange}
               />
             <label htmlFor="CourseDescription">courseDescription</label>
@@ -86,7 +86,7 @@ const UpdateCourse = () => {
               id="courseDescription"
               name="courseDescription"
               placeholder="Hyper-Text-Markup-Language"
-              value={courseDescription || ""}
+              value={courseDescription}
               onChange={handleInputChange}
               />
             <label htmlFor="CourseLogo">courseLogoLink</label>
@@ -95,7 +95,7 @@ const UpdateCourse = () => {
               id="courseLogo"
               name="courseLogo"
               placeholder="LogoLINK(255)"
-              value={courseLogo || ""}
+              value={courseLogo}
               onChange={handleInputChange}
               />
               <input type="submit" value={'UpdateCourse'}  />
