@@ -1,0 +1,27 @@
+.personalDetailes {
+    flex: 4;
+}
+
+.personalDetailesTitleContainer{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.personalDetailesTitle{
+    margin-left: 12px;
+}
+
+.personalDetailesAddButton{
+    width: 100px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    margin-right: 40px;
+}
+
