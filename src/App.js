@@ -20,6 +20,7 @@ import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
 import Concept from "./pages/Concept/Concept";
 import AddConcept from "./pages/AddConcept/AddConcept";
 import UpdateConcept from "./pages/UpdateConcept/UpdateConcept";
+import ConceptView from "./pages/ConceptView/ConceptView";
 
 function App() {
   return (
@@ -70,6 +71,9 @@ function App() {
             </Route>
             <Route path="/UpdateConcept/:conceptID">
                 <UpdateConcept />
+            </Route>
+            <Route path="/ConceptView/:conceptID">
+                <ConceptView />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />

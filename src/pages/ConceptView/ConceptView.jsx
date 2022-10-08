@@ -12,7 +12,7 @@ const ConceptView = () => {
    
     useEffect(() => {
        axios.get(`http://192.168.0.118:8080/concept/${conceptID}`)
-       .then((resp) => setUser({...resp.data[0]}));
+       .then((resp) => setconcept({...resp.data[0]}));
      }, [conceptID])
    
   return (

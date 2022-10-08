@@ -130,6 +130,6 @@ const initialState = {
         </div>
     </div>
   )
-}
+};
 
-export default UpdateConcept
+export default UpdateConcept;

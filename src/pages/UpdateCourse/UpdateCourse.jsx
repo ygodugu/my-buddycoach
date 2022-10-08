@@ -106,6 +106,6 @@ const UpdateCourse = () => {
           </div>
       </div>
     )
-  }
+  };
    
 export default UpdateCourse;
