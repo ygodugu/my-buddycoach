@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PersonalDetailes from "./pages/PersonalDetailes/PersonalDetailes"
 import View from "./pages/View/View";
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
+import Concept from "./pages/Concept/Concept";
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path="/View/:courseID">
                 <View />
+            </Route>
+            <Route path="/Concept">
+                <Concept />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />

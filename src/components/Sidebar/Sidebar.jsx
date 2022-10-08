@@ -50,11 +50,14 @@ export default function Sidebar() {
                         Course
                     </li>
                 </Link>
+                <Link to="#">
                 <li className="sidebarListItem">
                     <BarChart className="sidebarIcons"/>
-                    Reports
+                    Concept
                 </li>
+                </Link>
             </ul>
+
         </div>
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
