@@ -25,7 +25,7 @@ const AddConcept = () => {
     if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink) {
       toast.error("please provied the values into each input feild ")
     } else {
-      if(!courseID) {
+      if(!conceptID) {
         console.log("conceptName : " + conceptName)
         console.log("conceptDescription : " + conceptDescription)
         console.log("conceptLogo : " + conceptLogo)

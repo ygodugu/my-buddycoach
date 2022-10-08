@@ -18,6 +18,7 @@ import PersonalDetailes from "./pages/PersonalDetailes/PersonalDetailes"
 import View from "./pages/View/View";
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
 import Concept from "./pages/Concept/Concept";
+import AddConcept from "./pages/AddConcept/AddConcept";
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
             </Route>
             <Route path="/Concept">
                 <Concept />
+            </Route>
+            <Route path="/AddConcept">
+                <AddConcept />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />
