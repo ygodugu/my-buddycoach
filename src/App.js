@@ -19,6 +19,7 @@ import View from "./pages/View/View";
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
 import Concept from "./pages/Concept/Concept";
 import AddConcept from "./pages/AddConcept/AddConcept";
+import UpdateConcept from "./pages/UpdateConcept/UpdateConcept";
 
 function App() {
   return (
@@ -66,6 +67,9 @@ function App() {
             </Route>
             <Route path="/AddConcept">
                 <AddConcept />
+            </Route>
+            <Route path="/UpdateConcept/:conceptID">
+                <UpdateConcept />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />

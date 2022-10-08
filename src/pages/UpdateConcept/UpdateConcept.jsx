@@ -1,60 +1,73 @@
-import React,{useState} from "react";
-import { useParams, Link } from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import { useHistory,useParams,Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "./addConcept.css";
+import "./updateConcept.css";
+
 
 const initialState = {
     conceptName:"",
     conceptDescription:"",
     conceptLogo:"",
     resourceLink:"",
-    quizLink:"",
+    quizLink:""
   };
 
-const AddConcept = () => {
+  function UpdateConcept() {
 
   const[state,setState] = useState(initialState);
- 
+   
   const {conceptName,conceptDescription,conceptLogo,resourceLink,quizLink} = state;
+ 
+  const history = useHistory();
 
   const {conceptID} = useParams();
- 
+
+  useEffect(() => {
+    axios.get(`http://192.168.0.118:8080/course/${conceptID}`)
+    .then((resp) => setState({...resp.data[0] }));
+  }, [conceptID])
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink) {
+    if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink ) {
       toast.error("please provied the values into each input feild ")
-    } else {
-      if(!conceptID) {
+    }
+      else {
         console.log("conceptName : " + conceptName)
         console.log("conceptDescription : " + conceptDescription)
         console.log("conceptLogo : " + conceptLogo)
         console.log("resourceLink : " + resourceLink)
         console.log("quizLink : " + quizLink)
-       axios.post("http://192.168.0.118:8080/concept", {  
-        conceptName : conceptName,
-        conceptDescription : conceptDescription,
-        conceptLogo : conceptLogo,
-        resourceLink : resourceLink,
-        quizLink : quizLink
-       })
-      .then(() => {
-        setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: "" });
-      })
-      .catch((err) => toast.error(err.response.data));
-     
-      toast.success("Concept Added scucessfully ");
-      } 
-    }
-  };
- 
-  const handleInputChange = (e) => {
-    const {name,value} = e.target;
-    setState({...state,[name]: value });
-  };
- 
+        axios.put(`http://192.168.0.118:8080/course/${conceptID}`, { 
+          method: "PUT",
+          headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'this-can-be-anything',
+          },      
+          conceptName : conceptName,
+          conceptDescription : conceptDescription,
+          conceptLogo : conceptLogo,
+          resourceLink : resourceLink,
+          quizLink : quizLink
+         })
+        .then(() => {
+          setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: ""  });
+        })
+        .catch((err) => console.log(err.response.data));
+        toast.success(" Concept updated scucessfully ");
+      }
+       setTimeout(() => history.push("/Concept"), 500)
+    };
+
+    const handleInputChange = (e) => {
+        const {name,value} = e.target;
+        setState({...state,[name]: value });
+      };
+
   return (
-    <div className="AddCourse">
+    <div className="UpdateConcept">
         <div style={{marignTop:"40px"}}>
           <form style={{
             margin:"auto",
@@ -109,7 +122,7 @@ const AddConcept = () => {
             value={quizLink}
             onChange={handleInputChange}
             />
-            <input type="submit" value="Save"/>
+            <input type="submit" value={"UpdateConcept"}/>
             <Link to="/Concept">
               <input  type="button" value="Go Back"/>
             </Link>
@@ -119,4 +132,4 @@ const AddConcept = () => {
   )
 }
 
-export default AddConcept;
+export default UpdateConcept
