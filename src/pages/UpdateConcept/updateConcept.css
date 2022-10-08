@@ -3,8 +3,10 @@
 }
 
 input[type="text"],
-input[type="CourseDescription"],
-input[type="CourseLogo"],
+input[type="ConceptDescription"],
+input[type="ConceptLogo"],
+input[type="ResourceLink"],
+input[type="QuizLink"],
 select {
     width: 100%;
     padding: 12px 20px;

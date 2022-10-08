@@ -15,12 +15,13 @@ function View() {
   }, [courseID])
 
   return (
+<div className="container mt-3">
     <div className="view">
         <div style={{marginTop:"60px"}}>  
             <div className="card">
                 <div className="card-header">
-                <p>Course Detailes</p>
-            </div>
+                    <p>Course Detailes</p>
+                </div>
                  <div className="container">
                     <strong>ID:</strong>
                     <span>{user.courseID}</span>
@@ -45,6 +46,7 @@ function View() {
             </div>
         </div>
     </div>
+</div>
 );
 };
 
