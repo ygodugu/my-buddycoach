@@ -1,5 +1,5 @@
 import React,{useState, useEffect}  from 'react'
-import "./concepts.css"
+import "./concept.css"
 import { Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import axios from "axios";
@@ -27,7 +27,7 @@ const loadData = async () => {
       <div className="ConceptsList">
       <div style={{marginTop: "40px"}}>
         <div className="ConceptsTitleContainer">
-           <h1 className="ConceptsTitle">CourseList</h1>
+           <h1 className="ConceptsTitle">ConceptList</h1>
               <Link to="/AddCourse">
                  <button className="ConceptsAddButton">Add Concepts</button>
               </Link>

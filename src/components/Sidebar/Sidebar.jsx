@@ -50,7 +50,7 @@ export default function Sidebar() {
                         Course
                     </li>
                 </Link>
-                <Link to="#">
+                <Link to="#" className="link"> 
                 <li className="sidebarListItem">
                     <BarChart className="sidebarIcons"/>
                     Concept
