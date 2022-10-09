@@ -3,7 +3,7 @@ import "./sidebar.css";
 import { LineStyle,Timeline,TrendingUp,
     PermIdentity,Storefront,LibraryBooks,BarChart,
     MailOutline,DynamicFeed,ChatBubbleOutline,
-    WorkOutline,Report,Info,Group,AcUnit,} from "@material-ui/icons";
+    WorkOutline,Report,Info,Group,AcUnit,AccountCircle,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
  
 export default function Sidebar() {
@@ -62,6 +62,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
             <ul className="sidebarList">
+            <Link to="/User" className="link">
+                <li className="sidebarListItem">
+                    <AccountCircle className="sidebarIcons"/>
+                    User
+                </li>
+            </Link>
             <Link to="/PersonalDetailes" className="link">
                 <li className="sidebarListItem">
                     <Info className="sidebarIcons"/>
