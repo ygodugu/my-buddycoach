@@ -31,19 +31,20 @@ const UpdateCourse = () => {
         toast.error("please provied the values into each input feild ")
       }
         else {
+          debugger
           console.log("courseName : " + courseName)
           console.log("courseDescription : " + courseDescription)
           console.log("courseLogo : " + courseLogo)
           axios.put(`http://192.168.0.118:8080/course/${courseID}`, { 
-            method: "PUT",
             headers: {
               'Accept': '*/*',
               'Content-Type': 'application/x-www-form-urlencoded',
               'Authorization': 'this-can-be-anything',
-            },      
+            },
+            body: {      
             courseName : courseName,
             courseDescription : courseDescription,
-            courseLogo : courseLogo
+            courseLogo : courseLogo },
            })
           .then(() => {
             setState({courseName: "", courseDescription: "", courseLogo: "" });

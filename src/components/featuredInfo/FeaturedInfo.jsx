@@ -6,7 +6,7 @@ export default function featuredInfo() {
   return (
     <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">Asperint</span>
+        <span className="featuredTitle">Aspirants</span>
         <div className="featuredMoneyContainer">
             <span className="featuredMoney">$2215</span>
             <span className="featuredMoneyRate">-11.4 <ArrowDownward className="featuredIcons negative"/></span>
