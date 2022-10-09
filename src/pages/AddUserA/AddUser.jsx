@@ -58,7 +58,7 @@ const AddUser = () => {
   };
   return (
     <div className="AddUser">
-        <div style={{marignTop:"40px"}}>
+        <div style={{marignTop:"60px"}}>
           <form style={{
             margin:"auto",
             padding: "15px",

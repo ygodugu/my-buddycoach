@@ -40,9 +40,9 @@ function App() {
             <Route path="/user/:userId">
                 <User />
             </Route>
-            <Route path="/AddUser">
+            {/* <Route path="/AddUser">
                 <AddUser />
-            </Route>
+            </Route> */}
             <Route path="/products">
                 <ProductList />
             </Route>
