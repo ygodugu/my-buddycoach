@@ -21,7 +21,8 @@ import Concept from "./pages/Concept/Concept";
 import AddConcept from "./pages/AddConcept/AddConcept";
 import UpdateConcept from "./pages/UpdateConcept/UpdateConcept";
 import ConceptView from "./pages/ConceptView/ConceptView";
-
+import UserA from "./pages/UserA/User";
+import AddUserA  from "./pages/AddUserA/AddUser";
 function App() {
   return (
     <Router>
@@ -74,6 +75,12 @@ function App() {
             </Route>
             <Route path="/ConceptView/:conceptID">
                 <ConceptView />
+            </Route>
+            <Route path="/User">
+                <UserA />
+            </Route>
+            <Route path="/AddUser">
+                <AddUserA />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />

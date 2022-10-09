@@ -27,7 +27,7 @@ const loadData = async () => {
       <div style={{marginTop: "40px"}}>
         <div className="UserTitleContainer">
            <h1 className="UserTitle">UserList</h1>
-              <Link to="/#">
+              <Link to="/AddUser">
                  <button className="UserAddButton">Add User</button>
               </Link>
          </div>
