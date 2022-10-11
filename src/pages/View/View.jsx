@@ -22,21 +22,23 @@ function View() {
                     <p>Course Detailes</p>
                 </div>
                  <div className="container">
-                    <strong>ID: </strong>
-                    <span>{user.courseID}</span>   {"\n"}   {"\n"}
-                 
-                    <strong>courseName: </strong>
-                    <span>{user.courseName}</span>   {"\n"}   {"\n"}
+                    <div style={{ whiteSpace: "pre-line" }}>
+                        <strong>ID: </strong>
+                        <span>{user.courseID}</span>{"\n"}{"\n"}
                     
-                    <strong>courseDescription: </strong>
-                    <span>{user.courseDescription}</span>   {"\n"}   {"\n"}
+                        <strong>courseName: </strong>
+                        <span>{user.courseName}</span>{"\n"}{"\n"}
+                        
+                        <strong>courseDescription: </strong>
+                        <span>{user.courseDescription}</span>{"\n"}{"\n"}
+                        
+                        <strong>courseLogo: </strong>
+                        <span>{user.courseLogo}</span>{"\n"}{"\n"}{"\n"}
                     
-                    <strong>courseLogo: </strong>
-                    <span>{user.courseLogo}</span>   {"\n"}   {"\n"}
-                   
-                    <Link to="/Course">
-                        <button className="btn btn-edit">Goback</button>
-                    </Link>
+                        <Link to="/Course">
+                            <button className="btn btn-edit">Goback</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
