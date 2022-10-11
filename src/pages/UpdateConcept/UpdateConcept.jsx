@@ -24,7 +24,7 @@ const initialState = {
   const {conceptID} = useParams();
 
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/course/${conceptID}`)
+    axios.get(`http://192.168.0.118:8080/concept/${conceptID}`)
     .then((resp) => setState({...resp.data[0] }));
   }, [conceptID])
 
@@ -39,13 +39,7 @@ const initialState = {
         console.log("conceptLogo : " + conceptLogo)
         console.log("resourceLink : " + resourceLink)
         console.log("quizLink : " + quizLink)
-        axios.put(`http://192.168.0.118:8080/course/${conceptID}`, { 
-          method: "PUT",
-          headers: {
-            'Accept': '*/*',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'this-can-be-anything',
-          },      
+        axios.put(`http://192.168.0.118:8080/concept/${conceptID}`, {     
           conceptName : conceptName,
           conceptDescription : conceptDescription,
           conceptLogo : conceptLogo,
@@ -83,7 +77,7 @@ const initialState = {
             id="conceptName"
             name="conceptName"
             placeholder="HTML Tables"
-            value={conceptName || ""}
+            value={conceptName}
             onChange={handleInputChange}
             />
           <label htmlFor="conceptDescription">conceptDescription</label>

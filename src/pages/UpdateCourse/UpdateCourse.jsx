@@ -31,16 +31,17 @@ const UpdateCourse = () => {
         toast.error("please provied the values into each input feild ")
       }
         else {
-          const bodyParameters = {
-            courseName: "courseName",
-            courseDescription: "courseDescription",
-            courseLogo: "courseLogo"
-          };
-            axios.put(`http://192.168.0.118:8080/course/${courseID}`, bodyParameters)
-            .then(() => {
-              setState({courseName: "", courseDescription: "", courseLogo: "" });
-            })
-        
+          console.log("courseName : " + courseName)
+          console.log("courseDescription : " + courseDescription)
+          console.log("courseLogo : " + courseLogo)
+          axios.put(`http://192.168.0.118:8080/course/${courseID}`, {    
+            courseName : courseName,
+            courseDescription : courseDescription,
+            courseLogo : courseLogo,
+           })
+          .then(() => {
+            setState({courseName: "", courseDescription: "", courseLogo: "" });
+          })
           .catch((err) => console.log(err.response.data));
           toast.success(" Course updated scucessfully ");
          setTimeout(() => history.push("/Course"), 500)

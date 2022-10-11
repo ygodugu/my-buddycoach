@@ -53,16 +53,16 @@ const loadData = async () => {
                       <td>{item.conceptName}</td>
                       <td>{item.conceptDescription}</td>
                       <div>
-                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="50px"/></td>
+                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="30px"/></td>
                       </div>
-                      <td>{item.resourseLink}</td>
+                      <td>{item.resourceLink}</td>
                       <td>{item.quizLink}</td>
                       <td>
-                        <Link to={`/UpdateCourse/${item.courseID}`}>
+                        <Link to={`/UpdateCourse/${item.conceptID}`}>
                           <button className="btn btn-edit">Edit</button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.courseID) }>Delete</button>
-                        <Link to={`/View/${item.courseID}`}>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptID) }>Delete</button>
+                        <Link to={`/View/${item.conceptID}`}>
                           <button className="btn btn-view">View</button>
                         </Link>
                       </td>
@@ -74,6 +74,6 @@ const loadData = async () => {
         </div>
       </div>
   )
-}
+};
 
 export default Concept

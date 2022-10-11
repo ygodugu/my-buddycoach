@@ -15,7 +15,6 @@ function View() {
   }, [courseID])
 
   return (
-<div className="container mt-3">
     <div className="view">
         <div style={{marginTop:"60px"}}>  
             <div className="card">
@@ -23,22 +22,18 @@ function View() {
                     <p>Course Detailes</p>
                 </div>
                  <div className="container">
-                    <strong>ID:</strong>
-                    <span>{user.courseID}</span>
-                    <br />
-                    <br />
-                    <strong>courseName:</strong>
-                    <span>{user.courseName}</span>
-                    <br />
-                    <br />
-                    <strong>courseDescription:</strong>
-                    <span>{user.courseDescription}</span>
-                    <br />
-                    <br />
-                    <strong>courseLogo:</strong>
-                    <span>{user.courseLogo}</span>
-                    <br />
-                    <br />
+                    <strong>ID: </strong>
+                    <span>{user.courseID}</span>   {"\n"}   {"\n"}
+                 
+                    <strong>courseName: </strong>
+                    <span>{user.courseName}</span>   {"\n"}   {"\n"}
+                    
+                    <strong>courseDescription: </strong>
+                    <span>{user.courseDescription}</span>   {"\n"}   {"\n"}
+                    
+                    <strong>courseLogo: </strong>
+                    <span>{user.courseLogo}</span>   {"\n"}   {"\n"}
+                   
                     <Link to="/Course">
                         <button className="btn btn-edit">Goback</button>
                     </Link>
@@ -46,7 +41,6 @@ function View() {
             </div>
         </div>
     </div>
-</div>
 );
 };
 
