@@ -58,11 +58,11 @@ const loadData = async () => {
                       <td>{item.resourceLink}</td>
                       <td>{item.quizLink}</td>
                       <td>
-                        <Link to={`/UpdateCourse/${item.conceptID}`}>
+                        <Link to={`/UpdateConcept/${item.conceptID}`}>
                           <button className="btn btn-edit">Edit</button>
                         </Link>
                         <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptID) }>Delete</button>
-                        <Link to={`/View/${item.conceptID}`}>
+                        <Link to={`/ConceptView/${item.conceptID}`}>
                           <button className="btn btn-view">View</button>
                         </Link>
                       </td>
