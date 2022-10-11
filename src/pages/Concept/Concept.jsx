@@ -50,13 +50,13 @@ const loadData = async () => {
                 return(
                   <tr key={item.courseID}>
                       <th scope='row'>{item.conceptID}</th>
-                      <td>{item.ConceptName}</td>
-                      <td>{item.ConceptDescription}</td>
+                      <td>{item.conceptName}</td>
+                      <td>{item.conceptDescription}</td>
                       <div>
-                        <td><img src={item.ConceptLogo} alt={item.ConceptLogo} height="50px"/></td>
+                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="50px"/></td>
                       </div>
-                      <td>{item.ResourceLink}</td>
-                      <td>{item.QuizLink}</td>
+                      <td>{item.resourseLink}</td>
+                      <td>{item.quizLink}</td>
                       <td>
                         <Link to={`/UpdateCourse/${item.courseID}`}>
                           <button className="btn btn-edit">Edit</button>
