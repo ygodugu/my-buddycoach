@@ -61,7 +61,7 @@ const loadData = async () => {
                           <button className="btn btn-edit">Edit</button>
                         </Link>
                         <button className="btn btn-delete" onClick={() => deleteCourse(item.userID) }>Delete</button>
-                        <Link to={`/#/${item.userID}`}>
+                        <Link to={`/UserView/${item.userID}`}>
                           <button className="btn btn-view">View</button>
                         </Link>
                       </td>

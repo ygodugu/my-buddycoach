@@ -24,6 +24,7 @@ import ConceptView from "./pages/ConceptView/ConceptView";
 import UserA from "./pages/UserA/User";
 import AddUserA  from "./pages/AddUserA/AddUser";
 import UpdateUserA from "./pages/UpdateUser A/UpdateUser";
+import UserViewA from "./pages/UserViewA/UserView";
 function App() {
   return (
     <Router>
@@ -85,6 +86,9 @@ function App() {
             </Route>
             <Route path="/UpdateUser/:userID">
                 <UpdateUserA />
+            </Route>
+            <Route path="/UserView/:userID">
+                <UserViewA />
             </Route>
             <Route path="/PersonalDetailes">
                 <PersonalDetailes />
