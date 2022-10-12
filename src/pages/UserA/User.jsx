@@ -55,13 +55,13 @@ const loadData = async () => {
                       <td>{item.lastName}</td>
                       <td>{item.emailID}</td>
                       <td>{item.mobileNumber}</td>
-                      <td>{item.DOB}</td>
+                      <td>{item.dateOfBirth}</td>
                       <td>
-                        <Link to={`/UpdateCourse/${item.userID}`}>
+                        <Link to={`/UpdateUser/${item.userID}`}>
                           <button className="btn btn-edit">Edit</button>
                         </Link>
                         <button className="btn btn-delete" onClick={() => deleteCourse(item.userID) }>Delete</button>
-                        <Link to={`/View/${item.userID}`}>
+                        <Link to={`/#/${item.userID}`}>
                           <button className="btn btn-view">View</button>
                         </Link>
                       </td>

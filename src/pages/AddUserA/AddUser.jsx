@@ -11,20 +11,20 @@ const initialState = {
     lastName:"",
     emailID:"",
     mobileNumber:"",
-    DOB:"",
+    dateOfBirth:"",
   };
 
 const AddUser = () => {
 
     const[state,setState] = useState(initialState);
  
-  const {firstName,middleName,lastName,emailID,mobileNumber,DOB} = state;
+  const {firstName,middleName,lastName,emailID,mobileNumber,dateOfBirth} = state;
 
   const {userID} = useParams();
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if( !firstName || !middleName || !lastName || !emailID || !mobileNumber || !DOB) {
+    if( !firstName || !middleName || !lastName || !emailID || !mobileNumber || !dateOfBirth) {
       toast.error("please provied the values into each input feild ")
     } else {
       if(!userID) {
@@ -33,17 +33,17 @@ const AddUser = () => {
         console.log("lastName : " + lastName)
         console.log("emailID : " + emailID)
         console.log("mobileNumber : " + mobileNumber)
-        console.log("DOB : " + DOB)
+        console.log("dateOfBirth : " + dateOfBirth)
        axios.post("http://192.168.0.118:8080/user", {  
         firstName : firstName,
         middleName : middleName,
         lastName : lastName,
         emailID : emailID,
         mobileNumber : mobileNumber,
-        DOB : DOB
+        dateOfBirth : dateOfBirth
        })
       .then(() => {
-        setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", DOB: "" });
+        setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth: "" });
       })
       .catch((err) => toast.error(err.response.data));
      
@@ -112,17 +112,17 @@ const AddUser = () => {
             value={mobileNumber}
             onChange={handleInputChange}
             />
-          <label htmlFor="DOB">DOB</label>
+          <label htmlFor="dateOfBirth">dateOfBirth</label>
           <input
             type="Date"
-            id="DOB"
-            name="DOB"
+            id="dateOfBirth"
+            name="dateOfBirth"
             placeholder="05/09/2022"
-            value={DOB}
+            value={dateOfBirth}
             onChange={handleInputChange}
             />
             <input type="submit" value="Save"/>
-            <Link to="/Concept">
+            <Link to="/User">
               <input  type="button" value="Go Back"/>
             </Link>
           </form>
