@@ -4,10 +4,10 @@
 
 .styled-table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 50px;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 1100px;
+    max-width: 200px;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 

@@ -34,7 +34,7 @@ const AddUser = () => {
         console.log("emailID : " + emailID)
         console.log("mobileNumber : " + mobileNumber)
         console.log("DOB : " + DOB)
-       axios.post("http://192.168.0.118:8080/concept", {  
+       axios.post("http://192.168.0.118:8080/user", {  
         firstName : firstName,
         middleName : middleName,
         lastName : lastName,
@@ -73,7 +73,7 @@ const AddUser = () => {
             id="firstName"
             name="firstName"
             placeholder="firstName"
-            value={firstName || ""}
+            value={firstName}
             onChange={handleInputChange}
             />
           <label htmlFor="middleName">middleName</label>
@@ -114,7 +114,7 @@ const AddUser = () => {
             />
           <label htmlFor="DOB">DOB</label>
           <input
-            type="DOB"
+            type="Date"
             id="DOB"
             name="DOB"
             placeholder="05/09/2022"

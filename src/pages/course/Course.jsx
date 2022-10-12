@@ -51,7 +51,7 @@ const Course = () => {
                       <td>{item.courseName}</td>
                       <td>{item.courseDescription}</td>
                       <div>
-                        <td><img src={item.courseLogo} alt={item.courseLogo} height="50px"/></td>
+                        <td><img src={item.courseLogo} alt={item.courseLogo} height="40px"/></td>
                       </div>
                       <td>
                         <Link to={`/UpdateCourse/${item.courseID}`}>

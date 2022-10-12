@@ -9,7 +9,7 @@ const User = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/concept");
+    const response = await axios.get("http://192.168.0.118:8080/user");
     setData(response.data);
   };
    useEffect(() => {
@@ -18,7 +18,7 @@ const loadData = async () => {
 
    const deleteCourse = (userID) => {
      if(window.confirm(" Are you sure that delete the course ?"));
-     axios.delete(`http://192.168.0.118:8080/concept/${userID}`);
+     axios.delete(`http://192.168.0.118:8080/user/${userID}`);
      toast.success("user delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }

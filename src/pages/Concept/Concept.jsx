@@ -55,8 +55,8 @@ const loadData = async () => {
                       <div>
                         <td><img src={item.conceptLogo} alt={item.conceptLogo} height="30px"/></td>
                       </div>
-                      <td>{item.resourceLink}</td>
-                      <td>{item.quizLink}</td>
+                      <td><Link>{item.resourceLink}</Link></td>
+                      <td><Link>{item.quizLink}</Link></td>
                       <td>
                         <Link to={`/UpdateConcept/${item.conceptID}`}>
                           <button className="btn btn-edit">Edit</button>

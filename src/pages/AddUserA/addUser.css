@@ -7,7 +7,7 @@ input[type="middleName"],
 input[type="lastName"],
 input[type="emailID"],
 input[type="mobileNumber"],
-input[type="DOB"],
+input[type="Date"],
 select {
     width: 100%;
     padding: 12px 20px;
