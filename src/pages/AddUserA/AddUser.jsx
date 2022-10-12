@@ -24,7 +24,7 @@ const AddUser = () => {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if( !firstName || !middleName || !lastName || !emailID || !mobileNumber || !dateOfBirth) {
+    if( !firstName || !lastName || !emailID || !mobileNumber || !dateOfBirth) {
       toast.error("please provied the values into each input feild ")
     } else {
       if(!userID) {

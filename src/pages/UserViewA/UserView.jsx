@@ -24,27 +24,26 @@ const UserView = () => {
                 </div>
                 <div className="container">
                     <div style={{ whiteSpace: "pre-line" }}>
-                        <strong>ID:</strong>
+                        <strong>ID:  </strong>
                         <span>{user.userID}</span> {"\n"}{"\n"}
                                
-                        <strong>FirstName:</strong>
+                        <strong>FirstName:  </strong>
                         <span>{user.firstName}</span> {"\n"}{"\n"}
                                 
-                        <strong>MiddleName:</strong>
+                        <strong>MiddleName:  </strong>
                         <span>{user.middleName}</span> {"\n"}{"\n"}
                                 
-                        <strong>LastName:</strong>
+                        <strong>LastName: </strong>
                         <span>{user.lastName}</span> {"\n"}{"\n"}
                                 
-                        <strong>EmailID:</strong>
+                        <strong>EmailID:  </strong>
                         <span>{user.emailID}</span> {"\n"}{"\n"}
                                
-                        <strong>MobileNumber:</strong>
+                        <strong>MobileNumber:  </strong>
                         <span>{user.mobileNumber}</span> {"\n"}{"\n"}
 
-                        <strong>DATE OF BIRTH:</strong>
+                        <strong>DATE OF BIRTH:  </strong>
                         <span>{user.dateOfBirth}</span> {"\n"}{"\n"}
-
 
                         <Link to="/user">
                             <button className="btn btn-edit">Goback</button>
