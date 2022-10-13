@@ -53,10 +53,18 @@ const loadData = async () => {
                       <td>{item.conceptName}</td>
                       <td>{item.conceptDescription}</td>
                       <div>
-                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="30px"/></td>
+                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="50px"/></td>
                       </div>
-                      <td><Link to={`/link/${item.resourceLink}`}>{item.resourceLink}</Link></td>
-                      <td><Link to={item.quizLink}>{item.quizLink}</Link></td>
+                      <td>
+                        <Link className='Link' to={`/link/${item.resourceLink}`}>
+                          <button className="btn btn-click">Click</button>
+                        </Link>
+                      </td>
+                      <td>
+                        <Link className='Link' to={item.quizLink}>
+                          <button className="btn btn-click">click</button>
+                        </Link>
+                      </td>
                       <td>
                         <Link to={`/UpdateConcept/${item.conceptID}`}>
                           <button className="btn btn-edit">Edit</button>
