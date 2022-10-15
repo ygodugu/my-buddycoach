@@ -27,76 +27,78 @@ import UpdateUserA from "./pages/UpdateUser A/UpdateUser";
 import UserViewA from "./pages/UserViewA/UserView";
 function App() {
   return (
-    <Router>
-      <ToastContainer position="top-center" />
-      <Topbar/>
-        <div className="container">
-          <Sidebar/>
-          <Switch>
-              <Route exact path="/">
-                <Home/>
-            </Route>
-            <Route path="/users">
-                <UserList />
-            </Route>
-            <Route path="/user/:userId">
-                <User />
-            </Route>
-            {/* <Route path="/AddUser">
-                <AddUser />
-            </Route> */}
-            <Route path="/products">
-                <ProductList />
-            </Route>
-            <Route path="/product/:productId">
-                <Product />
-            </Route>
-            <Route path="/newproduct">
-                <NewProduct />
-            </Route>
-            <Route path="/Course">
-                <Cources />
-            </Route>
-            <Route path="/AddCourse">
-                <AddCourse />
-            </Route>
-            <Route path="/UpdateCourse/:courseID">
-                <UpdateCourse />
-            </Route>
-            <Route path="/View/:courseID">
-                <View />
-            </Route>
-            <Route path="/Concept">
-                <Concept />
-            </Route>
-            <Route path="/AddConcept">
-                <AddConcept />
-            </Route>
-            <Route path="/UpdateConcept/:conceptID">
-                <UpdateConcept />
-            </Route>
-            <Route path="/ConceptView/:conceptID">
-                <ConceptView />
-            </Route>
-            <Route path="/User">
-                <UserA />
-            </Route>
-            <Route path="/AddUser">
-                <AddUserA />
-            </Route>
-            <Route path="/UpdateUser/:userID">
-                <UpdateUserA />
-            </Route>
-            <Route path="/UserView/:userID">
-                <UserViewA />
-            </Route>
-            <Route path="/PersonalDetailes">
-                <PersonalDetailes />
-            </Route>
-          </Switch>
-        </div>  
-    </Router>
-  );
-}
+    
+        <Router>
+            <ToastContainer position="top-center" />
+                 <Topbar/>
+            <div className="container">
+                <Sidebar/>
+            <Switch>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
+                <Route exact path="/users" >
+                    <UserList />
+                </Route>
+                <Route exact path="/user/:userId">
+                    <User />
+                </Route>
+                {/* <Route exact path="/AddUser">
+                    <AddUser />
+                </Route> */}
+                <Route exact path="/products">
+                    <ProductList />
+                </Route>
+                <Route exact path="/product/:productId">
+                    <Product />
+                </Route>
+                <Route exact path="/newproduct">
+                    <NewProduct />
+                </Route>
+                <Route exact path="/Course">
+                    <Cources />
+                </Route>
+                <Route exact path="/AddCourse">
+                    <AddCourse />
+                </Route>
+                <Route exact path="/UpdateCourse/:courseID">
+                    <UpdateCourse />
+                </Route>
+                <Route exact path="/View/:courseID">
+                    <View />
+                </Route>
+                <Route exact path="/Concept">
+                    <Concept />
+                </Route>
+                <Route exact path="/AddConcept">
+                    <AddConcept />
+                </Route>
+                <Route exact path="/UpdateConcept/:conceptID">
+                    <UpdateConcept />
+                </Route>
+                <Route exact path="/ConceptView/:conceptID">
+                    <ConceptView />
+                </Route>
+                <Route exact path="/User">
+                    <UserA />
+                </Route>
+                <Route exact path="/AddUser">
+                    <AddUserA />
+                </Route>
+                <Route exact path="/UpdateUser/:userID">
+                    <UpdateUserA />
+                </Route>
+                <Route exact path="/UserView/:userID">
+                    <UserViewA />
+                </Route>
+                <Route exact path="/PersonalDetailes">
+                    <PersonalDetailes />
+                </Route>
+            </Switch>
+            </div> 
+        </Router>
+
+    );
+    }
 
 export default App;

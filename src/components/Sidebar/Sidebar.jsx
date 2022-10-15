@@ -13,7 +13,7 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> Dashboard </h3>
             <ul className="sidebarList">
-                <Link to="/" className="link">
+                <Link to={"/"} className="link">
                 <li className="sidebarListItem active">
                     <LineStyle className="sidebarIcons"/>
                     Home
@@ -32,25 +32,25 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> QuickMenu </h3>
             <ul className="sidebarList">
-                <Link to="/users" className="link">
+                <Link to={"/users"} className="link">
                     <li className="sidebarListItem">
                         <PermIdentity className="sidebarIcons"/>
                         Users
                     </li>
                 </Link>
-                <Link to="/products" className="link">
+                <Link to={"/products"} className="link">
                     <li className="sidebarListItem">
                         <Storefront className="sidebarIcons"/>
                         Products
                     </li>
                 </Link>
-                <Link to="/Course" className="link">
+                <Link to={"/Course"} className="link">
                     <li className="sidebarListItem">
                         <LibraryBooks className="sidebarIcons"/>
                         Course
                     </li>
                 </Link>
-                <Link to="/Concept" className="link"> 
+                <Link to={"/Concept"} className="link"> 
                 <li className="sidebarListItem">
                     <BarChart className="sidebarIcons"/>
                     Concept
@@ -62,13 +62,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
             <ul className="sidebarList">
-            <Link to="/User" className="link">
+            <Link to={"/User"} className="link">
                 <li className="sidebarListItem">
                     <AccountCircle className="sidebarIcons"/>
                     User
                 </li>
             </Link>
-            <Link to="/PersonalDetailes" className="link">
+            <Link to={"/PersonalDetailes"} className="link">
                 <li className="sidebarListItem">
                     <Info className="sidebarIcons"/>
                     Personal Detailes

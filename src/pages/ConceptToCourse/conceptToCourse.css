@@ -1,12 +1,13 @@
-.CourseList{
+.ConceptToCourse {
     flex: 4;
 }
+
 .styled-table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 0px;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 1000px;
+    max-width: 1100px;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
@@ -20,11 +21,6 @@
 .styled-table td  {
   padding: 12px 15px;
 }
-
-.styled-table td  {
-    width: 1000px;
-    padding: 12px 15px;
-  }
 
 .styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
@@ -63,25 +59,10 @@
     background-color: #e7e7e7;
     color: black;
 }
-.CourseTitleContainer{
+
+.ConceptToCourseTitleContainer {
     display: flex;
     margin-bottom: 10px;
     align-items: center;
     justify-content: space-between;
-}
- 
-.CourseAddButton{
-    width: 100px;
-    border: none;
-    padding: 5px;
-    background-color: teal;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
-    margin-right: 40px;
-}
-
-.CourseTitle{
-    margin-left: 12px;
 }
