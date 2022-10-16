@@ -49,11 +49,11 @@ const ConceptToCourse = () => {
                       <td>{item.courseID}</td>
                       <td>{item.conceptID}</td>
                       <td>
-                        <Link to={`/UpdateConcept/${item.conceptCourseMappingID }`}>
+                        <Link to={`/#/${item.conceptCourseMappingID }`}>
                           <button className="btn btn-edit">Edit</button>
                         </Link>
                         <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptCourseMappingID ) }>Delete</button>
-                        <Link to={`/ConceptView/${item.conceptCourseMappingID }`}>
+                        <Link to={`/#/${item.conceptCourseMappingID }`}>
                           <button className="btn btn-view">View</button>
                         </Link>
                       </td>
@@ -67,4 +67,4 @@ const ConceptToCourse = () => {
   );
 }
 
-export default ConceptToCourse
+export default ConceptToCourse;
