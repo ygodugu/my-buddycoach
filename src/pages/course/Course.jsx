@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import "./course.css";
 import { Link} from "react-router-dom";
 import {toast} from "react-toastify";
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
  
 
@@ -55,11 +56,11 @@ const Course = () => {
                       </div>
                       <td>
                         <Link to={`/UpdateCourse/${item.courseID}`}>
-                          <button className="btn btn-edit">Edit</button>
+                          <button className="btn btn-edit"><BorderColor /></button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.courseID) }>Delete</button>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.courseID) }><DeleteForever /></button>
                         <Link to={`/View/${item.courseID}`}>
-                          <button className="btn btn-view">View</button>
+                          <button className="btn btn-view"><Visibility /></button>
                         </Link>
                       </td>
                   </tr>
