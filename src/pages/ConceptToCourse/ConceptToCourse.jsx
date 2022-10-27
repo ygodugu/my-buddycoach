@@ -9,7 +9,7 @@ const ConceptToCourse = () => {
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://192.168.0.118:8080/concept");
+        const response = await axios.get("http://192.168.0.118:8080/conceptToCourse");
         setData(response.data);
     };
     useEffect(() => {
@@ -18,8 +18,8 @@ const ConceptToCourse = () => {
 
     const deleteCourse = (conceptCourseMappingID ) => {
         if(window.confirm(" Are you sure that delete the course ?"));
-        axios.delete(`http://192.168.0.118:8080/concept/${conceptCourseMappingID }`);
-        toast.success("concept delete scuccesfully");
+        axios.delete(`http://192.168.0.118:8080/conceptTocourse/${conceptCourseMappingID }`);
+        toast.success("conceptToCourse delete scuccesfully");
         setTimeout(() => loadData(), 500);
     }
   return (
