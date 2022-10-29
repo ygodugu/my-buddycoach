@@ -6,7 +6,7 @@ import { useState,useEffect } from "react";
 import "../addUser/AddUser";
 
 export default function UserList() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   const columns = [
     { title: "ID", field: "id", width:90},
@@ -15,6 +15,7 @@ export default function UserList() {
     { title: "Email", field: "email", width:150},
     { title: "Phone", field: "phone", width:150},
     { title: "Web Link", field: 'website', width:150},
+    { title: "Actions", field: 'Actions', width:150},
 
   ]
   useEffect(() => {

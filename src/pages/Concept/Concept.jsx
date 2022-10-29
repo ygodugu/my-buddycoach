@@ -2,6 +2,7 @@ import React,{useState, useEffect}  from 'react'
 import "./concept.css"
 import { Link} from "react-router-dom";
 import {toast} from "react-toastify";
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
 
 
@@ -56,22 +57,22 @@ const loadData = async () => {
                         <td><img src={item.conceptLogo} alt={item.conceptLogo} height="50px"/></td>
                       </div>
                       <td>
-                        <Link className='Link' to={`/link/${item.resourceLink}`}>
+                        <a href={item.resourceLink} target="_blank" rel="noopener noreferrer" className='Link'>
                           <button className="btn btn-click">Click</button>
-                        </Link>
+                        </a>
                       </td>
                       <td>
-                        <Link className='Link' to={item.quizLink}>
+                        <a href={item.quizLink} target="_blank" rel="noopener noreferrer" className='Link' >
                           <button className="btn btn-click">click</button>
-                        </Link>
+                        </a>
                       </td>
                       <td>
                         <Link to={`/UpdateConcept/${item.conceptID}`}>
-                          <button className="btn btn-edit">Edit</button>
+                          <button className="btn btn-edit"><BorderColor className="Icons" /></button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptID) }>Delete</button>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptID) }><DeleteForever className="Icons" /></button>
                         <Link to={`/ConceptView/${item.conceptID}`}>
-                          <button className="btn btn-view">View</button>
+                          <button className="btn btn-view"><Visibility className="Icons"/></button>
                         </Link>
                       </td>
                   </tr>

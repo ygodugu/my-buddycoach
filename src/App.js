@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import './app.css';
 import Home from './pages/Home/Home'
-import { BrowserRouter as Router,Switch,Route,} from "react-router-dom";
+import { BrowserRouter as Router,Switch,Route, BrowserRouter,} from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import ProductList from "./pages/productList/ProductList";
@@ -28,6 +28,7 @@ import UserViewA from "./pages/UserViewA/UserView";
 function App() {
   return (
     
+    <BrowserRouter>
         <Router>
             <ToastContainer position="top-center" />
                  <Topbar/>
@@ -40,7 +41,7 @@ function App() {
                 <Route exact path="/users" >
                     <UserList />
                 </Route>
-                <Route exact path="/user/:userId">
+                <Route exact path="/User/:userId">
                     <User />
                 </Route>
                 {/* <Route exact path="/AddUser">
@@ -97,7 +98,7 @@ function App() {
             </Switch>
             </div> 
         </Router>
-
+    </BrowserRouter>
     );
     }
 

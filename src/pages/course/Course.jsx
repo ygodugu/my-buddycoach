@@ -52,15 +52,15 @@ const Course = () => {
                       <td>{item.courseName}</td>
                       <td>{item.courseDescription}</td>
                       <div>
-                        <td><img src={item.courseLogo} alt={item.courseLogo} height="40px"/></td>
+                        <td><img src={item.courseLogo} alt={item.courseLogo} height="50px"/></td>
                       </div>
                       <td>
                         <Link to={`/UpdateCourse/${item.courseID}`}>
-                          <button className="btn btn-edit"><BorderColor /></button>
+                          <button className="btn btn-edit"><BorderColor className="Icons" /></button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.courseID) }><DeleteForever /></button>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.courseID) }><DeleteForever className="Icons" /></button>
                         <Link to={`/View/${item.courseID}`}>
-                          <button className="btn btn-view"><Visibility /></button>
+                          <button className="btn btn-view"><Visibility className="Icons"/></button>
                         </Link>
                       </td>
                   </tr>

@@ -19,6 +19,7 @@
 
 .styled-table th,
 .styled-table td  {
+  width:500px;
   padding: 12px 15px;
 }
 
@@ -81,4 +82,8 @@
 
 .UserTitle {
     margin-left: 12px;
+}
+
+.Icons{
+    font-size: 16px !important;
 }

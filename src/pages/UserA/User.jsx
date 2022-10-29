@@ -2,6 +2,7 @@ import React,{useState, useEffect}  from 'react'
 import "./user.css"
 import { Link} from "react-router-dom";
 import {toast} from "react-toastify";
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
 
 const User = () => {
@@ -58,11 +59,11 @@ const loadData = async () => {
                       <td>{item.dateOfBirth}</td>
                       <td>
                         <Link to={`/UpdateUser/${item.userID}`}>
-                          <button className="btn btn-edit">Edit</button>
+                          <button className="btn btn-edit"><BorderColor className="Icons" /></button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.userID) }>Delete</button>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.userID) }><DeleteForever className="Icons" /></button>
                         <Link to={`/UserView/${item.userID}`}>
-                          <button className="btn btn-view">View</button>
+                          <button className="btn btn-view"><Visibility className="Icons"/></button>
                         </Link>
                       </td>
                   </tr>

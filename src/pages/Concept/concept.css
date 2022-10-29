@@ -8,6 +8,7 @@
     font-size: 0.9em;
     font-family: sans-serif;
     max-width: 1100px;
+    align-items: center;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
@@ -61,10 +62,9 @@
 }
 
 .btn-click {
-    background-color: #008cba;
-    color: black;
+    background-color: goldenrod;
     cursor: pointer;
-    width: 80px;
+    width: 60px;
 }
 
 .ConceptsTitleContainer {
@@ -88,4 +88,8 @@
 
 .ConceptsTitle {
     margin-left: 12px;
+}
+
+.Icons{
+    font-size: 16px !important;
 }
