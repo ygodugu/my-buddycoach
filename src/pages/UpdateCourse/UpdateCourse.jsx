@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useHistory,useParams,Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./update.css";
 
 const initialState = {
@@ -28,7 +27,6 @@ const UpdateCourse = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       if( !courseName || !courseDescription || !courseLogo ) {
-        toast.error("please provied the values into each input feild ")
       }
         else {
           console.log("courseName : " + courseName)
@@ -43,7 +41,6 @@ const UpdateCourse = () => {
             setState({courseName: "", courseDescription: "", courseLogo: "" });
           })
           .catch((err) => console.log(err.response.data));
-          toast.success(" Course updated scucessfully ");
          setTimeout(() => history.push("/Course"), 500)
       }
     };

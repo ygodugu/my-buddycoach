@@ -1,7 +1,6 @@
 import React,{useState, useEffect}  from 'react'
 import "./concept.css"
 import { Link} from "react-router-dom";
-import {toast} from "react-toastify";
 import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
 
@@ -21,7 +20,6 @@ const loadData = async () => {
    const deleteCourse = (conceptID) => {
      if(window.confirm(" Are you sure that delete the course ?"));
      axios.delete(`http://192.168.0.118:8080/concept/${conceptID}`);
-     toast.success("concept delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }
   return (

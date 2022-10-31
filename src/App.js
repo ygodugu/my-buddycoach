@@ -12,8 +12,6 @@ import NewProduct from "./pages/newProduct/NewProduct";
 import AddUser from "./pages/addUser/AddUser";
 import Cources from "./pages/course/Course";
 import AddCourse from "./pages/AddCourse/AddCourse";
-import {ToastContainer} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import PersonalDetailes from "./pages/PersonalDetailes/PersonalDetailes"
 import View from "./pages/View/View";
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
@@ -30,7 +28,6 @@ function App() {
     
     <BrowserRouter>
         <Router>
-            <ToastContainer position="top-center" />
                  <Topbar/>
             <div className="container">
                 <Sidebar/>

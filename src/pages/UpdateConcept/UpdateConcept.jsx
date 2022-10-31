@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useHistory,useParams,Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./updateConcept.css";
 
 
@@ -31,7 +30,6 @@ const initialState = {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink ) {
-      toast.error("please provied the values into each input feild ")
     }
       else {
         console.log("conceptName : " + conceptName)
@@ -50,7 +48,6 @@ const initialState = {
           setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: ""  });
         })
         .catch((err) => console.log(err.response.data));
-        toast.success(" Concept updated scucessfully ");
       }
        setTimeout(() => history.push("/Concept"), 500)
     };

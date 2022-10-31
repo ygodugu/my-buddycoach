@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./addUser.css";
 
 
@@ -25,7 +24,6 @@ const AddUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !firstName || !lastName || !emailID || !mobileNumber || !dateOfBirth) {
-      toast.error("please provied the values into each input feild ")
     } else {
       if(!userID) {
         console.log("firstName : " + firstName)
@@ -45,9 +43,7 @@ const AddUser = () => {
       .then(() => {
         setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth: "" });
       })
-      .catch((err) => toast.error(err.response.data));
-     
-      toast.success("User  Added scucessfully ");
+      .catch((err) => (err.response.data));
       } 
     }
   };

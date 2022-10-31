@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./addCourse.css";
  
 const initialState = {
@@ -20,7 +19,6 @@ const AddCourse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !courseName || !courseDescription || !courseLogo ) {
-      toast.error("please provied the values into each input feild ")
     } else {
       if(!courseID) {
         console.log("courseName : " + courseName)
@@ -34,9 +32,7 @@ const AddCourse = () => {
       .then(() => {
         setState({courseName: "", courseDescription: "", courseLogo: "" });
       })
-      .catch((err) => toast.error(err.response.data));
-     
-      toast.success("Course Added scucessfully ");
+      .catch((err) =>(err.response.data));
       } 
     }
   };

@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./addConcept.css";
 
 const initialState = {
@@ -23,7 +22,6 @@ const AddConcept = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink) {
-      toast.error("please provied the values into each input feild ")
     } else {
       if(!conceptID) {
         console.log("conceptName : " + conceptName)
@@ -41,9 +39,7 @@ const AddConcept = () => {
       .then(() => {
         setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: "" });
       })
-      .catch((err) => toast.error(err.response.data));
-     
-      toast.success("Concept Added scucessfully ");
+      .catch((err) =>(err.response.data));
       } 
     }
   };

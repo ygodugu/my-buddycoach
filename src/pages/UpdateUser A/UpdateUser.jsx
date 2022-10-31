@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useHistory,useParams,Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./updateUser.css";
 
 const initialState = {
@@ -31,7 +30,6 @@ const UpdateUser = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if( !firstName || !lastName || !emailID || !mobileNumber || !dateOfBirth ) {
-        toast.error("please provied the values into each input feild ")
         }
 
     else {
@@ -53,7 +51,6 @@ const UpdateUser = () => {
           setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth:"" });
         })
         .catch((err) => console.log(err.response.data));
-        toast.success(" Concept updated scucessfully ");
       }
        setTimeout(() => history.push("/User"), 500)
     };
