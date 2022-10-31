@@ -19,7 +19,7 @@ const ConceptToCourse = () => {
     const deleteCourse = (conceptCourseMappingID ) => {
         if(window.confirm(" Are you sure that delete the course ?"));
         axios.delete(`http://192.168.0.118:8080/conceptTocourse/${conceptCourseMappingID }`);
-        toast.success("conceptToCourse delete scuccesfully");
+        window.alert("conceptToCourse delete scuccesfully");
         setTimeout(() => loadData(), 500);
     }
   return (

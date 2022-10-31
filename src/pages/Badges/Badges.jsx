@@ -18,7 +18,7 @@ const loadData = async () => {
    const deleteCourse = (conceptID) => {
      if(window.confirm(" Are you sure that delete the badge ?"));
      axios.delete(`http://192.168.0.118:8080/badge/${badgeID}`);
-     toast.success("concept delete scuccesfully");
+     window.alert("concept delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }
 

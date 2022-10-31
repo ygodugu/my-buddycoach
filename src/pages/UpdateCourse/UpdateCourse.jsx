@@ -27,6 +27,7 @@ const UpdateCourse = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       if( !courseName || !courseDescription || !courseLogo ) {
+        window.alert("please provied the values into each input feild ")
       }
         else {
           console.log("courseName : " + courseName)
@@ -41,6 +42,7 @@ const UpdateCourse = () => {
             setState({courseName: "", courseDescription: "", courseLogo: "" });
           })
           .catch((err) => console.log(err.response.data));
+          window.alert("Course updated scucessfully")
          setTimeout(() => history.push("/Course"), 500)
       }
     };

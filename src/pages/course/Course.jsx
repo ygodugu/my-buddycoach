@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import "./course.css";
 import { Link} from "react-router-dom";
-import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
+import {DeleteForever,Visibility,BorderColor, LaptopWindows} from "@material-ui/icons"
 import axios from "axios";
  
 
@@ -19,6 +19,7 @@ const Course = () => {
    const deleteCourse = (courseID) => {
      if(window.confirm(" Are you sure that delete the course ?"));
      axios.delete(`http://192.168.0.118:8080/course/${courseID}`);
+     window.alert("concept delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }
 

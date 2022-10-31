@@ -30,6 +30,7 @@ const initialState = {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink ) {
+      window.alert("concept delete scuccesfully");
     }
       else {
         console.log("conceptName : " + conceptName)
@@ -48,6 +49,7 @@ const initialState = {
           setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: ""  });
         })
         .catch((err) => console.log(err.response.data));
+        window.alert(" Concept updated scucessfully")
       }
        setTimeout(() => history.push("/Concept"), 500)
     };

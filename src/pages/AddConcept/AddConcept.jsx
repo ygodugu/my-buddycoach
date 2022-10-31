@@ -22,6 +22,7 @@ const AddConcept = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !conceptName || !conceptDescription || !conceptLogo || !resourceLink || !quizLink) {
+      window.alert("please provied the values into each input feild")
     } else {
       if(!conceptID) {
         console.log("conceptName : " + conceptName)
@@ -40,6 +41,7 @@ const AddConcept = () => {
         setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: "" });
       })
       .catch((err) =>(err.response.data));
+      window.alert("Concept Added scucessfully")
       } 
     }
   };

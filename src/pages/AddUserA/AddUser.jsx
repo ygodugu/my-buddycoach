@@ -24,6 +24,7 @@ const AddUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !firstName || !lastName || !emailID || !mobileNumber || !dateOfBirth) {
+      window.alert("please provied the values into each input feild")
     } else {
       if(!userID) {
         console.log("firstName : " + firstName)
@@ -44,6 +45,7 @@ const AddUser = () => {
         setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth: "" });
       })
       .catch((err) => (err.response.data));
+      window.alert("User Added scucessfully ")
       } 
     }
   };

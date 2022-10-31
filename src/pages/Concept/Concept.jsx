@@ -20,6 +20,7 @@ const loadData = async () => {
    const deleteCourse = (conceptID) => {
      if(window.confirm(" Are you sure that delete the course ?"));
      axios.delete(`http://192.168.0.118:8080/concept/${conceptID}`);
+     window.alert("concept delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }
   return (

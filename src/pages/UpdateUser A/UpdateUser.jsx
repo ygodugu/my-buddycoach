@@ -30,6 +30,7 @@ const UpdateUser = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if( !firstName || !lastName || !emailID || !mobileNumber || !dateOfBirth ) {
+            window.alert("please provied the values into each input feild ")
         }
 
     else {
@@ -51,6 +52,7 @@ const UpdateUser = () => {
           setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth:"" });
         })
         .catch((err) => console.log(err.response.data));
+        window.alert(" Concept updated scucessfully ")
       }
        setTimeout(() => history.push("/User"), 500)
     };

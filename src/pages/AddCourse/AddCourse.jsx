@@ -19,6 +19,7 @@ const AddCourse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if( !courseName || !courseDescription || !courseLogo ) {
+      window.alert("please provied the values into each input feild")
     } else {
       if(!courseID) {
         console.log("courseName : " + courseName)
@@ -33,6 +34,7 @@ const AddCourse = () => {
         setState({courseName: "", courseDescription: "", courseLogo: "" });
       })
       .catch((err) =>(err.response.data));
+      window.alert("Course Added scucessfully")
       } 
     }
   };
