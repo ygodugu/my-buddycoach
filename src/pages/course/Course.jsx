@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import "./course.css";
 import { Link} from "react-router-dom";
-import {DeleteForever,Visibility,BorderColor, LaptopWindows} from "@material-ui/icons"
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
  
 
@@ -9,7 +9,7 @@ const Course = () => {
    const [data, setData] = useState([]);
 
    const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/course");
+    const response = await axios.get("http://192.168.0.118:8080/courses");
     setData(response.data);
   };
    useEffect(() => {

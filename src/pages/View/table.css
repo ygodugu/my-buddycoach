@@ -1,13 +1,14 @@
-.BadgesList {
-    flex: 4;
+.ConceptsList{
+    flex: 2;
 }
 
 .styled-table {
     border-collapse: collapse;
-    margin: 0px;
+    margin: auto;
     font-size: 0.9em;
     font-family: sans-serif;
-    max-width: 1100px;
+    max-width: 400px;
+    align-items: center;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
@@ -40,6 +41,7 @@
     padding: 5px 8px;
     text-align: center;
     text-decoration: none;
+    justify-content: center;
     display: inline-block;
     border-radius: 5px;
     font-size: 16px;
@@ -61,20 +63,19 @@
 }
 
 .btn-click {
-    background-color: #008cba;
-    color: black;
+    background-color: goldenrod;
     cursor: pointer;
-    width: 80px;
+    width: 60px;
 }
 
-.BadgesTitleContainer {
+.ConceptsTitleContainer {
     display: flex;
     margin-bottom: 10px;
     align-items: center;
     justify-content: space-between;
 }
 
-.BadgesAddButton {
+.ConceptsAddButton {
     width: 100px;
     border: none;
     padding: 5px;
@@ -86,6 +87,11 @@
     margin-right: 40px;
 }
 
-.BadgesTitle {
+.ConceptsTitle {
     margin-left: 12px;
 }
+
+.Icons{
+    font-size: 16px !important;
+}
+

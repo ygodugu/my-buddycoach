@@ -10,8 +10,9 @@ const Concept = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/concept");
+    const response = await axios.get("http://192.168.0.118:8080/concepts");
     setData(response.data);
+    console.log(response.data);
   };
    useEffect(() => {
     loadData();

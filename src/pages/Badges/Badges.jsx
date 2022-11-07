@@ -1,6 +1,6 @@
 import React,{useState, useEffect}  from 'react'
 import "./badges.css"
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Badges = () => {
@@ -15,7 +15,7 @@ const loadData = async () => {
     loadData();
    },[]);
 
-   const deleteCourse = (conceptID) => {
+   const deleteCourse = (badgeID) => {
      if(window.confirm(" Are you sure that delete the badge ?"));
      axios.delete(`http://192.168.0.118:8080/badge/${badgeID}`);
      window.alert("concept delete scuccesfully");
@@ -36,12 +36,12 @@ const loadData = async () => {
           <table className="styled-table">
             <thead>
               <tr>
-                  <th style={{textAlign:"center"}}>ConceptID</th>
-                  <th style={{textAlign:"center"}}>ConceptName</th>
-                  <th style={{textAlign:"center"}}>ConceptDescription</th>
-                  <th style={{textAlign:"center"}}>ConceptLogo</th>
-                  <th style={{textAlign:"center"}}>ResourceLink</th>
-                  <th style={{textAlign:"center"}}>QuizLink</th>
+                  <th style={{textAlign:"center"}}>BadgeID</th>
+                  <th style={{textAlign:"center"}}>BadgeName</th>
+                  <th style={{textAlign:"center"}}>BadgeDescription</th>
+                  <th style={{textAlign:"center"}}>BadgeRules</th>
+                  <th style={{textAlign:"center"}}>BadgeCount</th>
+                  <th style={{textAlign:"center"}}>BadgeStatus</th>
                   <th style={{textAlign:"center"}}>Action</th>
               </tr>
             </thead>
@@ -50,11 +50,11 @@ const loadData = async () => {
                 return(
                   <tr key={item.badgeID}>
                       <th scope='row'>{item.badgeID}</th>
-                      <td>{item.conceptName}</td>
-                      <td>{item.conceptDescription}</td>
-                      <div>
-                        <td><img src={item.conceptLogo} alt={item.conceptLogo} height="50px"/></td>
-                      </div>
+                      <td>{item.badgeName}</td>
+                      <td>{item.badgeDescription}</td>
+                      <td>{item.badgeRules }</td>
+                      <td>{item.badgeCount }</td>
+                      <td>{item.badgeStatus }</td>
                       <td>
                         <Link to={`/#/${item.badgeID}`}>
                           <button className="btn btn-edit">Edit</button>

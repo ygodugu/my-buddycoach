@@ -34,7 +34,7 @@ const ConceptView = () => {
                                 <span>{concept.conceptDescription}</span> {"\n"}{"\n"}
                                 
                                 <strong>conceptLogo:</strong>
-                                <span>{concept.conceptLogo}</span> {"\n"}{"\n"}
+                                <span>{<img src={concept.conceptLogo} alt={concept.conceptLogo} height="50px"/> }</span> {"\n"}{"\n"}
                                 
                                 <strong>resourceLink:</strong>
                                 <span>{concept.resourceLink}</span> {"\n"}{"\n"}

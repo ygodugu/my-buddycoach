@@ -9,7 +9,7 @@ const User = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/user");
+    const response = await axios.get("http://192.168.0.118:8080/users");
     setData(response.data);
   };
    useEffect(() => {

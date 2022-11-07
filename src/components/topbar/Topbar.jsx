@@ -22,9 +22,10 @@ export default function Topbar() {
                     <div className="topbarIconsContainer">
                         <Settings/>
                     </div>
-                    <img src={pic} alt="pic" className="topAvatar" />
+                    <div className="topbarIconsContainer">
+                        <img src={pic} alt="pic" className="topAvatar" />
+                    </div>
                 </div>
-           
         </div>
     </div>
   );

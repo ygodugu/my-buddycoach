@@ -23,7 +23,7 @@ const UpdateUser = () => {
     const {userID} = useParams();
 
     useEffect(() => {
-        axios.get(`http://192.168.0.118:8080/user/${userID}`)
+        axios.get(`http://192.168.0.118:8080/users/${userID}`)
         .then((resp) => setState({...resp.data[0] }));
     }, [userID]);
 

@@ -27,7 +27,7 @@ export const userData = [
     },
     {
       name: "July",
-      "Active User": 4000,
+      "Active User": 6000,
     },
     {
       name: "Aug",

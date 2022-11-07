@@ -78,10 +78,12 @@ export default function Sidebar() {
                     <Group className="sidebarIcons"/>
                     Yesterday's Achivers
                 </li>
-                <li className="sidebarListItem">
-                    <AcUnit className="sidebarIcons"/>
-                    Badges
-                </li>
+                <Link to={"/Badges"} className="link">
+                    <li className="sidebarListItem">
+                        <AcUnit className="sidebarIcons"/>
+                        Badges
+                    </li>
+                </Link>
             </ul>
         </div>
         <div className="sidebarMenu">

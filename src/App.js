@@ -14,6 +14,7 @@ import Cources from "./pages/course/Course";
 import AddCourse from "./pages/AddCourse/AddCourse";
 import PersonalDetailes from "./pages/PersonalDetailes/PersonalDetailes"
 import View from "./pages/View/View";
+import AddConceptTocourse from './pages/View/AddConceptToCourse'
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
 import Concept from "./pages/Concept/Concept";
 import AddConcept from "./pages/AddConcept/AddConcept";
@@ -23,6 +24,7 @@ import UserA from "./pages/UserA/User";
 import AddUserA  from "./pages/AddUserA/AddUser";
 import UpdateUserA from "./pages/UpdateUser A/UpdateUser";
 import UserViewA from "./pages/UserViewA/UserView";
+import Badges from "./pages/Badges/Badges";
 function App() {
   return (
     
@@ -65,6 +67,9 @@ function App() {
                 <Route exact path="/View/:courseID">
                     <View />
                 </Route>
+                <Route exact path="/AddConceptTocourse">
+                    <AddConceptTocourse />
+                </Route>
                 <Route exact path="/Concept">
                     <Concept />
                 </Route>
@@ -91,6 +96,9 @@ function App() {
                 </Route>
                 <Route exact path="/PersonalDetailes">
                     <PersonalDetailes />
+                </Route>
+                <Route exact path="/Badges">
+                    <Badges />
                 </Route>
             </Switch>
             </div> 
