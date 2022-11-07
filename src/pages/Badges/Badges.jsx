@@ -8,7 +8,7 @@ const Badges = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/badge");
+    const response = await axios.get("http://192.168.0.118:8080/badges");
     setData(response.data);
   };
    useEffect(() => {
@@ -17,7 +17,7 @@ const loadData = async () => {
 
    const deleteCourse = (badgeID) => {
      if(window.confirm(" Are you sure that delete the badge ?"));
-     axios.delete(`http://192.168.0.118:8080/badge/${badgeID}`);
+     axios.delete(` http://192.168.0.118:8080/badge/${badgeID}`);
      window.alert("concept delete scuccesfully");
      setTimeout(() => loadData(), 500);
    }
@@ -41,7 +41,6 @@ const loadData = async () => {
                   <th style={{textAlign:"center"}}>BadgeDescription</th>
                   <th style={{textAlign:"center"}}>BadgeRules</th>
                   <th style={{textAlign:"center"}}>BadgeCount</th>
-                  <th style={{textAlign:"center"}}>BadgeStatus</th>
                   <th style={{textAlign:"center"}}>Action</th>
               </tr>
             </thead>
@@ -54,7 +53,6 @@ const loadData = async () => {
                       <td>{item.badgeDescription}</td>
                       <td>{item.badgeRules }</td>
                       <td>{item.badgeCount }</td>
-                      <td>{item.badgeStatus }</td>
                       <td>
                         <Link to={`/#/${item.badgeID}`}>
                           <button className="btn btn-edit">Edit</button>

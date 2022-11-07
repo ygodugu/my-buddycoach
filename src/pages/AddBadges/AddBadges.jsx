@@ -7,21 +7,20 @@ const initialState = {
     badgeName:"",
     badgeDescription:"",
     badgeRules:"",
-    badgeCount:"",
-    badgeStatus:"",
+    badgeCount:""
   };
 
 const AddBadges = () => {
 
   const[state,setState] = useState(initialState);
  
-  const {badgeName,badgeDescription,badgeRules,badgeCount,badgeStatus} = state;
+  const {badgeName,badgeDescription,badgeRules,badgeCount} = state;
 
   const {badgeID} = useParams();
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if( !badgeName || !badgeDescription || !badgeRules || !badgeCount || !badgeStatus) {
+    if( !badgeName || !badgeDescription || !badgeRules || !badgeCount) {
       window.alert("please provied the values into each input feild")
     } else {
       if(!badgeID) {
@@ -29,16 +28,14 @@ const AddBadges = () => {
         console.log("conceptDescription : " + badgeDescription)
         console.log("conceptLogo : " + badgeRules)
         console.log("resourceLink : " + badgeCount)
-        console.log("quizLink : " + badgeStatus)
-       axios.post("http://192.168.0.118:8080/badges", {  
+       axios.post("http://192.168.0.118:8080/badge", {  
         badgeName : badgeName,
         badgeDescription : badgeDescription,
         badgeRules : badgeRules,
-        badgeCount : badgeCount,
-        badgeStatus : badgeStatus
+        badgeCount : badgeCount
        })
       .then(() => {
-        setState({badgeName: "", badgeDescription: "", badgeRules: "", badgeCount: "", badgeStatus: "" });
+        setState({badgeName: "", badgeDescription: "", badgeRules: "", badgeCount: "" });
       })
       .catch((err) =>(err.response.data));
       window.alert("Concept Added scucessfully")
@@ -96,15 +93,6 @@ const AddBadges = () => {
             name="badgeCount"
             placeholder="Number of badgeCount"
             value={badgeCount}
-            onChange={handleInputChange}
-            />
-          <label htmlFor="BadgeStatus">BadgeStatus</label>
-          <input
-            type="TINYINT(1)"
-            id="badgeStatus"
-            name="badgeStatus"
-            placeholder="Active or Diactive"
-            value={badgeStatus}
             onChange={handleInputChange}
             />
             <input type="submit" value="Save"/>
