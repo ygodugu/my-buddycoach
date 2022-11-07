@@ -55,7 +55,7 @@ const AddCourse = () => {
           }}
           onSubmit={handleSubmit}
           >
-          <label htmlFor="courseName">courseName</label>
+          <label htmlFor="courseName">CourseName</label>
           <input
             type="text"
             id="courseName"
@@ -64,7 +64,7 @@ const AddCourse = () => {
             value={courseName || ""}
             onChange={handleInputChange}
             />
-          <label htmlFor="CourseDescription">courseDescription</label>
+          <label htmlFor="CourseDescription">CourseDescription</label>
           <input
             type="courseDescription"
             id="courseDescription"
@@ -73,7 +73,7 @@ const AddCourse = () => {
             value={courseDescription}
             onChange={handleInputChange}
             />
-          <label htmlFor="CourseLogo">courseLogoLink</label>
+          <label htmlFor="CourseLogo">CourseLogoLink</label>
           <input
             type="courseLogo"
             id="courseLogo"

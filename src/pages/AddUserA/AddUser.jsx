@@ -65,7 +65,7 @@ const AddUser = () => {
           }}
           onSubmit={handleSubmit}
           >
-          <label htmlFor="firstName">firstName</label>
+          <label htmlFor="firstName">FirstName</label>
           <input
             type="text"
             id="firstName"
@@ -74,7 +74,7 @@ const AddUser = () => {
             value={firstName}
             onChange={handleInputChange}
             />
-          <label htmlFor="middleName">middleName</label>
+          <label htmlFor="middleName">MiddleName</label>
           <input
             type="middleName"
             id="middleName"
@@ -83,7 +83,7 @@ const AddUser = () => {
             value={middleName}
             onChange={handleInputChange}
             />
-          <label htmlFor="lastName">lastName</label>
+          <label htmlFor="lastName">LastName</label>
           <input
             type="lastName"
             id="lastName"
@@ -92,7 +92,7 @@ const AddUser = () => {
             value={lastName}
             onChange={handleInputChange}
             />
-          <label htmlFor="emailID">emailID</label>
+          <label htmlFor="emailID">EmailID</label>
           <input
             type="emailID"
             id="emailID"
@@ -101,7 +101,7 @@ const AddUser = () => {
             value={emailID}
             onChange={handleInputChange}
             />
-          <label htmlFor="mobileNumber">mobileNumber</label>
+          <label htmlFor="mobileNumber">MobileNumber</label>
           <input
             type="mobileNumber"
             id="mobileNumber"
@@ -110,7 +110,7 @@ const AddUser = () => {
             value={mobileNumber}
             onChange={handleInputChange}
             />
-          <label htmlFor="dateOfBirth">dateOfBirth</label>
+          <label htmlFor="dateOfBirth">DateOfBirth</label>
           <input
             type="Date"
             id="dateOfBirth"

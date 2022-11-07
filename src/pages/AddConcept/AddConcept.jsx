@@ -62,7 +62,7 @@ const AddConcept = () => {
           }}
           onSubmit={handleSubmit}
           >
-          <label htmlFor="conceptName">conceptName</label>
+          <label htmlFor="conceptName">ConceptName</label>
           <input
             type="text"
             id="conceptName"
@@ -71,7 +71,7 @@ const AddConcept = () => {
             value={conceptName || ""}
             onChange={handleInputChange}
             />
-          <label htmlFor="conceptDescription">conceptDescription</label>
+          <label htmlFor="conceptDescription">ConceptDescription</label>
           <input
             type="conceptDescription"
             id="conceptDescription"
@@ -80,7 +80,7 @@ const AddConcept = () => {
             value={conceptDescription}
             onChange={handleInputChange}
             />
-          <label htmlFor="conceptLogo">conceptLogoLink</label>
+          <label htmlFor="conceptLogo">ConceptLogoLink</label>
           <input
             type="conceptLogo"
             id="conceptLogo"
@@ -89,7 +89,7 @@ const AddConcept = () => {
             value={conceptLogo}
             onChange={handleInputChange}
             />
-          <label htmlFor="resourceLink">resourceLink</label>
+          <label htmlFor="resourceLink">ResourceLink</label>
           <input
             type="resourceLink"
             id="resourceLink"
@@ -98,7 +98,7 @@ const AddConcept = () => {
             value={resourceLink}
             onChange={handleInputChange}
             />
-          <label htmlFor="quizLink">quizLink</label>
+          <label htmlFor="quizLink">QuizLink</label>
           <input
             type="quizLink"
             id="quizLink"
