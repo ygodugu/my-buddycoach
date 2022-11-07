@@ -6,14 +6,14 @@ import axios from "axios";
 
 const UserView = () => {
 
-    const [user, setUser] = useState({});
+    const [Badge, setBadge] = useState({});
 
-    const {userID} = useParams();
+    const {badgeID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/badge/${userID}`)
-       .then((resp) => setUser({...resp.data[0]}));
-     }, [userID])
+       axios.get(`http://192.168.0.118:8080/badge/${badgeID}`)
+       .then((resp) => setBadge({...resp.data[0]}));
+     }, [badgeID])
    
   return (
     <div className="view">
@@ -25,16 +25,16 @@ const UserView = () => {
                 <div className="container">
                     <div style={{ whiteSpace: "pre-line" }}>
                         <strong>ID:  </strong>
-                        <span>{user.badgeID }</span> {"\n"}{"\n"}
+                        <span>{Badge.badgeID }</span> {"\n"}{"\n"}
                                
                         <strong>BadgeDescription :  </strong>
-                        <span>{user.badgeDescription }</span> {"\n"}{"\n"}
+                        <span>{Badge.badgeDescription }</span> {"\n"}{"\n"}
                                 
                         <strong>BadgeRules :  </strong>
-                        <span>{user.badgeRules }</span> {"\n"}{"\n"}
+                        <span>{Badge.badgeRules }</span> {"\n"}{"\n"}
                                 
                         <strong>BadgeCount : </strong>
-                        <span>{user.badgeCount }</span> {"\n"}{"\n"}
+                        <span>{Badge.badgeCount }</span> {"\n"}{"\n"}
                                 
                         <Link to="/Badges">
                             <button className="btn btn-edit">Goback</button>

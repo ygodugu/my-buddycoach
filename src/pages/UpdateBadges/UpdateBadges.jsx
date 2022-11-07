@@ -21,7 +21,7 @@ const initialState = {
   const {badgeID} = useParams();
 
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/concept/${badgeID}`)
+    axios.get(`http://192.168.0.118:8080/badge/${badgeID}`)
     .then((resp) => setState({...resp.data[0] }));
   }, [badgeID ])
 
@@ -35,7 +35,7 @@ const initialState = {
         console.log("badgeDescription : " + badgeDescription)
         console.log("badgeRules : " + badgeRules)
         console.log("badgeCount : " + badgeCount)
-        axios.put(`http://192.168.0.118:8080/concept/${badgeID }`, {     
+        axios.put(`http://192.168.0.118:8080/badge/${badgeID}`, {     
             badgeName : badgeName,
             badgeDescription : badgeDescription,
             badgeRules : badgeRules,
@@ -47,7 +47,7 @@ const initialState = {
         .catch((err) => console.log(err.response.data));
         window.alert(" Concept updated scucessfully")
       }
-       setTimeout(() => history.push("/Concept"), 500)
+       setTimeout(() => history.push("/Badges"), 500)
     };
 
     const handleInputChange = (e) => {
@@ -69,32 +69,32 @@ const initialState = {
           <label htmlFor="BadgeName">BadgeName</label>
           <input
             type="VARCHAR(64)"
-            id="badgeName "
-            name="badgeName "
+            id="badgeName"
+            name="badgeName"
             value={badgeName }
             onChange={handleInputChange}
             />
           <label htmlFor="BadgeDescription">BadgeDescription</label>
           <input
             type="TEXT"
-            id="badgeDescription "
-            name="badgeDescription "
+            id="badgeDescription"
+            name="badgeDescription"
             value={badgeDescription }
             onChange={handleInputChange}
             />
           <label htmlFor="BadgeRules">BadgeRules</label>
           <input
             type="TEXT"
-            id="badgeRules "
-            name="badgeRules "
+            id="badgeRules"
+            name="badgeRules"
             value={badgeRules }
             onChange={handleInputChange}
             />
           <label htmlFor="BadgeCount">BadgeCount</label>
           <input
             type="INT(11)"
-            id="badgeCount "
-            name="badgeCount "
+            id="badgeCount"
+            name="badgeCount"
             value={badgeCount }
             onChange={handleInputChange}
             />

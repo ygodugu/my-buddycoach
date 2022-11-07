@@ -2,6 +2,8 @@ import React,{useState, useEffect}  from 'react'
 import "./badges.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
+
 
 const Badges = () => {
     
@@ -54,12 +56,12 @@ const loadData = async () => {
                       <td>{item.badgeRules }</td>
                       <td>{item.badgeCount }</td>
                       <td>
-                        <Link to={`/#/${item.badgeID}`}>
-                          <button className="btn btn-edit">Edit</button>
+                        <Link to={`/UpdateBadges/${item.badgeID}`}>
+                          <button className="btn btn-edit"><BorderColor className="Icons" /></button>
                         </Link>
-                        <button className="btn btn-delete" onClick={() => deleteCourse(item.badgeID) }>Delete</button>
-                        <Link to={`/#/${item.badgeID}`}>
-                          <button className="btn btn-view">View</button>
+                        <button className="btn btn-delete" onClick={() => deleteCourse(item.badgeID) }><DeleteForever className="Icons" /></button>
+                        <Link to={`/BadgesView/${item.badgeID}`}>
+                          <button className="btn btn-view"><Visibility className="Icons"/></button>
                         </Link>
                       </td>
                   </tr>

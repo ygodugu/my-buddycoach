@@ -111,7 +111,7 @@ function App() {
                 <Route exact path="/UpdateBadges/:badgeID">
                     <UpdateBadges />
                 </Route>
-                <Route exact path="/UpdateBadges/:badgeID">
+                <Route exact path="/BadgesView/:badgeID">
                     <BadgesView />
                 </Route>
             </Switch>
