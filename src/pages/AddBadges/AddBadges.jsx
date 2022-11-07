@@ -11,7 +11,7 @@ const initialState = {
     badgeStatus:"",
   };
 
-const AddConcept = () => {
+const AddBadges = () => {
 
   const[state,setState] = useState(initialState);
  
@@ -62,7 +62,7 @@ const AddConcept = () => {
           }}
           onSubmit={handleSubmit}
           >
-          <label htmlFor="conceptName">BadgeName</label>
+          <label htmlFor="BadgeName">BadgeName</label>
           <input
             type="VARCHAR(64)"
             id="badgeName"
@@ -71,7 +71,7 @@ const AddConcept = () => {
             value={badgeName || ""}
             onChange={handleInputChange}
             />
-          <label htmlFor="conceptDescription">BadgeDescription</label>
+          <label htmlFor="BadgeDescription">BadgeDescription</label>
           <input
             type="TEXT"
             id="badgeDescription"
@@ -80,7 +80,7 @@ const AddConcept = () => {
             value={badgeDescription}
             onChange={handleInputChange}
             />
-          <label htmlFor="conceptLogo">BadgeRules</label>
+          <label htmlFor="BadgeRules">BadgeRules</label>
           <input
             type="TEXT"
             id="badgeRules"
@@ -89,7 +89,7 @@ const AddConcept = () => {
             value={badgeRules}
             onChange={handleInputChange}
             />
-          <label htmlFor="resourceLink">BadgeCount</label>
+          <label htmlFor="BadgeCount">BadgeCount</label>
           <input
             type="INT(11)"
             id="badgeCount"
@@ -98,7 +98,7 @@ const AddConcept = () => {
             value={badgeCount}
             onChange={handleInputChange}
             />
-          <label htmlFor="quizLink">BadgeStatus</label>
+          <label htmlFor="BadgeStatus">BadgeStatus</label>
           <input
             type="TINYINT(1)"
             id="badgeStatus"
@@ -117,4 +117,4 @@ const AddConcept = () => {
   )
 }
 
-export default AddConcept;
+export default AddBadges;

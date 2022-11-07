@@ -26,6 +26,8 @@ import UpdateUserA from "./pages/UpdateUser A/UpdateUser";
 import UserViewA from "./pages/UserViewA/UserView";
 import Badges from "./pages/Badges/Badges";
 import AddBadges from "./pages/AddBadges/AddBadges";
+import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
+
 
 function App() {
   return (
@@ -104,6 +106,9 @@ function App() {
                 </Route>
                 <Route exact path="/AddBadges">
                     <AddBadges />
+                </Route>
+                <Route exact path="/UpdateBadges/:badgeID">
+                    <UpdateBadges />
                 </Route>
             </Switch>
             </div> 
