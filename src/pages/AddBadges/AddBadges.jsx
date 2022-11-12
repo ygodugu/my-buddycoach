@@ -27,7 +27,7 @@ const AddBadges = () => {
         console.log("conceptName : " + badgeName)
         console.log("conceptDescription : " + badgeDescription)
         console.log("conceptLogo : " + badgeRules)
-        console.log("resourceLink : " + badgeCount)
+        console.log("badgeCount : " + badgeCount)
        axios.post("http://192.168.0.118:8080/badge", {  
         badgeName : badgeName,
         badgeDescription : badgeDescription,

@@ -9,24 +9,29 @@ const initialState = {
 
 const AddConcept = () => {
 
+  const[state,setState] = useState(initialState);
+
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
+  const [dropdown, setDropdown] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+      alert(1)
+    const res = await axios.get(`http://192.168.0.118:8080/conceptToCourse?conceptName=${conceptName}`);
+    debugger
       setData(res.data);
+      setDropdown(res.data);
+      
+      console.log(dropdown)
       console.log(res.data);
     };
-    if (query.length === 0 || query.length > 2) fetchData();
-  }, [query]);
+  }, []);
 
       let optionItems = data.map((item) =>
-          <option key={item.conceptName}>{item.conceptName}</option>
+          <option key={item.conceptID}>{item.conceptName}</option>
       );
-
-
-  const[state,setState] = useState(initialState);
 
   const {conceptName} = state;
  
@@ -34,25 +39,34 @@ const AddConcept = () => {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(conceptName) {
+    console.log(data)
+    if(!conceptName) {
       window.alert("please provied the values into each input feild")
     } else {
       if(!conceptID) {
-        console.log("conceptName : " + conceptName)
-        axios.post("http://192.168.0.118:8080/", {  
-        conceptName : conceptName,
+        console.log("conceptID : " + conceptID)
+        axios.patch(`http://192.168.0.118:8080/conceptToCourse/${conceptID}`, {  
+          conceptID : conceptID,
        })
       .then(() => {
-        setState({conceptName: '' });
+        setState({conceptID: '' });
       })
       .catch((err) =>(err.response.data));
       window.alert("Concept Added scucessfully")
       } 
     }
   };
+  function sample () {
+    console.log(data)
+  }
  
   const handleInputChange = (e) => {
+    sample()
+    debugger
     const {name,value} = e.target;
+    const result = dropdown.filter(word => word.conceptName== value);
+  //  let ovg = data.filter(item=>item.conceptName===value)
+   console.log(result)
     setState({...state,[name]: value });
   };
  
@@ -65,7 +79,6 @@ const AddConcept = () => {
             maxWidth:"400px",
             alignItems:"center"
           }}
-          onSubmit={handleSubmit}
           >
           <label htmlFor="conceptName">Search</label>
                 <input
@@ -74,15 +87,17 @@ const AddConcept = () => {
                   id="conceptName"
                   name="conceptName"
                   placeholder="Search..."
-                  value={conceptName}
-                  onChange={(e) => setQuery(e.target.value.toLowerCase(),handleInputChange) }
+                  value={conceptID}
+                  onChange={handleInputChange}
                   />
                 <datalist id="browsers">
                 <select>
                   {optionItems}
                 </select>
                 </datalist>
-            <input type="submit" value="Save"/>
+            <input type="submit" value="Save"
+               onClick={handleSubmit}
+            />
             <Link to="/course">
               <input  type="button" value="Go Back"/>
             </Link>

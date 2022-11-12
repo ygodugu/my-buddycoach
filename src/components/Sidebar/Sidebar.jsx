@@ -3,7 +3,7 @@ import "./sidebar.css";
 import { LineStyle,Timeline,TrendingUp,
     PermIdentity,Storefront,LibraryBooks,BarChart,
     MailOutline,DynamicFeed,ChatBubbleOutline,
-    WorkOutline,Report,Info,Group,AcUnit,AccountCircle,} from "@material-ui/icons";
+    WorkOutline,Report,Info,Group,AcUnit,AccountCircle,School,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
  
 export default function Sidebar() {
@@ -56,8 +56,13 @@ export default function Sidebar() {
                     Concept
                 </li>
                 </Link>
+                <Link to={"/Badges"} className="link">
+                    <li className="sidebarListItem">
+                        <AcUnit className="sidebarIcons"/>
+                        Badges
+                    </li>
+                </Link>
             </ul>
-
         </div>
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
@@ -70,18 +75,20 @@ export default function Sidebar() {
             </Link>
             <Link to={"/PersonalDetailes"} className="link">
                 <li className="sidebarListItem">
-                    <Info className="sidebarIcons"/>
-                    Personal Detailes
+                <Info className="sidebarIcons"/>
+                 Personal Detailes
                 </li>
             </Link>
+            <Link to={"/ProfileDetailes"} className="link">
                 <li className="sidebarListItem">
                     <Group className="sidebarIcons"/>
-                    Yesterday's Achivers
+                    Profile Detailes
                 </li>
-                <Link to={"/Badges"} className="link">
+            </Link>
+                <Link to={"/AcademicDetails"} className="link">
                     <li className="sidebarListItem">
-                        <AcUnit className="sidebarIcons"/>
-                        Badges
+                        <School className="sidebarIcons"/>
+                        AcademicDetails
                     </li>
                 </Link>
             </ul>

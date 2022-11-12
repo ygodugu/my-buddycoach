@@ -28,6 +28,9 @@ import Badges from "./pages/Badges/Badges";
 import AddBadges from "./pages/AddBadges/AddBadges";
 import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
 import BadgesView from "./pages/BadgesView/BadgesView";
+import ProfileDetailes from "./pages/ProfileDetailes/ProfileDetailes";
+import AcademicDetails from "./pages/AcademicDetails/AcademicDetails";
+
 
 
 function App() {
@@ -72,7 +75,7 @@ function App() {
                 <Route exact path="/View/:courseID">
                     <View />
                 </Route>
-                <Route exact path="/AddConceptTocourse">
+                <Route exact path="/AddConceptTocourse/:courseID">
                     <AddConceptTocourse />
                 </Route>
                 <Route exact path="/Concept">
@@ -113,6 +116,12 @@ function App() {
                 </Route>
                 <Route exact path="/BadgesView/:badgeID">
                     <BadgesView />
+                </Route>
+                <Route exact path="/ProfileDetailes">
+                    <ProfileDetailes />
+                </Route>
+                <Route exact path="/AcademicDetails">
+                    <AcademicDetails />
                 </Route>
             </Switch>
             </div> 

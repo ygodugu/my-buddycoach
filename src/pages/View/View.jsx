@@ -3,16 +3,30 @@ import "./view.css";
 import {useParams, Link} from "react-router-dom"
 import axios from "axios";
 import Table from "./Table";
+import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons";
+
 
 function View() {
-    const [user, setUser] = useState({});
+    const [data, setData] = useState([]);
 
     const {courseID} = useParams();
 
+    const loadData = async () => {
+        const response = await axios.get(`http://192.168.0.118:8080/course/${courseID}`);
+        setData(response.data);
+        console.log(response.data)
+    };
+
     useEffect(() => {
-        axios.get(`http://192.168.0.118:8080/course/${courseID}`)
-        .then((resp) => setUser({...resp.data[0]}));
-    }, [courseID])
+        loadData();
+        },[courseID]);
+
+    const deleteCourse = (conceptID) => {
+        if(window.confirm(" Are you sure that delete the course ?"));
+        axios.delete(`http://192.168.0.118:8080/concept/${conceptID}`);
+        window.alert("concept delete scuccesfully");
+        setTimeout(() => loadData(), 500);
+    }
 
     return (
         <div className="view">
@@ -23,16 +37,16 @@ function View() {
                     <div className="container">
                         <div style={{ whiteSpace: "pre-line" }}>
                             <strong>CourseID: </strong>
-                            <span>{user.courseID}</span>{"\n"}{"\n"}
+                            <span>{data.courseID}</span>{"\n"}{"\n"}
                         
                             <strong>courseName: </strong>
-                            <span>{user.courseName}</span>{"\n"}{"\n"}
+                            <span>{data.courseName}</span>{"\n"}{"\n"}
                             
                             <strong>courseDescription: </strong>
-                            <span>{user.courseDescription}</span>{"\n"}{"\n"}
+                            <span>{data.courseDescription}</span>{"\n"}{"\n"}
                             
                             <strong>courseLogo: </strong>
-                            <span>{<img src={user.courseLogo} alt={user.courseLogo} height="50px"/>}</span>{"\n"}{"\n"}{"\n"}
+                            <span>{<img src={data.courseLogo} alt={data.courseLogo} height="50px"/>}</span>{"\n"}{"\n"}{"\n"}
                         
                             <Link to="/Course">
                                 <button className="btn btn-edit">Goback</button>
@@ -41,8 +55,41 @@ function View() {
                     </div>
             </div>
             <hr/><hr/>
-        <Table/>
-    </div>
+            <div className="ConceptsTitleContainer">
+                <h1 className="ConceptsTitle">Concepts</h1>
+                    <Link to={`/AddconceptTocourse/${courseID}`}>
+                        <button className="ConceptsAddButton">Concepts</button>
+                    </Link>
+            </div>
+                <table className="styled-table">
+                    <thead>
+                    <tr>
+                        <th style={{textAlign:"center"}}>ConceptID</th>
+                        <th style={{textAlign:"center"}}>ConceptName</th>
+                        <th style={{textAlign:"center"}}>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((item,index) =>{
+                            return(
+                            <tr>
+                                <th scope='row'>{item.conceptID}</th>
+                                <td>{item.conceptName}</td>
+                                <td>
+                                    <Link to={`/UpdateConcept/${item.conceptID}`}>
+                                    <button className="btn btn-edit"><BorderColor className="Icons" /></button>
+                                    </Link>
+                                    <button className="btn btn-delete" onClick={() => deleteCourse(item.conceptID) }><DeleteForever className="Icons" /></button>
+                                    <Link to={`/ConceptView/${item.conceptID}`}>
+                                    <button className="btn btn-view"><Visibility className="Icons"/></button>
+                                    </Link>
+                                </td>
+                            </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+        </div>
     );
 }
 export default View;
