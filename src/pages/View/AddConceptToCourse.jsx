@@ -3,75 +3,74 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./addConceptToCourse.css";
 
-const initialState = {
-  conceptName:"",
-  };
+
+var name = '';
 
 const AddConcept = () => {
 
-  const[state,setState] = useState(initialState);
-
-  const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
-  const [dropdown, setDropdown] = useState([]);
 
+  const [ApiData, setApiData] = useState([]);
 
+  const [conceptid, setConceptid] = useState('');
+
+  const {courseID} = useParams();
+
+  // const {conceptID} = useParams();
+
+  const {conceptName} = useParams();
+  const loadData = async () => {
+    // debugger
+    // alert(10)
+   const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`);
+  //  alert(20)
+   setData(resp.data);
+  //  alert(30)
+   JSON.stringify(resp.data)
+   console.log(resp.data) 
+ };
+//  debugger
   useEffect(() => {
-    const fetchData = async () => {
-      alert(1)
-    const res = await axios.get(`http://192.168.0.118:8080/conceptToCourse?conceptName=${conceptName}`);
-    debugger
-      setData(res.data);
-      setDropdown(res.data);
-      
-      console.log(dropdown)
-      console.log(res.data);
+    loadData();
+  },[]);
+
+  let optionItems = data.map((item) => 
+  <option key={item.conceptID}>{item.conceptName}</option> 
+);
+
+  const handler = () => {
+    // debugger
+    // alert('conceptID',conceptid)
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+      courseID : courseID,
+      conceptID : conceptid
+    })
     };
-  }, []);
-
-      let optionItems = data.map((item) =>
-          <option key={item.conceptID}>{item.conceptName}</option>
-      );
-
-  const {conceptName} = state;
- 
-  const {conceptID} = useParams();
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(data)
-    if(!conceptName) {
-      window.alert("please provied the values into each input feild")
-    } else {
-      if(!conceptID) {
-        console.log("conceptID : " + conceptID)
-        axios.patch(`http://192.168.0.118:8080/conceptToCourse/${conceptID}`, {  
-          conceptID : conceptID,
-       })
-      .then(() => {
-        setState({conceptID: '' });
-      })
-      .catch((err) =>(err.response.data));
-      window.alert("Concept Added scucessfully")
-      } 
-    }
-  };
-  function sample () {
-    console.log(data)
+    fetch('http://192.168.0.118:8080/conceptToCourse', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data.conceptid));
+        window.alert("concept add to course")
   }
- 
-  const handleInputChange = (e) => {
-    sample()
-    debugger
+
+  const handleInputChange = (e,conceptList) => {
     const {name,value} = e.target;
-    const result = dropdown.filter(word => word.conceptName== value);
+    // debugger
+    const result = conceptList.filter(word => word.conceptName== value);
   //  let ovg = data.filter(item=>item.conceptName===value)
+  if(result.length > 0 ) {
+    setConceptid(result[0].conceptID)
+  }
    console.log(result)
-    setState({...state,[name]: value });
+  //  alert(conceptid)
+    // setState({...state,[name]: value });
   };
- 
+
   return (
     <div className="AddCourse">
+      {/* {JSON.stringify(data)} */}
         <div style={{marignTop:"40px"}}>
           <form style={{
             margin:"auto",
@@ -82,26 +81,25 @@ const AddConcept = () => {
           >
           <label htmlFor="conceptName">Search</label>
                 <input
-                  list="browsers"
+                  list="data1"
                   type="text"
                   id="conceptName"
                   name="conceptName"
                   placeholder="Search..."
-                  value={conceptID}
-                  onChange={handleInputChange}
+                  value={conceptName}
+                  onChange={ (e) => handleInputChange(e,data)}
                   />
-                <datalist id="browsers">
+                <datalist id="data1">
                 <select>
                   {optionItems}
                 </select>
                 </datalist>
-            <input type="submit" value="Save"
-               onClick={handleSubmit}
-            />
+             <input type="button" value="Save" onClick={handler}/> 
             <Link to="/course">
               <input  type="button" value="Go Back"/>
             </Link>
           </form>
+           {/* <button  type="submit"  onClick={handler}>ADD</button>  */}
         </div>
     </div>
   )

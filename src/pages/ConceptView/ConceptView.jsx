@@ -11,6 +11,7 @@ const ConceptView = () => {
     const {conceptID} = useParams();
    
     useEffect(() => {
+        debugger
        axios.get(`http://192.168.0.118:8080/concept/${conceptID}`)
        .then((resp) => setConcept({...resp.data[0]}));
      }, [conceptID])
