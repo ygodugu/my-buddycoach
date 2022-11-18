@@ -24,6 +24,7 @@ import UserA from "./pages/UserA/User";
 import AddUserA  from "./pages/AddUserA/AddUser";
 import UpdateUserA from "./pages/UpdateUser A/UpdateUser";
 import UserViewA from "./pages/UserViewA/UserView";
+import AddConceptToUser from "./pages/UserViewA/AddConceptToUser";
 import Badges from "./pages/Badges/Badges";
 import AddBadges from "./pages/AddBadges/AddBadges";
 import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
@@ -101,6 +102,9 @@ function App() {
                 </Route>
                 <Route exact path="/UserView/:userID">
                     <UserViewA />
+                </Route>
+                <Route exact path="/AddConceptToUser/:userID">
+                    <AddConceptToUser />
                 </Route>
                 <Route exact path="/PersonalDetailes">
                     <PersonalDetailes />
