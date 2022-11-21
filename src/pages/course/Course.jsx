@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import "./course.css";
 import { Link} from "react-router-dom";
+import {toast} from "react-toastify";
 import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
  
@@ -17,9 +18,16 @@ const Course = () => {
    },[]);
 
    const deleteCourse = (courseID) => {
-     if(window.confirm(" Are you sure that delete the course ?"));
-     axios.delete(`http://192.168.0.118:8080/course/${courseID}`);
-     window.alert("concept delete scuccesfully");
+    //  if(window.alert(" Are you sure that delete the course ?"));
+    if (window.confirm('Are you sure you want to save this thing into the database?')) {
+      axios.delete(`http://192.168.0.118:8080/course/${courseID}`);
+      toast.success("course delete scuccesfully");
+      // Save it!
+      console.log('Thing was saved to the database.');
+    } else {
+      // Do nothing!
+      console.log('Thing was not saved to the database.');
+    }
      setTimeout(() => loadData(), 500);
    }
 

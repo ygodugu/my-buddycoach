@@ -1,6 +1,7 @@
 import React,{useState, useEffect}  from 'react'
 import "./concept.css"
 import { Link} from "react-router-dom";
+import {toast} from "react-toastify";
 import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
 
@@ -19,9 +20,16 @@ const loadData = async () => {
    },[]);
 
    const deleteCourse = (conceptID) => {
-     if(window.confirm(" Are you sure that delete the course ?"));
-     axios.delete(`http://192.168.0.118:8080/concept/${conceptID}`);
-     window.alert("concept delete scuccesfully");
+    //  if(window.alert(" Are you sure that delete the course ?"));
+    if (window.confirm('Are you sure you want to save this thing into the database?')) {
+      axios.delete(`http://192.168.0.118:8080/course/${conceptID}`);
+      toast.success("course delete scuccesfully");
+      // Save it!
+      console.log('Thing was saved to the database.');
+    } else {
+      // Do nothing!
+      console.log('Tis concept was not delete.');
+    }
      setTimeout(() => loadData(), 500);
    }
   return (

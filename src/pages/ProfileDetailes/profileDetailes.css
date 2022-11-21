@@ -2,47 +2,43 @@
     flex: 4;
 }
 
-input[type="VARCHAR(64)"],
-input[type="VARCHAR(64)"],
-input[type="VARCHAR(64)"],
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.AddUserForm{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-input[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+.AddProfileDetailesItem{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.AddUserItem>lable{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(151, 150, 150);
+}
+
+.AddUserItem>input{
+    height: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.AddUserButton{
+    width: 200px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="button"] {
-    width: 100%;
-    background-color: #40453e;
+    background-color: green;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
+    padding: 7px 10px;
+    border-radius: 10px;
     cursor: pointer;
+    margin-top: 30px;
+    font-weight: 600;
 }
 
-input[type="submit"] :hover {
-    background-color: #45a049;
-}
 
 .tile{
     margin-right: 22px;

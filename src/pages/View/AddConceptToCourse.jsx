@@ -4,69 +4,75 @@ import axios from "axios";
 import "./addConceptToCourse.css";
 
 
-var name = '';
 
 const AddConcept = () => {
 
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  const [ApiData, setApiData] = useState([]);
+    const [ApiData, setApiData] = useState([]);
 
-  const [conceptid, setConceptid] = useState('');
+    const [conceptid, setConceptid] = useState('');
 
-  const {courseID} = useParams();
+    const {courseID} = useParams();
 
-  // const {conceptID} = useParams();
+      // const {conceptID} = useParams();
 
-  const {conceptName} = useParams();
-  const loadData = async () => {
-    // debugger
-    // alert(10)
-   const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`);
-  //  alert(20)
-   setData(resp.data);
-  //  alert(30)
-   JSON.stringify(resp.data)
-   console.log(resp.data) 
- };
-//  debugger
-  useEffect(() => {
-    loadData();
-  },[]);
+      const {conceptName} = useParams();
 
-  let optionItems = data.map((item) => 
-  <option key={item.conceptID}>{item.conceptName}</option> 
-);
+      const loadData = async () => {
+        // debugger
+        // alert(10)
+      const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`);
+      //  alert(20)
+      setData(resp.data);
+      //  alert(30)
+      JSON.stringify(resp.data)
+      console.log(resp.data) 
+       };
+      //  debugger
+      useEffect(() => {
+        loadData();
+      },[]);
 
-  const handler = () => {
-    // debugger
-    // alert('conceptID',conceptid)
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-      courseID : courseID,
-      conceptID : conceptid
-    })
-    };
-    fetch('http://192.168.0.118:8080/conceptToCourse', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data.conceptid));
-        window.alert("concept add to course")
-  }
+      let optionItems = data.map((item) => 
+      <option key={item.conceptID}>{item.conceptName}</option> 
+      );
 
-  const handleInputChange = (e,conceptList) => {
-    const {name,value} = e.target;
-    // debugger
-    const result = conceptList.filter(word => word.conceptName== value);
-  //  let ovg = data.filter(item=>item.conceptName===value)
-  if(result.length > 0 ) {
-    setConceptid(result[0].conceptID)
-  }
-   console.log(result)
-  //  alert(conceptid)
-    // setState({...state,[name]: value });
-  };
+      const handler = () => {
+        // debugger
+        // alert('conceptID',conceptid)
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          courseID : courseID,
+          conceptID : conceptid
+        })
+        };
+        if (window.confirm('the concept add to course')) {
+          fetch('http://192.168.0.118:8080/conceptToCourse', requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data.conceptid));
+          // Save it!
+        } else {
+          window.close(`/View/${courseID}`);
+          // Do nothing!
+        }
+          }
+
+      const handleInputChange = (e,conceptList) => {
+        e.preventDefault();
+        const {name,value} = e.target;
+        // debugger
+        const result = conceptList.filter(word => word.conceptName== value);
+      //  let ovg = data.filter(item=>item.conceptName===value)
+      if(result.length > 0 ) {
+        setConceptid(result[0].conceptID)
+      }
+      console.log(result)
+      //  alert(conceptid)
+        // setState({...state,[name]: value });
+      };
 
   return (
     <div className="AddCourse">
@@ -87,19 +93,26 @@ const AddConcept = () => {
                   name="conceptName"
                   placeholder="Search..."
                   value={conceptName}
-                  onChange={ (e) => handleInputChange(e,data)}
+                  onChange={ (e) => handleInputChange(e,data )}
                   />
                 <datalist id="data1">
                 <select>
                   {optionItems}
                 </select>
                 </datalist>
-             <input type="button" value="Save" onClick={handler}/> 
-            <Link to="/course">
-              <input  type="button" value="Go Back"/>
-            </Link>
           </form>
-           {/* <button  type="submit"  onClick={handler}>ADD</button>  */}
+          <button 
+              className="buttonSubmit" 
+              value="Save"
+              onClick={handler} > 
+              ADD Concept </button> 
+              <Link to={`/View/${courseID}`}>
+              <button 
+              className="bttonGoback" 
+              type="button" 
+              value="Go Back">
+              Go Back</button>
+            </Link>
         </div>
     </div>
   )

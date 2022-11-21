@@ -20,7 +20,7 @@ const UserView = () => {
 
      const deleteCourse = (conceptID) => {
         if(window.confirm(" Are you sure that delete the course ?"));
-        axios.delete(`http://192.168.0.118:8080/conceptToUser/${conceptID}`);
+        axios.delete(`http://192.168.0.118:8080/conceptToUser/${userID}/${conceptID}`);
         alert("concept delete scuccesfully");
         setTimeout((loadData) => 500);
     }

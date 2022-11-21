@@ -31,14 +31,15 @@ import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
 import BadgesView from "./pages/BadgesView/BadgesView";
 import ProfileDetailes from "./pages/ProfileDetailes/ProfileDetailes";
 import AcademicDetails from "./pages/AcademicDetails/AcademicDetails";
-
-
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     
     <BrowserRouter>
         <Router>
+        <ToastContainer position="top-center" />
                  <Topbar/>
             <div className="container">
                 <Sidebar/>
