@@ -12,7 +12,7 @@ function View() {
 
     const [pageNumber, setpageNumber] =useState(1);
 
-    const [ limit, setLimit] =useState(6);
+    const [ limit, setLimit] =useState(5);
 
 
     const {courseID} = useParams();

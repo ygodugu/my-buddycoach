@@ -115,3 +115,37 @@
 .Icons{
     font-size: 16px !important;
 }
+.NextButton {
+    width: 100px;
+    border: none;
+    padding: 5px;
+    background-color: #06a4ec;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    margin-left: 400px;
+}
+.PreviousButton {
+    width: 100px;
+    border: none;
+    padding: 5px;
+    background-color:  #06a4ec;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    margin-right: 400px;
+}
+
+.NextButton:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  
+.PreviousButton:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
