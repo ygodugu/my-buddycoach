@@ -1,6 +1,7 @@
 import React,{useState, useEffect}  from 'react'
 import "./user.css"
 import { Link} from "react-router-dom";
+import {toast} from "react-toastify";
 import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 import axios from "axios";
 
@@ -17,11 +18,19 @@ const loadData = async () => {
    },[]);
 
    const deleteCourse = (userID) => {
-     if(window.confirm(" Are you sure that delete the course ?"));
-     axios.delete(`http://192.168.0.118:8080/user/${userID}`);
-     window.alert("user delete scuccesfully");
-     setTimeout(() => loadData(), 500);
+    //  if(window.alert(" Are you sure that delete the course ?"));
+    if (window.confirm('Are you sure you want to delete User ?')) {
+      axios.delete(`http://192.168.0.118:8080/conceptToCourse/${userID}`);
+      toast.success("user delete scuccesfully");
+      // Save it!
+      console.log('Nothing was deleted .');
+    } else {
+      // Do nothing!
+      console.log('Thing was not saved to the database.');
+    }
+     setTimeout(() => 500);
    }
+
   return (
     <div className="UserList">
       <div style={{marginTop: "40px"}}>

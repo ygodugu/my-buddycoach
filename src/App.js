@@ -1,9 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import './app.css';
 import Home from './pages/Home/Home'
-import { BrowserRouter as Router,Switch,Route, BrowserRouter,} from "react-router-dom";
+import { BrowserRouter as Router,Switch,Route, BrowserRouter, Redirect,} from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import ProductList from "./pages/productList/ProductList";
@@ -29,14 +29,38 @@ import Badges from "./pages/Badges/Badges";
 import AddBadges from "./pages/AddBadges/AddBadges";
 import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
 import BadgesView from "./pages/BadgesView/BadgesView";
+import AddBadgesToUser from "./pages/UserViewA/AddBadgesToUser";
 import ProfileDetailes from "./pages/ProfileDetailes/ProfileDetailes";
 import AcademicDetails from "./pages/AcademicDetails/AcademicDetails";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Form from "./Form";
 
 function App() {
-  return (
-    
+    const [loggedIn, setloggedIn] = useState(false);
+
+    function callbackFunction(childData) {
+      setloggedIn(childData);
+    }
+
+    // return (
+    //     <Router>
+    //       <Switch>
+    //         <Route path="/Home">
+    //           {loggedIn ? <Home /> : <Redirect to="/" />}
+    //         </Route>
+    //         <Route path="/">
+    //           {loggedIn ? (
+    //             <Redirect to="/Home" />
+    //           ) : (
+    //             <Form parentCallback={callbackFunction} />
+    //           )}
+    //         </Route>
+    //       </Switch>
+    //     </Router>
+    //   );
+  
+  return (  
     <BrowserRouter>
         <Router>
         <ToastContainer position="top-center" />
@@ -122,6 +146,9 @@ function App() {
                 <Route exact path="/BadgesView/:badgeID">
                     <BadgesView />
                 </Route>
+                <Route exact path="/AddBadgesToUser/:userID">
+                    <AddBadgesToUser />
+                </Route>
                 <Route exact path="/ProfileDetailes">
                     <ProfileDetailes />
                 </Route>
@@ -133,6 +160,6 @@ function App() {
         </Router>
     </BrowserRouter>
     );
-    }
+};
 
 export default App;
