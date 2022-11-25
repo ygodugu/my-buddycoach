@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import useForm from "./useForm";
 import validate from "./LoginFormValidationRules";
 import { Redirect } from "react-router-dom";
-import "./form.css"
 
 const Form = props => {
   const { values, errors, handleChange, handleSubmit } = useForm(

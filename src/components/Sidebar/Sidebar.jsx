@@ -1,9 +1,9 @@
 import React from "react";
 import "./sidebar.css";
 import { LineStyle,Timeline,TrendingUp,
-    PermIdentity,Storefront,LibraryBooks,BarChart,
+    PermIdentity,AccountTree,LibraryBooks,BarChart,
     MailOutline,DynamicFeed,ChatBubbleOutline,
-    WorkOutline,Report,Info,Group,AcUnit,AccountCircle,School,} from "@material-ui/icons";
+    WorkOutline,Report,HowToVote,Group,AcUnit,Language,School,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
  
 export default function Sidebar() {
@@ -32,18 +32,16 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> QuickMenu </h3>
             <ul className="sidebarList">
-                <Link to={"/users"} className="link">
+            <Link to={"/User"} className="link">
                     <li className="sidebarListItem">
                         <PermIdentity className="sidebarIcons"/>
                         Users
                     </li>
                 </Link>
-                <Link to={"/products"} className="link">
                     <li className="sidebarListItem">
-                        <Storefront className="sidebarIcons"/>
+                        <AccountTree className="sidebarIcons"/>
                         Products
                     </li>
-                </Link>
                 <Link to={"/Course"} className="link">
                     <li className="sidebarListItem">
                         <LibraryBooks className="sidebarIcons"/>
@@ -67,30 +65,22 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
             <ul className="sidebarList">
-            <Link to={"/User"} className="link">
                 <li className="sidebarListItem">
-                    <AccountCircle className="sidebarIcons"/>
-                    User
+                    <Language className="sidebarIcons"/>
+                    Discovery
                 </li>
-            </Link>
-            <Link to={"/PersonalDetailes"} className="link">
                 <li className="sidebarListItem">
-                <Info className="sidebarIcons"/>
-                 Personal Detailes
+                <HowToVote className="sidebarIcons"/>
+                    voting
                 </li>
-            </Link>
-            <Link to={"/ProfileDetailes"} className="link">
                 <li className="sidebarListItem">
                     <Group className="sidebarIcons"/>
-                    Profile Detailes
+                    Manage Team
                 </li>
-            </Link>
-                <Link to={"/AcademicDetails"} className="link">
                     <li className="sidebarListItem">
                         <School className="sidebarIcons"/>
-                        AcademicDetails
+                        Education
                     </li>
-                </Link>
             </ul>
         </div>
         <div className="sidebarMenu">

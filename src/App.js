@@ -4,15 +4,8 @@ import Topbar from "./components/topbar/Topbar";
 import './app.css';
 import Home from './pages/Home/Home'
 import { BrowserRouter as Router,Switch,Route, BrowserRouter, Redirect,} from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
-import AddUser from "./pages/addUser/AddUser";
 import Cources from "./pages/course/Course";
 import AddCourse from "./pages/AddCourse/AddCourse";
-import PersonalDetailes from "./pages/PersonalDetailes/PersonalDetailes"
 import View from "./pages/View/View";
 import AddConceptTocourse from './pages/View/AddConceptToCourse'
 import UpdateCourse from "./pages/UpdateCourse/UpdateCourse";
@@ -30,8 +23,6 @@ import AddBadges from "./pages/AddBadges/AddBadges";
 import UpdateBadges from "./pages/UpdateBadges/UpdateBadges";
 import BadgesView from "./pages/BadgesView/BadgesView";
 import AddBadgesToUser from "./pages/UserViewA/AddBadgesToUser";
-import ProfileDetailes from "./pages/ProfileDetailes/ProfileDetailes";
-import AcademicDetails from "./pages/AcademicDetails/AcademicDetails";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Form from "./Form";
@@ -70,24 +61,6 @@ function App() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
-                </Route>
-                <Route exact path="/users" >
-                    <UserList />
-                </Route>
-                <Route exact path="/User/:userId">
-                    <User />
-                </Route>
-                {/* <Route exact path="/AddUser">
-                    <AddUser />
-                </Route> */}
-                <Route exact path="/products">
-                    <ProductList />
-                </Route>
-                <Route exact path="/product/:productId">
-                    <Product />
-                </Route>
-                <Route exact path="/newproduct">
-                    <NewProduct />
                 </Route>
                 <Route exact path="/Course">
                     <Cources />
@@ -131,9 +104,6 @@ function App() {
                 <Route exact path="/AddConceptToUser/:userID">
                     <AddConceptToUser />
                 </Route>
-                <Route exact path="/PersonalDetailes">
-                    <PersonalDetailes />
-                </Route>
                 <Route exact path="/Badges">
                     <Badges />
                 </Route>
@@ -148,12 +118,6 @@ function App() {
                 </Route>
                 <Route exact path="/AddBadgesToUser/:userID">
                     <AddBadgesToUser />
-                </Route>
-                <Route exact path="/ProfileDetailes">
-                    <ProfileDetailes />
-                </Route>
-                <Route exact path="/AcademicDetails">
-                    <AcademicDetails />
                 </Route>
             </Switch>
             </div> 
