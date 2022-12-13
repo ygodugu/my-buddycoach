@@ -3,7 +3,7 @@ import "./sidebar.css";
 import { LineStyle,Timeline,TrendingUp,
     PermIdentity,AccountTree,LibraryBooks,BarChart,
     MailOutline,DynamicFeed,ChatBubbleOutline,
-    WorkOutline,Report,HowToVote,Group,AcUnit,Language,School,} from "@material-ui/icons";
+    WorkOutline,Report,HowToVote,Group,AcUnit,Assistant,School,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
  
 export default function Sidebar() {
@@ -65,10 +65,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> User detailes </h3>
             <ul className="sidebarList">
-                <li className="sidebarListItem">
-                    <Language className="sidebarIcons"/>
-                    Discovery
-                </li>
+                <Link to={"/Achievers"} className="link">
+                    <li className="sidebarListItem">
+                        <Assistant className="sidebarIcons"/>
+                        Achiever
+                    </li>
+                </Link>
                 <li className="sidebarListItem">
                 <HowToVote className="sidebarIcons"/>
                     voting
@@ -86,10 +88,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
             <h3 className="sidebarTitle"> Notifications </h3>
             <ul className="sidebarList">
-                <li className="sidebarListItem">
-                    <MailOutline className="sidebarIcons"/>
-                    Mail
-                </li>
+               <Link to={"/MailSender"} className="link" > 
+                    <li className="sidebarListItem">
+                        <MailOutline className="sidebarIcons"/>
+                        Mail
+                    </li>
+                </Link>
                 <li className="sidebarListItem">
                     <DynamicFeed className="sidebarIcons"/>
                     Feedback

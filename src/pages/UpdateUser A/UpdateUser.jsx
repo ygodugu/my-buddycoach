@@ -13,19 +13,20 @@ const initialState = {
     dateOfBirth:"",
 // user academic detailes 
     higherEducationalQualification:"",    
-    schoolOrInstituteName:"",
+    schoolOrInstitute:"",
     degree:"",
     fieldOfStudy:"",
     startDate:"",
     endDate:"",
     grade:"",
-    activities:"",
-    description:"",
-    addCertificate:"",
+    activitie:"",
+    description_1:"",
+    certificatePath:"",
+    description : "",
 // user Emplyee detailes
     type : "",
     title : "",
-    organisationOrInstituteName : "",
+    organizationOrInstitute : "",
     location : "",
     startDate : "",
     endDate : "",
@@ -40,40 +41,40 @@ const initialState = {
     interests : "",
     achievements : "",
     // languagesKnown
-    language : "",
+    languageName : "",
     proficiency : "",
     // familyDetails
-    fathersName : "",
-    mothersName : "",
-    fathersOccupation : "",
-    mothersOccupation : "",
+    fatherName : "",
+    motherName : "",
+    fatherOccupation : "",
+    motherOccupation : "",
     // communicationAddress
-    hNoOrFlatNo : "",
-    blockOrAppartment : "",
-    street: "",
-    localityOrVillage : "",
-    district : "",
-    State : "",
-    pinCode : "",
+    communicationHnoOrFlatno : "",
+    communicationBlockOrApartment : "",
+    communicationStreet: "",
+    communicationLocalityOrVillage : "",
+    communicationDistrict : "",
+    communicationState : "",
+    communicationPinCode : "",
     postalAddress : "",
     latitude : "",
     longitude: "",
-    googleAddress: "",
+    communicationGoogleAddress: "",
     // permanentAddress
-     hNoOrFlatNo : "",
-     blockOrAppartment : "",
-     street: "",
-     localityOrVillage : "",
-     district : "",
-     State : "",
-     pinCode : "",
-     postalAddress : "",
+    permanentHnoOrFlatno : "",
+    permanentBlockorApartment : "",
+    permanentStreet: "",
+    permanentLocalityOrVillage : "",
+    permanentDistrict : "",
+    permanentState : "",
+    permanentPinCode : "",
+    permanentPostalAddress : "",
      latitude : "",
      longitude: "",
-     googleAddress: "",
+    permanentGoogleAddress: "",
     //  goals
-    shortTermGoal : "",
-    longTermGoal: "",
+    shortTerm : "",
+    longTerm: "",
     // personalityTraits
     strengths : "",
     weakness : "",
@@ -81,20 +82,39 @@ const initialState = {
 
 const UpdateUser = () => {
 
+    const [getData, setGetData] = useState({})
+
     const[state,setState] = useState(initialState);
    
     const {firstName,middleName,lastName,emailID,mobileNumber,dateOfBirth,
-        higherEducationalQualification,schoolOrInstituteName,degree,fieldOfStudy,startDate,endDate,grade,
-        activities,description,addCertificate,type,title,organisationOrInstituteName,location,industryOrDomain,profileHeadline,skills,skillTitle,skillDescription,interests,achievements,language,proficiency,fathersName,mothersName,fathersOccupation,mothersOccupation,hNoOrFlatNo,blockOrAppartment,street,localityOrVillage,district,State,pinCode,postalAddress,latitude,longitude,googleAddress,shortTermGoal,longTermGoal,strengths,weakness,} = state;
+        higherEducationalQualification,schoolOrInstitute,degree,fieldOfStudy,startDate,endDate,grade,
+        activitie,description_1,certificatePath,type,title,organizationOrInstitute,location,industryOrDomain,profileHeadline,skills,skillTitle,skillDescription,interests,achievements,languageName,proficiency,fatherName,motherName,fatherOccupation,motherOccupation,communicationHnoOrFlatno,communicationBlockOrApartment,communicationStreet,communicationLocalityOrVillage,communicationDistrict,communicationState,communicationPinCode,postalAddress,latitude,longitude,communicationGoogleAddress,
+        permanentHnoOrFlatno,permanentBlockorApartment,permanentStreet,permanentLocalityOrVillage,permanentDistrict,permanentState,permanentPinCode,permanentPostalAddress,permanentGoogleAddress, shortTerm,longTerm,strengths,weakness, description} = state;
  
     const history = useHistory();
 
     const {userID} = useParams();
+    
+    const loadData = async () => {
+      const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`);
+      setGetData(resp.data);
+      JSON.stringify(resp.data)
+      console.log(resp.data) 
+       };
+      useEffect(() => {
+        loadData();
+      },[]);
 
-    useEffect(() => {
-        axios.get(`http://192.168.0.118:8080/user/${userID}`)
-        .then((resp) => setState({...resp.data[0] }));
-    }, [userID]);
+    // useEffect(() => {
+    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
+    //     .then((resp) => {setGetData(resp.data[0]);console.log(getData)})
+    //   }, [])
+
+    // useEffect(() => {
+    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
+    //     .then((resp) => setGetData({...resp.data[0] }));
+    //     console.log(getData)
+    // }, [userID]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -109,16 +129,161 @@ const UpdateUser = () => {
         console.log("emailID : " + emailID)
         console.log("mobileNumber : " + mobileNumber)
         console.log("dateOfBirth : " + dateOfBirth)
+        console.log("higherEducationalQualification : "  + higherEducationalQualification)    
+        console.log("schoolOrInstitute : "  + schoolOrInstitute)
+        console.log("degree :" + degree)
+        console.log("fieldOfStudy :" + fieldOfStudy) 
+        console.log("startDate: " + startDate)
+        console.log("endDate :" + endDate )
+        console.log("grade : " + grade )
+        console.log("activitie:" + activitie)
+        console.log("description_1:" + description_1)
+        console.log("certificatePath:" + certificatePath)
+        console.log("type :" + type)
+        console.log("title :" + title)
+        console.log("organizationOrInstitute :" + organizationOrInstitute)
+        console.log("location : "+ location)
+        console.log("startDate : "+ startDate)
+        console.log("endDate : " + endDate)
+        console.log("industryOrDomain :"  + industryOrDomain)
+        console.log("description :"  + description)
+        console.log("profileHeadline :" + profileHeadline)
+        console.log("skills : " + skills)
+        console.log("skillTitle :" + skillTitle)
+        console.log("skillDescription : " + skillDescription)
+        console.log("interests : " + interests)
+        console.log("achievements : " + achievements)
+        console.log("languageName : " + languageName)
+        console.log("proficiency : " + proficiency)
+        console.log("fatherName : " + fatherName)
+        console.log("motherName : " +  motherName) 
+        console.log("fatherOccupation : "  + fatherOccupation) 
+        console.log("motherOccupation : " + motherOccupation ) 
+        console.log("communicationHnoOrFlatno :" +  communicationHnoOrFlatno)
+        console.log("communicationBlockOrApartment :" + communicationBlockOrApartment )
+        console.log("communicationStreet:" + communicationStreet )
+        console.log("communicationLocalityOrVillage :" + communicationLocalityOrVillage )
+        console.log("communicationDistrict :" + communicationDistrict)
+        console.log("communicationState : " + communicationState )
+        console.log("communicationPinCode :" + communicationPinCode)
+        console.log("postalAddress :"  + postalAddress)
+        console.log("latitude :"  + latitude)
+        console.log("longitude: " + longitude)
+        console.log("permanentHnoOrFlatno: " + permanentHnoOrFlatno)
+        console.log("permanentBlockorApartment :" +  permanentBlockorApartment)
+        console.log("permanentStreet:" + permanentStreet )
+        console.log("permanentLocalityOrVillage :" + permanentLocalityOrVillage )
+        console.log("permanentDistrict :" + permanentDistrict)
+        console.log("permanentState : " + permanentState )
+        console.log("permanentPinCode :" + permanentPinCode)
+        console.log("permanentPostalAddress :"  + permanentPostalAddress)
+        console.log("latitude :"  + latitude)
+        console.log("longitude: " + longitude)
+        console.log("permanentGoogleAddress: " + permanentGoogleAddress)
+        console.log( "shortTerm : "  + shortTerm)
+        console.log( "longTerm : " + longTerm)
+        console.log("strengths : " + strengths)
+        console.log("weakness : " + weakness )
         axios.put(`http://192.168.0.118:8080/user/${userID}`, {     
         firstName : firstName,
         middleName : middleName,
         lastName : lastName,
         emailID : emailID,
         mobileNumber : mobileNumber,
-        dateOfBirth : dateOfBirth
+        dateOfBirth : dateOfBirth,
+        higherEducationalQualification : higherEducationalQualification,
+        schoolOrInstitute : schoolOrInstitute,
+        degree : degree,
+        fieldOfStudy : fieldOfStudy,
+        startDate : startDate,
+        endDate : endDate,
+        grade : grade,
+        activitie : activitie,
+        description_1 : description_1,
+        certificatePath : certificatePath,
+        type : type,
+        title : title,
+        organizationOrInstitute : organizationOrInstitute,
+        location : location,
+        startDate : startDate,
+        endDate : endDate,
+        industryOrDomain : industryOrDomain,
+        description : description,
+        profileHeadline : profileHeadline,
+        skills : skills,
+        skillTitle : skillTitle,
+        skillDescription : skillDescription,
+        interests : interests,
+        achievements : achievements,
+        languageName : languageName,
+        proficiency : proficiency,
+        fatherName : fatherName,
+        motherName : motherName,
+        fatherOccupation : fatherOccupation,
+        motherOccupation  : motherOccupation,
+        communicationHnoOrFlatno : communicationHnoOrFlatno,
+        communicationBlockOrApartment : communicationBlockOrApartment,
+        communicationStreet: communicationStreet,
+        communicationLocalityOrVillage : communicationLocalityOrVillage,
+        communicationDistrict : communicationDistrict,
+        communicationState : communicationState,
+        communicationPinCode : communicationPinCode,
+        postalAddress : postalAddress,
+        latitude : latitude,
+        longitude: longitude,
+        communicationGoogleAddress: communicationGoogleAddress,
+        permanentHnoOrFlatno : permanentHnoOrFlatno,
+        permanentBlockorApartment : permanentBlockorApartment,
+        permanentStreet: permanentStreet,
+        permanentLocalityOrVillage : permanentLocalityOrVillage,
+        permanentDistrict : permanentDistrict,
+        permanentState : permanentState,
+        permanentPinCode : permanentPinCode,
+        permanentPostalAddress : permanentPostalAddress,
+        latitude : latitude,
+        longitude: longitude,
+        permanentGoogleAddress: permanentGoogleAddress,
+        shortTerm : shortTerm,
+        longTerm: longTerm,
+        strengths : strengths,
+        weakness : weakness,
          })
         .then(() => {
-          setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth:"" });
+          setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth:"",
+          higherEducationalQualification: "", schoolOrInstitute: "", degree: "",fieldOfStudy: "",startDate: "",endDate: "",grade: "", activities: "",description_1:"", certificatePath: "",type : "",title : "",organizationOrInstitute: "",location : "" ,startDate : "",endDate : "", industryOrDomain : "",description: "",profileHeadline: "",skills: "",skillTitle: "", skillDescription: "" ,   interests : "",
+          achievements : "",
+          language : "",
+          proficiency : "",
+          fatherName : "",
+          motherName : "",
+          fatherOccupation : "",
+          motherOccupation  : "",
+          communicationHnoOrFlatno : "",
+          communicationBlockOrApartment : "",
+          communicationStreet: "",
+          communicationLocalityOrVillage : "",
+          communicationDistrict : "",
+          communicationState : "",
+          communicationPinCode : "",
+          postalAddress : "",
+          latitude : "",
+          longitude: "",
+          communicationGoogleAddress: "",
+          permanentHnoOrFlatno : "",
+          permanentBlockorApartment : "",
+          permanentStreet: "",
+          permanentLocalityOrVillage : "",
+          permanentDistrict : "",
+          permanentState : "",
+          permanentPinCode : "",
+          permanentPostalAddress : "",
+          latitude : "",
+          longitude: "",
+          permanentGoogleAddress: "",
+          shortTerm : "",
+          longTerm: "",
+          strengths : "",
+          weakness : "",});
         })
         .catch((err) => console.log(err.response.data));
         window.alert(" Concept updated scucessfully ")
@@ -133,682 +298,722 @@ const UpdateUser = () => {
 
     return (
         <div className="UpdateUser">
-            <form className="mainForm">
-                <div>
-                    <div style={{marignTop:"40px"}}>
-                        <h2 className="tile">PersonalDetailes</h2>
-                        <form style={{
-                            margin:"auto",
-                            padding: "15px",
-                            maxWidth:"400px",
-                        }}>
-                        <label htmlFor="firstName">firstName</label>
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="firstName"
-                            value={firstName}
-                            onChange={handleInputChange}
-                            />
-                        <label htmlFor="middleName">middleName</label>
-                        <input
-                            type="middleName"
-                            id="middleName"
-                            name="middleName"
-                            placeholder="middleName"
-                            value={middleName}
-                            onChange={handleInputChange}
-                            />
-                        <label htmlFor="lastName">lastName</label>
-                        <input
-                            type="lastName"
-                            id="lastName"
-                            name="lastName"
-                            placeholder="lastName"
-                            value={lastName}
-                            onChange={handleInputChange}
-                            />
-                        <label htmlFor="emailID">emailID</label>
-                        <input
-                            type="emailID"
-                            id="emailID"
-                            name="emailID"
-                            placeholder="emailID"
-                            value={emailID}
-                            onChange={handleInputChange}
-                            />
-                        <label htmlFor="mobileNumber">mobileNumber</label>
-                        <input
-                            type="mobileNumber"
-                            id="mobileNumber"
-                            name="mobileNumber"
-                            placeholder="mobileNumber"
-                            value={mobileNumber}
-                            onChange={handleInputChange}
-                            />
-                        <label htmlFor="dateOfBirth">dateOfBirth</label>
-                        <input
-                            type="Date"
-                            id="dateOfBirth"
-                            name="dateOfBirth"
-                            placeholder="mobdateOfBirthileNumber"
-                            value={dateOfBirth}
-                            onChange={handleInputChange}
-                            />
-                        </form>
+            <div>
+                    <div>
+                            <div style={{marignTop:"40px"}}>
+                                <h2 className="tile">PersonalDetailes</h2>
+                                <form style={{
+                                    margin:"auto",
+                                    padding: "15px",
+                                    maxWidth:"400px",
+                                }}>
+                                <label htmlFor="firstName">FirstName</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    placeholder="firstName"
+                                    value={firstName}
+                                    onChange={handleInputChange}
+                                    />
+                                <label htmlFor="middleName">middleName</label>
+                                <input
+                                    type="middleName"
+                                    id="middleName"
+                                    name="middleName"
+                                    placeholder="middleName"
+                                    value={middleName}
+                                    onChange={handleInputChange}
+                                    />
+                                <label htmlFor="lastName">lastName</label>
+                                <input
+                                    type="lastName"
+                                    id="lastName"
+                                    name="lastName"
+                                    placeholder="lastName"
+                                    value={lastName}
+                                    onChange={handleInputChange}
+                                    />
+                                <label htmlFor="emailID">emailID</label>
+                                <input
+                                    type="emailID"
+                                    id="emailID"
+                                    name="emailID"
+                                    placeholder="emailID"
+                                    value={emailID}
+                                    onChange={handleInputChange}
+                                    />
+                                <label htmlFor="mobileNumber">mobileNumber</label>
+                                <input
+                                    type="mobileNumber"
+                                    id="mobileNumber"
+                                    name="mobileNumber"
+                                    placeholder="mobileNumber"
+                                    value={mobileNumber}
+                                    onChange={handleInputChange}
+                                    />
+                                <label htmlFor="dateOfBirth">dateOfBirth</label>
+                                <input
+                                    type="Date"
+                                    id="dateOfBirth"
+                                    name="dateOfBirth"
+                                    placeholder="mobdateOfBirthileNumber"
+                                    value={dateOfBirth}
+                                    onChange={handleInputChange}
+                                    />
+                                </form>
+                            </div>          
+                    </div>
+                    {/* This form is AcademicDetails */}
+                        <div>
+                            <div>
+                                <h2 className="tile">AcademicDetails</h2>
+                               
+                                    <div style={{marignTop:"40px"}}>
+                                        <form style={{
+                                            margin:"auto",
+                                            padding: "15px",
+                                            maxWidth:"400px",
+                                            alignItems:"center"
+                                        }}>
+                                        <label htmlFor="higherEducationalQualification">HigherEducationalQualification</label>
+                                        <input
+                                            list="data3"
+                                            type="TEXT"
+                                            id="higherEducationalQualification"
+                                            name="higherEducationalQualification"
+                                            placeholder=""
+                                            value={higherEducationalQualification}
+                                            onChange={handleInputChange}
+                                            />
+                                        <datalist id="data3">
+                                            <select>
+                                                <option value="Post Graduation">Post Graduation</option>
+                                                <option value=" Graduation"> Graduation</option>
+                                                <option value=" under Graduation">Under Graduation</option>
+                                            </select>
+                                        </datalist>
+                                        <label htmlFor="schoolOrInstitute">SchoolOrInstituteName</label>
+                                        <input
+                                            type="TEXT"
+                                            id="schoolOrInstitute"
+                                            name="schoolOrInstitute"
+                                            placeholder=""
+                                            value={schoolOrInstitute}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="degree">Degree</label>
+                                        <input
+                                            type="VARCHAR(64)"
+                                            id="degree"
+                                            name="degree"
+                                            placeholder=""
+                                            value={degree}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="fieldOfStudy">FieldOfStudy </label>
+                                        <input
+                                            type="VARCHAR(64)"
+                                            id="fieldOfStudy"
+                                            name="fieldOfStudy"
+                                            placeholder=""
+                                            value={fieldOfStudy}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="startDate">StartDate </label>
+                                        <input
+                                            type="date"
+                                            id="startDate"
+                                            name="startDate"
+                                            placeholder=""
+                                            value={startDate}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="endDate">EndDate </label>
+                                        <input
+                                            type="date"
+                                            id="endDate"
+                                            name="endDate"
+                                            placeholder=""
+                                            value={endDate}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="grade">Grade </label>
+                                        <input
+                                            type="VARCHAR(64)"
+                                            id="grade"
+                                            name="grade"
+                                            placeholder=""
+                                            value={grade}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="activitie">Activities </label>
+                                        <input
+                                            type="TEXT"
+                                            id="activitie"
+                                            name="activitie"
+                                            placeholder=""
+                                            value={activitie}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="description">Description </label>
+                                        <input
+                                            type="TEXT"
+                                            id="description_1"
+                                            name="description_1"
+                                            placeholder=""
+                                            value={description_1}
+                                            onChange={handleInputChange}
+                                            />
+                                        <label htmlFor="certificatePath">AddCertificate </label>
+                                        <input
+                                            type="FILE"
+                                            id="certificatePath"
+                                            name="certificatePath"
+                                            placeholder=""
+                                            onChange={handleInputChange}
+                                            />
+                                    </form>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                        {/* This is the EmploymentDetails for the   */}
+                        <div>
+                            <div>
+                                <h2 className="tile">EmploymentDetails</h2>
+                               
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="Type">Type</label>
+                                    <input
+                                        list="data2"
+                                        type="TEXT"
+                                        id="type"
+                                        name="type"
+                                        placeholder=""
+                                        value={type}
+                                        onChange={handleInputChange}
+                                        />
+                                    <datalist id="data2">
+                                        <select>
+                                            <option value="Course / Certificate">Course / Certificate</option>
+                                            <option value="FullTime"> FullTime</option>
+                                            <option value="PartTime">PartTime</option>
+                                        </select>
+                                    </datalist>
+                                    <label htmlFor="title">Title</label>
+                                    <input
+                                        type="TEXT"
+                                        id="title"
+                                        name="title"
+                                        placeholder=""
+                                        value={title}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="organizationOrInstitute">OrganizationOrInstitute</label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="organizationOrInstitute"
+                                        name="organizationOrInstitute"
+                                        placeholder=""
+                                        value={organizationOrInstitute}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="location">location </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="location"
+                                        name="location"
+                                        placeholder=""
+                                        value={location}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="startDate">StartDate </label>
+                                    <input
+                                        type="date"
+                                        id="startDate"
+                                        name="startDate"
+                                        placeholder=""
+                                        value={startDate}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="endDate">EndDate </label>
+                                    <input
+                                        type="date"
+                                        id="endDate"
+                                        name="endDate"
+                                        placeholder=""
+                                        value={endDate}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="industryOrDomain">IndustryOrDomain </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="industryOrDomain"
+                                        name="industryOrDomain"
+                                        placeholder=""
+                                        value={industryOrDomain}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="description">Description </label>
+                                    <input
+                                        type="TEXT"
+                                        id="description"
+                                        name="description"
+                                        placeholder=""
+                                        value={description}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="profileHeadline">ProfileHeadline </label>
+                                    <input
+                                        type="TEXT"
+                                        id="profileHeadline"
+                                        name="profileHeadline"
+                                        placeholder=""
+                                        value={profileHeadline}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                      
+                        </div>
+                    </div>
+                    {/* This user TechnicalSkills form  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">TechnicalSkills</h2>
+                         
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="skillTitle">skillTitle </label>
+                                    <input
+                                        type="TEXT"
+                                        id="skillTitle"
+                                        name="skillTitle"
+                                        placeholder=""
+                                        value={skillTitle}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                                         
+                        </div>
+                    </div>
+                     {/* This user softSkills form  */}
+                     <div>
+                        <div>
+                            <h2 className="tile">SoftSkills</h2>
+                         
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="skillTitle">SoftSkills </label>
+                                    <input
+                                        type="TEXT"
+                                        id="skillTitle"
+                                        name="skillTitle"
+                                        placeholder=""
+                                        value={skillTitle}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                                          
+                        </div>
+                    </div>
+                    {/* This is the ExtraCurricularActivities form  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">ExtraCurricularActivities</h2>
+                          
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="interests">Interests </label>
+                                    <input
+                                        type="TEXT"
+                                        id="interests"
+                                        name="interests"
+                                        placeholder=""
+                                        value={interests}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="achievements">achievements </label>
+                                    <input
+                                        type="TEXT"
+                                        id="achievements"
+                                        name="achievements"
+                                        placeholder=""
+                                        value={achievements}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                              
+                        </div>
+                    </div>
+                     {/* This is the languagesKnown from  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">languagesKnown</h2>
+                            
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="languageName">languageName </label>
+                                    <input
+                                        type="TEXT"
+                                        id="languageName"
+                                        name="languageName"
+                                        placeholder=""
+                                        value={languageName}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                  
+                        </div>
+                    </div>
+                    {/* This is the FamilyDetails from  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">FamilyDetails</h2>
+                         
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="fatherName">fatherName </label>
+                                    <input
+                                        type="TEXT"
+                                        id="fatherName"
+                                        name="fatherName"
+                                        placeholder=""
+                                        value={fatherName}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="motherName">motherName </label>
+                                    <input
+                                        type="TEXT"
+                                        id="motherName"
+                                        name="motherName"
+                                        placeholder=""
+                                        value={motherName}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="fatherOccupation">fatherOccupation </label>
+                                    <input
+                                        type="TEXT"
+                                        id="fatherOccupation"
+                                        name="fatherOccupation"
+                                        placeholder=""
+                                        value={fatherOccupation}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="motherOccupation">motherOccupation </label>
+                                    <input
+                                        type="TEXT"
+                                        id="motherOccupation"
+                                        name="motherOccupation"
+                                        placeholder=""
+                                        value={motherOccupation}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {/* This is the usersPhysicalAddressDetails */}
+                    <div>
+                        <div>
+                            <h2 className="tile">CommunicationAddress</h2>
+                         
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="communicationHnoOrFlatno">communicationHnoOrFlatno</label>
+                                    <input
+                                        type="TEXT"
+                                        id="communicationHnoOrFlatno"
+                                        name="communicationHnoOrFlatno"
+                                        placeholder=""
+                                        value={communicationHnoOrFlatno}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationBlockOrApartment">communicationBlockOrApartment</label>
+                                    <input
+                                        type="TEXT"
+                                        id="communicationBlockOrApartment"
+                                        name="communicationBlockOrApartment"
+                                        placeholder=""
+                                        value={communicationBlockOrApartment}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationStreet">communicationStreet</label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="communicationStreet"
+                                        name="communicationStreet"
+                                        placeholder=""
+                                        value={communicationStreet}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationLocalityOrVillage">communicationLocalityOrVillage </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="communicationLocalityOrVillage"
+                                        name="communicationLocalityOrVillage"
+                                        placeholder=""
+                                        value={communicationLocalityOrVillage}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationDistrict">communicationDistrict </label>
+                                    <input
+                                        type="TEXT"
+                                        id="communicationDistrict"
+                                        name="communicationDistrict"
+                                        placeholder=""
+                                        value={communicationDistrict}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationState">communicationState </label>
+                                    <input
+                                        type="TEXT"
+                                        id="communicationState"
+                                        name="communicationState"
+                                        placeholder=""
+                                        value={communicationState}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="pinCode">pinCode </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="communicationPinCode"
+                                        name="communicationPinCode"
+                                        placeholder=""
+                                        value={communicationPinCode}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="communicationGoogleAddress">communicationGoogleAddress </label>
+                                    <input
+                                        type="TEXT"
+                                        id="communicationGoogleAddress"
+                                        name="communicationGoogleAddress"
+                                        placeholder=""
+                                        value={communicationGoogleAddress}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    {/* This is the usersPhysicalAddressDetails */}
+                    <div>
+                        <div>
+                            <h2 className="tile">PermanentAddress</h2>
+                           
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="permanentHnoOrFlatno">permanentHnoOrFlatno</label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentHnoOrFlatno"
+                                        name="permanentHnoOrFlatno"
+                                        placeholder=""
+                                        value={permanentHnoOrFlatno}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentBlockorApartment">permanentBlockorApartment</label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentBlockorApartment"
+                                        name="permanentBlockorApartment"
+                                        placeholder=""
+                                        value={permanentBlockorApartment}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentStreet">permanentStreet</label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="permanentStreet"
+                                        name="permanentStreet"
+                                        placeholder=""
+                                        value={permanentStreet}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentLocalityOrVillage">permanentLocalityOrVillage </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="permanentLocalityOrVillage"
+                                        name="permanentLocalityOrVillage"
+                                        placeholder=""
+                                        value={permanentLocalityOrVillage}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentDistrict">permanentDistrict </label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentDistrict"
+                                        name="permanentDistrict"
+                                        placeholder=""
+                                        value={permanentDistrict}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentState">permanentState </label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentState"
+                                        name="permanentState"
+                                        placeholder=""
+                                        value={permanentState}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentPinCode">permanentPinCode </label>
+                                    <input
+                                        type="VARCHAR(64)"
+                                        id="permanentPinCode"
+                                        name="permanentPinCode"
+                                        placeholder=""
+                                        value={permanentPinCode}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentPostalAddress">permanentPostalAddress </label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentPostalAddress"
+                                        name="permanentPostalAddress"
+                                        placeholder=""
+                                        value={permanentPostalAddress}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="permanentGoogleAddress">permanentGoogleAddress </label>
+                                    <input
+                                        type="TEXT"
+                                        id="permanentGoogleAddress"
+                                        name="permanentGoogleAddress"
+                                        placeholder=""
+                                        value={permanentGoogleAddress}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                         
+                        </div>
+                    </div>
+                      {/* This is the usersGoals from  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">goals</h2>
+                           
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="shortTerm">shortTerm </label>
+                                    <input
+                                        type="TEXT"
+                                        id="shortTerm"
+                                        name="shortTerm"
+                                        placeholder=""
+                                        value={shortTerm}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="longTerm">longTerm </label>
+                                    <input
+                                        type="TEXT"
+                                        id="longTerm"
+                                        name="longTerm"
+                                        placeholder=""
+                                        value={longTerm}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                            </div>
+                       
+                        </div>
+                    </div>
+                    {/* This is the usersPersonalityTraits from  */}
+                    <div>
+                        <div>
+                            <h2 className="tile">PersonalityTraits</h2>
+                           
+                                <div style={{marignTop:"40px"}}>
+                                    <form style={{
+                                        margin:"auto",
+                                        padding: "15px",
+                                        maxWidth:"400px",
+                                        alignItems:"center"
+                                    }}>
+                                    <label htmlFor="strengths">strengths </label>
+                                    <input
+                                        type="TEXT"
+                                        id="strengths"
+                                        name="strengths"
+                                        placeholder=""
+                                        value={strengths}
+                                        onChange={handleInputChange}
+                                        />
+                                    <label htmlFor="weakness">weakness </label>
+                                    <input
+                                        type="TEXT"
+                                        id="weakness"
+                                        name="weakness"
+                                        placeholder=""
+                                        value={weakness}
+                                        onChange={handleInputChange}
+                                        />
+                                </form>
+                             </div>
+                            
+                        </div>
                     </div>
                 </div>
-                    <h2 className="tile">AcademicDetails</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="higherEducationalQualification">HigherEducationalQualification</label>
-                            <input
-                                type="TEXT"
-                                id="higherEducationalQualification"
-                                name="higherEducationalQualification"
-                                placeholder=""
-                                value={higherEducationalQualification || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="schoolOrInstituteName">SchoolOrInstituteName</label>
-                            <input
-                                type="TEXT"
-                                id="schoolOrInstituteName"
-                                name="schoolOrInstituteName"
-                                placeholder=""
-                                value={schoolOrInstituteName || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="degree">Degree</label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="degree"
-                                name="degree"
-                                placeholder=""
-                                value={degree || "" }
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="fieldOfStudy">FieldOfStudy </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="fieldOfStudy"
-                                name="fieldOfStudy"
-                                placeholder=""
-                                value={fieldOfStudy || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="startDate">StartDate </label>
-                            <input
-                                type="date"
-                                id="startDate"
-                                name="startDate"
-                                placeholder=""
-                                value={startDate || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="endDate">EndDate </label>
-                            <input
-                                type="date"
-                                id="endDate"
-                                name="endDate"
-                                placeholder=""
-                                value={endDate || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="grade">Grade </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="grade"
-                                name="grade"
-                                placeholder=""
-                                value={grade || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="activities">Activities </label>
-                            <input
-                                type="TEXT"
-                                id="activities"
-                                name="activities"
-                                placeholder=""
-                                value={activities || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="description">Description </label>
-                            <input
-                                type="TEXT"
-                                id="description"
-                                name="description"
-                                placeholder=""
-                                value={description || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="addCertificate">AddCertificate </label>
-                            <input
-                                type="FILE"
-                                id="addCertificate"
-                                name="addCertificate"
-                                placeholder=""
-                                value={addCertificate || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                        <h2 className="tile">EmploymentDetails</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="Type">Type</label>
-                            <input
-                                type="TEXT"
-                                id="type"
-                                name="type"
-                                placeholder=""
-                                value={type || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="title">Title</label>
-                            <input
-                                type="TEXT"
-                                id="title"
-                                name="title"
-                                placeholder=""
-                                value={title || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="organisationOrInstituteName">OrganisationOrInstituteName</label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="organisationOrInstituteName"
-                                name="organisationOrInstituteName"
-                                placeholder=""
-                                value={organisationOrInstituteName || "" }
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="location">location </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="location"
-                                name="location"
-                                placeholder=""
-                                value={location || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="startDate">StartDate </label>
-                            <input
-                                type="date"
-                                id="startDate"
-                                name="startDate"
-                                placeholder=""
-                                value={startDate || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="endDate">EndDate </label>
-                            <input
-                                type="date"
-                                id="endDate"
-                                name="endDate"
-                                placeholder=""
-                                value={endDate || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="industryOrDomain">IndustryOrDomain </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="industryOrDomain"
-                                name="industryOrDomain"
-                                placeholder=""
-                                value={industryOrDomain || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="description">Description </label>
-                            <input
-                                type="TEXT"
-                                id="description"
-                                name="description"
-                                placeholder=""
-                                value={description || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="profileHeadline">ProfileHeadline </label>
-                            <input
-                                type="TEXT"
-                                id="profileHeadline"
-                                name="profileHeadline"
-                                placeholder=""
-                                value={profileHeadline || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="skills">Skills </label>
-                            <input
-                                type="TEXT"
-                                id="skills"
-                                name="skills"
-                                placeholder=""
-                                value={skills || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">TechnicalSkills</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="skillTitle">skillTitle </label>
-                            <input
-                                type="TEXT"
-                                id="skillTitle"
-                                name="skillTitle"
-                                placeholder=""
-                                value={skillTitle || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="skillDescription">skillDescription </label>
-                            <input
-                                type="TEXT"
-                                id="skillDescription"
-                                name="skillDescription"
-                                placeholder=""
-                                value={skillDescription || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">ExtraCurricularActivities</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="interests">Interests </label>
-                            <input
-                                type="TEXT"
-                                id="interests"
-                                name="interests"
-                                placeholder=""
-                                value={interests || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="proficiency">proficiency </label>
-                            <input
-                                type="TEXT"
-                                id="proficiency"
-                                name="proficiency"
-                                placeholder=""
-                                value={proficiency || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">languagesKnown</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="language">language </label>
-                            <input
-                                type="TEXT"
-                                id="language"
-                                name="language"
-                                placeholder=""
-                                value={language || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="achievements">Achievements </label>
-                            <input
-                                type="TEXT"
-                                id="achievements"
-                                name="achievements"
-                                placeholder=""
-                                value={achievements || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">FamilyDetails</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="fathersName">fathersName </label>
-                            <input
-                                type="TEXT"
-                                id="fathersName"
-                                name="fathersName"
-                                placeholder=""
-                                value={fathersName || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="mothersName">mothersName </label>
-                            <input
-                                type="TEXT"
-                                id="mothersName"
-                                name="mothersName"
-                                placeholder=""
-                                value={mothersName || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="fathersOccupation">fathersOccupation </label>
-                            <input
-                                type="TEXT"
-                                id="fathersOccupation"
-                                name="fathersOccupation"
-                                placeholder=""
-                                value={fathersOccupation || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="mothersOccupation">mothersOccupation </label>
-                            <input
-                                type="TEXT"
-                                id="mothersOccupation"
-                                name="mothersOccupation"
-                                placeholder=""
-                                value={mothersOccupation || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">CommunicationAddress</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="hNoOrFlatNo">hNoOrFlatNo</label>
-                            <input
-                                type="TEXT"
-                                id="hNoOrFlatNo"
-                                name="hNoOrFlatNo"
-                                placeholder=""
-                                value={hNoOrFlatNo || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="blockOrAppartment">blockOrAppartment</label>
-                            <input
-                                type="TEXT"
-                                id="blockOrAppartment"
-                                name="blockOrAppartment"
-                                placeholder=""
-                                value={blockOrAppartment || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="street">street</label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="street"
-                                name="street"
-                                placeholder=""
-                                value={street || "" }
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="localityOrVillage">localityOrVillage </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="localityOrVillage"
-                                name="localityOrVillage"
-                                placeholder=""
-                                value={localityOrVillage || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="district">district </label>
-                            <input
-                                type="TEXT"
-                                id="district"
-                                name="district"
-                                placeholder=""
-                                value={district || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="State">State </label>
-                            <input
-                                type="TEXT"
-                                id="State"
-                                name="State"
-                                placeholder=""
-                                value={State || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="pinCode">pinCode </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="pinCode"
-                                name="pinCode"
-                                placeholder=""
-                                value={pinCode || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="postalAddress">postalAddress </label>
-                            <input
-                                type="TEXT"
-                                id="postalAddress"
-                                name="postalAddress"
-                                placeholder=""
-                                value={postalAddress || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="latitude">latitude </label>
-                            <input
-                                type="TEXT"
-                                id="latitude"
-                                name="latitude"
-                                placeholder=""
-                                value={latitude || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="longitude">longitude </label>
-                            <input
-                                type="TEXT"
-                                id="longitude"
-                                name="longitude"
-                                placeholder=""
-                                value={longitude || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="googleAddress">googleAddress </label>
-                            <input
-                                type="TEXT"
-                                id="googleAddress"
-                                name="googleAddress"
-                                placeholder=""
-                                value={googleAddress || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">PermanentAddress</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="hNoOrFlatNo">hNoOrFlatNo</label>
-                            <input
-                                type="TEXT"
-                                id="hNoOrFlatNo"
-                                name="hNoOrFlatNo"
-                                placeholder=""
-                                value={hNoOrFlatNo || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="blockOrAppartment">blockOrAppartment</label>
-                            <input
-                                type="TEXT"
-                                id="blockOrAppartment"
-                                name="blockOrAppartment"
-                                placeholder=""
-                                value={blockOrAppartment || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="street">street</label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="street"
-                                name="street"
-                                placeholder=""
-                                value={street || "" }
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="localityOrVillage">localityOrVillage </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="localityOrVillage"
-                                name="localityOrVillage"
-                                placeholder=""
-                                value={localityOrVillage || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="district">district </label>
-                            <input
-                                type="TEXT"
-                                id="district"
-                                name="district"
-                                placeholder=""
-                                value={district || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="State">State </label>
-                            <input
-                                type="TEXT"
-                                id="State"
-                                name="State"
-                                placeholder=""
-                                value={State || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="pinCode">pinCode </label>
-                            <input
-                                type="VARCHAR(64)"
-                                id="pinCode"
-                                name="pinCode"
-                                placeholder=""
-                                value={pinCode || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="postalAddress">postalAddress </label>
-                            <input
-                                type="TEXT"
-                                id="postalAddress"
-                                name="postalAddress"
-                                placeholder=""
-                                value={postalAddress || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="latitude">latitude </label>
-                            <input
-                                type="TEXT"
-                                id="latitude"
-                                name="latitude"
-                                placeholder=""
-                                value={latitude || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="longitude">longitude </label>
-                            <input
-                                type="TEXT"
-                                id="longitude"
-                                name="longitude"
-                                placeholder=""
-                                value={longitude || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="googleAddress">googleAddress </label>
-                            <input
-                                type="TEXT"
-                                id="googleAddress"
-                                name="googleAddress"
-                                placeholder=""
-                                value={googleAddress || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">goals</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="shortTermGoal">shortTermGoal </label>
-                            <input
-                                type="TEXT"
-                                id="shortTermGoal"
-                                name="shortTermGoal"
-                                placeholder=""
-                                value={shortTermGoal || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="longTermGoal">longTermGoal </label>
-                            <input
-                                type="TEXT"
-                                id="longTermGoal"
-                                name="longTermGoal"
-                                placeholder=""
-                                value={longTermGoal || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                    <h2 className="tile">PersonalityTraits</h2>
-                        <div style={{marignTop:"40px"}}>
-                            <form style={{
-                                margin:"auto",
-                                padding: "15px",
-                                maxWidth:"400px",
-                                alignItems:"center"
-                            }}>
-                            <label htmlFor="strengths">strengths </label>
-                            <input
-                                type="TEXT"
-                                id="strengths"
-                                name="strengths"
-                                placeholder=""
-                                value={strengths || ""}
-                                onChange={handleInputChange}
-                                />
-                            <label htmlFor="weakness">weakness </label>
-                            <input
-                                type="TEXT"
-                                id="weakness"
-                                name="weakness"
-                                placeholder=""
-                                value={weakness || ""}
-                                onChange={handleInputChange}
-                                />
-                        </form>
-                    </div>
-                </div>
-                <button type="submit" className="submitButton">Edit USER </button>
-                    <Link to="/User">
-                        <button  type="button" className="goback">GoBack</button>
-                    </Link> 
-        </form>
-    </div>
+                    <button type="submit" className="submitButton" onClick={handleSubmit}>SAVE </button>
+                        <Link to="/User">
+                            <button  type="button" className="goback">GoBack</button>
+                        </Link> 
+            </div>
     )
     };
 

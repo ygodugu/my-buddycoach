@@ -25,6 +25,11 @@ import BadgesView from "./pages/BadgesView/BadgesView";
 import AddBadgesToUser from "./pages/UserViewA/AddBadgesToUser";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MailSender from "./pages/MailSender/MailSender";
+import Achievers from "./pages/Achievers/Achievers";
+import AddAchievers from "./pages/AddAchievers/AddAchievers";
+import UpdateAchievers from "./pages/UpdateAchievers/UpdateAchievers";
+import ViewAchievers from "./pages/ViewAchievers/ViewAchievers";
 import Form from "./Form";
 
 function App() {
@@ -118,6 +123,21 @@ function App() {
                 </Route>
                 <Route exact path="/AddBadgesToUser/:userID">
                     <AddBadgesToUser />
+                </Route>
+                <Route exact path="/MailSender">
+                    <MailSender />
+                </Route>
+                <Route exact path="/Achievers">
+                    <Achievers />
+                </Route>
+                <Route exact path="/AddAchievers">
+                    <AddAchievers />
+                </Route>
+                <Route exact path="/UpdateAchievers/:achieverID">
+                    <UpdateAchievers />
+                </Route>
+                <Route exact path="/ViewAchievers/:achieverID">
+                    <ViewAchievers />
                 </Route>
             </Switch>
             </div> 

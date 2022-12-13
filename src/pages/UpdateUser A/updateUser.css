@@ -50,7 +50,8 @@ input[type="submit"] :hover {
 }
 
 .submitButton{
-    width: 100px;
+    width: 20%;
+    height: 40px;
     border: none;
     padding: 5px;
     background-color: #4CAF50;;
@@ -58,20 +59,25 @@ input[type="submit"] :hover {
     cursor: pointer;
     color: white;
     font-size: 14px;
+    position: sticky;
+    z-index: 999;
     margin-left: 200px;
-    margin-bottom: 10px;
+    bottom: 0px;
 }
 
 .goback {
-    width: 100px;
+    width: 20%;
+    height: 40px;
     border: none;
     padding: 5px;
-    background-color: #4CAF50;;
+    background-color: #252c25;;
     border-radius: 5px;
     cursor: pointer;
     color: white;
     font-size: 14px;
-    margin-left: 400px;
-    margin-bottom: 10px;
+    position: sticky;
+    z-index: 999;
+    margin-left: 200px;
+    bottom: 0px;
 }
 
