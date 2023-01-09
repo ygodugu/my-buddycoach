@@ -5,99 +5,150 @@ import "./updateUser.css";
 
 // user profile detalils 
 const initialState = {
-    firstName:"",
-    middleName:"",
-    lastName:"",
-    emailID:"",
-    mobileNumber:"",
-    dateOfBirth:"",
+    personalDetails: [
+    {
+        firstName:"",
+        middleName:"",
+        lastName:"",
+        emailID:"",
+        mobileNumber:"",
+        dateOfBirth:""
+    } ],
 // user academic detailes 
-    higherEducationalQualification:"",    
-    schoolOrInstitute:"",
-    degree:"",
-    fieldOfStudy:"",
-    startDate:"",
-    endDate:"",
-    grade:"",
-    activitie:"",
-    description_1:"",
-    certificatePath:"",
-    description : "",
+academicDetails: [
+    {
+        higherEducationalQualification:"",    
+        schoolOrInstitute:"",
+        degree:"",
+        fieldOfStudy:"",
+        startDate:"",
+        endDate:"",
+        grade:"",
+        activitie:"",
+        description_1:"",
+        certificatePath:"",
+        description : "",
+    } ],
 // user Emplyee detailes
-    type : "",
-    title : "",
-    organizationOrInstitute : "",
-    location : "",
-    startDate : "",
-    endDate : "",
-    industryOrDomain : "",
-    description : "",
-    profileHeadline : "",
-    skills : "",
+employmentDetails: [
+    {
+        type : "",
+        title : "",
+        organizationOrInstitute : "",
+        location : "",
+        startDate : "",
+        endDate : "",
+        industryOrDomain : "",
+        description : "",
+        profileHeadline : "",
+        skills : "",
+    }  ],
     // userTechnicalSkills 
-    skillTitle : "",
-    skillDescription : "",
+    userTechnicalSkills: [
+    {
+        skillTitle : "",
+        skillDescription : "",
+    }  ],
+    softSkills: [
+        {
+            skills : ""
+        }],
     // extraCurricularActivities
-    interests : "",
-    achievements : "",
+    extraCurricularActivities: [
+   { 
+        interests : "",
+        achievements : "",
+   }   ],
     // languagesKnown
-    languageName : "",
-    proficiency : "",
+    languagesKnown: [
+   { 
+        languageName : "",
+        proficiency : "",
+   }  ],
     // familyDetails
-    fatherName : "",
-    motherName : "",
-    fatherOccupation : "",
-    motherOccupation : "",
+    usersFamilyDetails: [
+   { 
+        fatherName : "",
+        motherName : "",
+        fatherOccupation : "",
+        motherOccupation : "",
+    }  ],
     // communicationAddress
-    communicationHnoOrFlatno : "",
-    communicationBlockOrApartment : "",
-    communicationStreet: "",
-    communicationLocalityOrVillage : "",
-    communicationDistrict : "",
-    communicationState : "",
-    communicationPinCode : "",
-    postalAddress : "",
-    latitude : "",
-    longitude: "",
-    communicationGoogleAddress: "",
-    // permanentAddress
-    permanentHnoOrFlatno : "",
-    permanentBlockorApartment : "",
-    permanentStreet: "",
-    permanentLocalityOrVillage : "",
-    permanentDistrict : "",
-    permanentState : "",
-    permanentPinCode : "",
-    permanentPostalAddress : "",
-     latitude : "",
-     longitude: "",
-    permanentGoogleAddress: "",
+    usersPhysicalAddressDetails: [
+  {  
+        communicationHnoOrFlatno : "",
+        communicationBlockOrApartment : "",
+        communicationStreet: "",
+        communicationLocalityOrVillage : "",
+        communicationDistrict : "",
+        communicationState : "",
+        communicationPinCode : "",
+        postalAddress : "",
+        latitude : "",
+        longitude: "",
+        communicationGoogleAddress: "",
+        // permanentAddress
+        permanentHnoOrFlatno : "",
+        permanentBlockorApartment : "",
+        permanentStreet: "",
+        permanentLocalityOrVillage : "",
+        permanentDistrict : "",
+        permanentState : "",
+        permanentPinCode : "",
+        permanentPostalAddress : "",
+        latitude : "",
+        longitude: "",
+        permanentGoogleAddress: "",
+    } ],
     //  goals
-    shortTerm : "",
-    longTerm: "",
+    usersGoals: [
+    {
+        shortTerm : "",
+        longTerm: "",
+    } ],
     // personalityTraits
-    strengths : "",
-    weakness : "",
-  };
+    usersPersonalityTraits: [
+    {
+        strengths : "",
+        weakness : "",
+    } ],  
+};
 
 const UpdateUser = () => {
 
-    const [getData, setGetData] = useState({})
+    // const [getData, setGetData] = useState([])
 
     const[state,setState] = useState(initialState);
    
-    const {firstName,middleName,lastName,emailID,mobileNumber,dateOfBirth,
-        higherEducationalQualification,schoolOrInstitute,degree,fieldOfStudy,startDate,endDate,grade,
-        activitie,description_1,certificatePath,type,title,organizationOrInstitute,location,industryOrDomain,profileHeadline,skills,skillTitle,skillDescription,interests,achievements,languageName,proficiency,fatherName,motherName,fatherOccupation,motherOccupation,communicationHnoOrFlatno,communicationBlockOrApartment,communicationStreet,communicationLocalityOrVillage,communicationDistrict,communicationState,communicationPinCode,postalAddress,latitude,longitude,communicationGoogleAddress,
-        permanentHnoOrFlatno,permanentBlockorApartment,permanentStreet,permanentLocalityOrVillage,permanentDistrict,permanentState,permanentPinCode,permanentPostalAddress,permanentGoogleAddress, shortTerm,longTerm,strengths,weakness, description} = state;
- 
+
+    const { personalDetails:[ { firstName,middleName,lastName,emailID,mobileNumber,dateOfBirth } ],
+      academicDetails:[ { higherEducationalQualification,schoolOrInstitute,degree,fieldOfStudy,startDate,endDate,grade,activitie,description_1,certificatePath }],
+      employmentDetails : [{type,title,organizationOrInstitute,location,industryOrDomain,profileHeadline,}],
+      userTechnicalSkills : [{skillTitle}],
+      softSkills : [{skills}],
+      extraCurricularActivities : [{interests,achievements}],
+      languagesKnown : [{languageName}],
+      usersFamilyDetails : [{fatherName,motherName,fatherOccupation,motherOccupation,}],
+      usersPhysicalAddressDetails : [{communicationHnoOrFlatno,communicationBlockOrApartment,communicationStreet,communicationLocalityOrVillage,communicationDistrict,communicationState,communicationPinCode,postalAddress,latitude,longitude,communicationGoogleAddress,}],
+      usersGoals : [{shortTerm,longTerm,}],
+      usersPersonalityTraits : [{strengths,weakness,}] 
+    }  = state;
+
+         
     const history = useHistory();
 
     const {userID} = useParams();
-    
+
     const loadData = async () => {
-      const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`);
-      setGetData(resp.data);
+      const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`,
+      {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+    });
+    setState(resp.data);
       JSON.stringify(resp.data)
       console.log(resp.data) 
        };
@@ -105,10 +156,28 @@ const UpdateUser = () => {
         loadData();
       },[]);
 
+
+
     // useEffect(() => {
     //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
     //     .then((resp) => {setGetData(resp.data[0]);console.log(getData)})
     //   }, [])
+
+
+    // debugger
+
+    //   useEffect(() => {
+    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`,
+    //     {
+    //       headers: {
+    //           'Accept': '*/*',
+    //           'Content-Type': 'application/json',
+    //           "Authorization": `${"token_for_girish_donthoju"}`
+    //           },
+    //     })
+    //     .then((resp) => setState({...resp.data[0] }));
+    //   }, [userID ])
+    
 
     // useEffect(() => {
     //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
@@ -146,15 +215,15 @@ const UpdateUser = () => {
         console.log("startDate : "+ startDate)
         console.log("endDate : " + endDate)
         console.log("industryOrDomain :"  + industryOrDomain)
-        console.log("description :"  + description)
+        // console.log("description :"  + description)
         console.log("profileHeadline :" + profileHeadline)
         console.log("skills : " + skills)
         console.log("skillTitle :" + skillTitle)
-        console.log("skillDescription : " + skillDescription)
+        // console.log("skillDescription : " + skillDescription)
         console.log("interests : " + interests)
         console.log("achievements : " + achievements)
         console.log("languageName : " + languageName)
-        console.log("proficiency : " + proficiency)
+        // console.log("proficiency : " + proficiency)
         console.log("fatherName : " + fatherName)
         console.log("motherName : " +  motherName) 
         console.log("fatherOccupation : "  + fatherOccupation) 
@@ -169,22 +238,27 @@ const UpdateUser = () => {
         console.log("postalAddress :"  + postalAddress)
         console.log("latitude :"  + latitude)
         console.log("longitude: " + longitude)
-        console.log("permanentHnoOrFlatno: " + permanentHnoOrFlatno)
-        console.log("permanentBlockorApartment :" +  permanentBlockorApartment)
-        console.log("permanentStreet:" + permanentStreet )
-        console.log("permanentLocalityOrVillage :" + permanentLocalityOrVillage )
-        console.log("permanentDistrict :" + permanentDistrict)
-        console.log("permanentState : " + permanentState )
-        console.log("permanentPinCode :" + permanentPinCode)
-        console.log("permanentPostalAddress :"  + permanentPostalAddress)
-        console.log("latitude :"  + latitude)
-        console.log("longitude: " + longitude)
-        console.log("permanentGoogleAddress: " + permanentGoogleAddress)
+        // console.log("permanentHnoOrFlatno: " + permanentHnoOrFlatno)
+        // console.log("permanentBlockorApartment :" +  permanentBlockorApartment)
+        // console.log("permanentStreet:" + permanentStreet )
+        // console.log("permanentLocalityOrVillage :" + permanentLocalityOrVillage )
+        // console.log("permanentDistrict :" + permanentDistrict)
+        // console.log("permanentState : " + permanentState )
+        // console.log("permanentPinCode :" + permanentPinCode)
+        // console.log("permanentPostalAddress :"  + permanentPostalAddress)
+        // console.log("latitude :"  + latitude)
+        // console.log("longitude: " + longitude)
+        // console.log("permanentGoogleAddress: " + permanentGoogleAddress)
         console.log( "shortTerm : "  + shortTerm)
         console.log( "longTerm : " + longTerm)
         console.log("strengths : " + strengths)
         console.log("weakness : " + weakness )
-        axios.put(`http://192.168.0.118:8080/user/${userID}`, {     
+        axios.put(`http://192.168.0.118:8080/user/${userID}`, {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
         firstName : firstName,
         middleName : middleName,
         lastName : lastName,
@@ -208,15 +282,15 @@ const UpdateUser = () => {
         startDate : startDate,
         endDate : endDate,
         industryOrDomain : industryOrDomain,
-        description : description,
+        // description : description,
         profileHeadline : profileHeadline,
         skills : skills,
         skillTitle : skillTitle,
-        skillDescription : skillDescription,
+        // skillDescription : skillDescription,
         interests : interests,
         achievements : achievements,
         languageName : languageName,
-        proficiency : proficiency,
+        // proficiency : proficiency,
         fatherName : fatherName,
         motherName : motherName,
         fatherOccupation : fatherOccupation,
@@ -232,58 +306,34 @@ const UpdateUser = () => {
         latitude : latitude,
         longitude: longitude,
         communicationGoogleAddress: communicationGoogleAddress,
-        permanentHnoOrFlatno : permanentHnoOrFlatno,
-        permanentBlockorApartment : permanentBlockorApartment,
-        permanentStreet: permanentStreet,
-        permanentLocalityOrVillage : permanentLocalityOrVillage,
-        permanentDistrict : permanentDistrict,
-        permanentState : permanentState,
-        permanentPinCode : permanentPinCode,
-        permanentPostalAddress : permanentPostalAddress,
+        // permanentHnoOrFlatno : permanentHnoOrFlatno,
+        // permanentBlockorApartment : permanentBlockorApartment,
+        // permanentStreet: permanentStreet,
+        // permanentLocalityOrVillage : permanentLocalityOrVillage,
+        // permanentDistrict : permanentDistrict,
+        // permanentState : permanentState,
+        // permanentPinCode : permanentPinCode,
+        // permanentPostalAddress : permanentPostalAddress,
         latitude : latitude,
         longitude: longitude,
-        permanentGoogleAddress: permanentGoogleAddress,
+        // permanentGoogleAddress: permanentGoogleAddress,
         shortTerm : shortTerm,
         longTerm: longTerm,
         strengths : strengths,
         weakness : weakness,
          })
         .then(() => {
-          setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth:"",
-          higherEducationalQualification: "", schoolOrInstitute: "", degree: "",fieldOfStudy: "",startDate: "",endDate: "",grade: "", activities: "",description_1:"", certificatePath: "",type : "",title : "",organizationOrInstitute: "",location : "" ,startDate : "",endDate : "", industryOrDomain : "",description: "",profileHeadline: "",skills: "",skillTitle: "", skillDescription: "" ,   interests : "",
-          achievements : "",
-          language : "",
-          proficiency : "",
-          fatherName : "",
-          motherName : "",
-          fatherOccupation : "",
-          motherOccupation  : "",
-          communicationHnoOrFlatno : "",
-          communicationBlockOrApartment : "",
-          communicationStreet: "",
-          communicationLocalityOrVillage : "",
-          communicationDistrict : "",
-          communicationState : "",
-          communicationPinCode : "",
-          postalAddress : "",
-          latitude : "",
-          longitude: "",
-          communicationGoogleAddress: "",
-          permanentHnoOrFlatno : "",
-          permanentBlockorApartment : "",
-          permanentStreet: "",
-          permanentLocalityOrVillage : "",
-          permanentDistrict : "",
-          permanentState : "",
-          permanentPinCode : "",
-          permanentPostalAddress : "",
-          latitude : "",
-          longitude: "",
-          permanentGoogleAddress: "",
-          shortTerm : "",
-          longTerm: "",
-          strengths : "",
-          weakness : "",});
+          setState({ personalDetails:[ {firstName : '', middleName : '',lastName : '',emailID : '',mobileNumber : '',dateOfBirth : '' } ],
+           
+            employmentDetails : [{type : '',title : '',organizationOrInstitute : '',location : '',industryOrDomain : '',profileHeadline : '',}],
+            userTechnicalSkills : [{skillTitle : ''}],
+            softSkills : [{skills : ''}],
+            extraCurricularActivities : [{interests : '',achievements : ''}],
+            languagesKnown : [{languageName : ''}],
+            usersFamilyDetails : [{fatherName : '',motherName : '',fatherOccupation : '',motherOccupation : '',}],
+            usersPhysicalAddressDetails : [{communicationHnoOrFlatno : '',communicationBlockOrApartment : '',communicationStreet : '',communicationLocalityOrVillage : '',communicationDistrict : '',communicationState : '',communicationPinCode : '',postalAddress : '',latitude : '',longitude : '',communicationGoogleAddress : '',}],
+            usersGoals : [{shortTerm : '',longTerm : '',}],
+            usersPersonalityTraits : [{strengths : '',weakness : '',}] });
         })
         .catch((err) => console.log(err.response.data));
         window.alert(" Concept updated scucessfully ")
@@ -296,12 +346,25 @@ const UpdateUser = () => {
         setState({...state,[name]: value });
       };
 
+    
+
+    //   const handleroom = (e, id) => {
+    //     const { value } = e.target;
+    //     setState(([initialState]) =>
+    //     [initialState].map((list, index) =>
+    //         index === id ? { ...list, [initialState]: value } : list
+    //       )
+    //     );
+    //   };
+
+
     return (
         <div className="UpdateUser">
             <div>
                     <div>
                             <div style={{marignTop:"40px"}}>
-                                <h2 className="tile">PersonalDetailes</h2>
+                            <h2 className="tile">PersonalDetailes</h2>
+                            
                                 <form style={{
                                     margin:"auto",
                                     padding: "15px",
@@ -312,56 +375,63 @@ const UpdateUser = () => {
                                     type="text"
                                     id="firstName"
                                     name="firstName"
-                                    placeholder="firstName"
+                                    placeholder="firstName"        
                                     value={firstName}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 <label htmlFor="middleName">middleName</label>
                                 <input
                                     type="middleName"
                                     id="middleName"
-                                    name="middleName"
+                                    name="personalDetails.middleName"
                                     placeholder="middleName"
                                     value={middleName}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 <label htmlFor="lastName">lastName</label>
                                 <input
                                     type="lastName"
                                     id="lastName"
-                                    name="lastName"
+                                    name="personalDetails.lastName"
                                     placeholder="lastName"
                                     value={lastName}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 <label htmlFor="emailID">emailID</label>
                                 <input
                                     type="emailID"
                                     id="emailID"
-                                    name="emailID"
+                                    name="personalDetails.emailID"
                                     placeholder="emailID"
                                     value={emailID}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 <label htmlFor="mobileNumber">mobileNumber</label>
                                 <input
                                     type="mobileNumber"
                                     id="mobileNumber"
-                                    name="mobileNumber"
+                                    name="personalDetails.mobileNumber"
                                     placeholder="mobileNumber"
                                     value={mobileNumber}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 <label htmlFor="dateOfBirth">dateOfBirth</label>
                                 <input
                                     type="Date"
                                     id="dateOfBirth"
-                                    name="dateOfBirth"
+                                    name="personalDetails.dateOfBirth"
                                     placeholder="mobdateOfBirthileNumber"
                                     value={dateOfBirth}
+                                    // onChange={(e) => handleroom(e, i)}
                                     onChange={handleInputChange}
                                     />
                                 </form>
+                          
                             </div>          
                     </div>
                     {/* This form is AcademicDetails */}
@@ -568,7 +638,7 @@ const UpdateUser = () => {
                                         id="description"
                                         name="description"
                                         placeholder=""
-                                        value={description}
+                                        // value={description}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="profileHeadline">ProfileHeadline </label>
@@ -838,7 +908,7 @@ const UpdateUser = () => {
                                 </form>
                             </div>
                            
-                        </div>
+                        </div> 
                     </div>
                     {/* This is the usersPhysicalAddressDetails */}
                     <div>
@@ -858,7 +928,7 @@ const UpdateUser = () => {
                                         id="permanentHnoOrFlatno"
                                         name="permanentHnoOrFlatno"
                                         placeholder=""
-                                        value={permanentHnoOrFlatno}
+                                        // value={permanentHnoOrFlatno}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentBlockorApartment">permanentBlockorApartment</label>
@@ -867,7 +937,7 @@ const UpdateUser = () => {
                                         id="permanentBlockorApartment"
                                         name="permanentBlockorApartment"
                                         placeholder=""
-                                        value={permanentBlockorApartment}
+                                        // value={permanentBlockorApartment}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentStreet">permanentStreet</label>
@@ -876,7 +946,7 @@ const UpdateUser = () => {
                                         id="permanentStreet"
                                         name="permanentStreet"
                                         placeholder=""
-                                        value={permanentStreet}
+                                        // value={permanentStreet}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentLocalityOrVillage">permanentLocalityOrVillage </label>
@@ -885,7 +955,7 @@ const UpdateUser = () => {
                                         id="permanentLocalityOrVillage"
                                         name="permanentLocalityOrVillage"
                                         placeholder=""
-                                        value={permanentLocalityOrVillage}
+                                        // value={permanentLocalityOrVillage}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentDistrict">permanentDistrict </label>
@@ -894,7 +964,7 @@ const UpdateUser = () => {
                                         id="permanentDistrict"
                                         name="permanentDistrict"
                                         placeholder=""
-                                        value={permanentDistrict}
+                                        // value={permanentDistrict}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentState">permanentState </label>
@@ -903,7 +973,7 @@ const UpdateUser = () => {
                                         id="permanentState"
                                         name="permanentState"
                                         placeholder=""
-                                        value={permanentState}
+                                        // value={permanentState}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentPinCode">permanentPinCode </label>
@@ -912,7 +982,7 @@ const UpdateUser = () => {
                                         id="permanentPinCode"
                                         name="permanentPinCode"
                                         placeholder=""
-                                        value={permanentPinCode}
+                                        // value={permanentPinCode}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentPostalAddress">permanentPostalAddress </label>
@@ -921,7 +991,7 @@ const UpdateUser = () => {
                                         id="permanentPostalAddress"
                                         name="permanentPostalAddress"
                                         placeholder=""
-                                        value={permanentPostalAddress}
+                                        // value={permanentPostalAddress}
                                         onChange={handleInputChange}
                                         />
                                     <label htmlFor="permanentGoogleAddress">permanentGoogleAddress </label>
@@ -930,7 +1000,7 @@ const UpdateUser = () => {
                                         id="permanentGoogleAddress"
                                         name="permanentGoogleAddress"
                                         placeholder=""
-                                        value={permanentGoogleAddress}
+                                        // value={permanentGoogleAddress}
                                         onChange={handleInputChange}
                                         />
                                 </form>

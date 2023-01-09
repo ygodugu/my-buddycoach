@@ -53,7 +53,14 @@ const AddConceptToUser = () => {
   const loadData = async () => {
     // debugger
     // alert(10)
-   const resp = await axios.get(`http://192.168.0.118:8080/conceptToUser/${userID}`);
+   const resp = await axios.get(`http://192.168.0.118:8080/conceptToUser/${userID}`,
+   {
+    headers: {
+        'Accept': '*/*',
+        'Content-Type': 'application/json',
+        "Authorization": `${localStorage.getItem('token')}`
+        },
+  });
   //  alert(20)
    setData(resp.data);
   //  alert(30)
@@ -69,12 +76,17 @@ const AddConceptToUser = () => {
   <option key={item.conceptID}>{item.conceptName}</option> 
 );
 
-  const handler = () => {
+  const handler = (e) => {
+    e.preventDefault();
     // debugger
     // alert('conceptID',conceptid)
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Accept': '*/*',
+      'Content-Type': 'application/json',
+      "Authorization": `${localStorage.getItem('token')}`
+      },
     body: JSON.stringify({ 
       userID : userID,
       conceptID : conceptid
@@ -117,7 +129,7 @@ const AddConceptToUser = () => {
       <p id="simple-modal-description"  style={{margin: "15px 0px 0px 0px "}} >
         Click on Add More button to add more concepts 
       </p>
-      <Link to={`/View/${userID}`}>
+      <Link to={`/UserView/${userID}`}>
          <Button variant="contained" color="primary" 
          style={{margin: "40px 60px 0px 0px ",textDecoration:"none"}}>Done</Button>
       </Link>
@@ -156,33 +168,40 @@ const AddConceptToUser = () => {
                 </datalist>
           </form>
         </div>
-        <div>
-            <button  className="buttonSubmit" type="button"
-            onClick={(event) => { handler(event); handleOpen();}}
-            >
-              Add Concepts
-            </button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              {body}
-            </Modal>
-          </div>
-        {/* <button 
-              className="buttonSubmit" 
-              value="Save"
-              onClick={handler} > 
-              ADD Concept </button>  */}
-              <Link to={`/UserView/${userID}`}>
-              <button 
-              className="bttonGoback" 
-              type="button" 
-              value="Go Back">
-              Go Back</button>
-            </Link>
+        <div style={{
+              margin:"auto",
+              padding: "15px",
+              maxWidth:"400px",
+              alignItems:"center"
+            }}>
+          <div>
+              <button  className="buttonSubmit" type="button"
+              onClick={(event) => { handler(event); handleOpen();}}
+              >
+                Add Concepts
+              </button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                {body}
+              </Modal>
+            </div>
+          {/* <button 
+                className="buttonSubmit" 
+                value="Save"
+                onClick={handler} > 
+                ADD Concept </button>  */}
+                <Link to={`/UserView/${userID}`}>
+                <button 
+                className="bttonGoback" 
+                type="button" 
+                value="Go Back">
+                Go Back</button>
+              </Link>
+        </div>
     </div>
   )
 }

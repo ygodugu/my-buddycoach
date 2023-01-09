@@ -28,11 +28,19 @@ const AddBadges = () => {
         console.log("conceptDescription : " + badgeDescription)
         console.log("conceptLogo : " + badgeRules)
         console.log("badgeCount : " + badgeCount)
-       axios.post("http://192.168.0.118:8080/badge", {  
-        badgeName : badgeName,
-        badgeDescription : badgeDescription,
-        badgeRules : badgeRules,
-        badgeCount : badgeCount
+      fetch("http://192.168.0.118:8080/badge", { 
+        method : "post" ,
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+              "Authorization": `${localStorage.getItem('token')}`
+              },
+              body: JSON.stringify ({
+              badgeName : badgeName,
+              badgeDescription : badgeDescription,
+              badgeRules : badgeRules,
+              badgeCount : badgeCount
+            }),
        })
       .then(() => {
         setState({badgeName: "", badgeDescription: "", badgeRules: "", badgeCount: "" });

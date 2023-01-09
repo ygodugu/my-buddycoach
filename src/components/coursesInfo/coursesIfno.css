@@ -1,19 +1,15 @@
-.box {
+.box1 {
     width: 70%;
     height: 25%;
 }
 
-/* .box:hover {
-    transform: scale();
-    transition-duration: 0.5s
-} */
-.featured{
+.coursesInfo{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 55px;
 }
-.featuredItem{
+.coursesInfoItem{
     flex: 1;
     margin: 0px 20px;
     padding: 20px;
@@ -23,31 +19,32 @@
     /* -webkit-box-shadow: 0px 0px 15px -10px #000000; 
     box-shadow: 0px 0px 15px -10px #000000; */
 }
-.featuredItemContainer{
+
+.coursesInfoItemContainer{
     margin-left: 200px;
 }
 
-.featuredTitle{
+.coursesInfoTitle{
     font-size: 20px;
     margin-left: 20px;
 } 
 
-.featuredMoneyContainer{
+.coursesInfoMoneyContainer{
     margin: 10px 0px;
     display: flex;
     align-items: center;
 }
-.featuredMoney{
+.coursesInfoMoney{
     font-size: 30px;
     font-weight: 600;
     margin-left: 20px;
 }
-.featuredMoneyRate{
+.coursesInfoMoneyRate{
     display: flex;
     align-items: center;
     margin-left: 12px;
 }
-.featuredsub{
+.coursesInfosub{
     font-size: 15px;
     color: grey;
 }
@@ -61,7 +58,7 @@
     color: inherit;
 }
 
-.border{
+.borderCourse{
     border: 2px solid black;
     width: 50px;
     height: 45px;
@@ -74,26 +71,13 @@
     font-size: 10px;
     background-color: rgb(255, 255, 255)
 }
-.Name {
+.NameCourse {
     position: relative;
     cursor: pointer;
     margin-right: 10px;
 }
 
-.featuredIcon {
-    font-size: 23px !important;
-    font-weight: 50px;
-}
-
-.LogOutButton{
-    width: 100px;
-    border: none;
-    padding: 5px;
-    background-color: teal;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
-    margin-top: 20px;
-    margin-left: 1100px;
+.courseInfoIcon {
+   font-size: 23px !important;
+   font-weight: 50px;
 }

@@ -23,7 +23,14 @@ const initialState = {
   const {conceptID} = useParams();
 
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/concept/${conceptID}`)
+    axios.get(`http://192.168.0.118:8080/concept/${conceptID}`,
+    {
+      headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json',
+          "Authorization": `${localStorage.getItem('token')}`
+          },
+    })
     .then((resp) => setState({...resp.data[0] }));
   }, [conceptID])
 
@@ -38,12 +45,20 @@ const initialState = {
         console.log("conceptLogo : " + conceptLogo)
         console.log("resourceLink : " + resourceLink)
         console.log("quizLink : " + quizLink)
-        axios.put(`http://192.168.0.118:8080/concept/${conceptID}`, {     
-          conceptName : conceptName,
-          conceptDescription : conceptDescription,
-          conceptLogo : conceptLogo,
-          resourceLink : resourceLink,
-          quizLink : quizLink
+        fetch(`http://192.168.0.118:8080/concept/${conceptID}`, {
+          method : "put",  
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
+        body: JSON.stringify ({
+              conceptName : conceptName,
+              conceptDescription : conceptDescription,
+              conceptLogo : conceptLogo,
+              resourceLink : resourceLink,
+              quizLink : quizLink  
+            }),
          })
         .then(() => {
           setState({conceptName: "", conceptDescription: "", conceptLogo: "", resourceLink: "", quizLink: ""  });

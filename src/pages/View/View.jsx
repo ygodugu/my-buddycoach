@@ -18,15 +18,33 @@ function View() {
     const {courseID} = useParams();
     
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/course/${courseID}?pageNumber=${pageNumber}&limit=${limit}`)
-       .then((resp) => {setCourse(resp.data[0]);console.log(course)})
-     }, [pageNumber,limit])
+       axios.get(`http://192.168.0.118:8080/course/${courseID}`,
+       {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                pageNumber : pageNumber,
+                limit : limit,
+                })
+    })
+       .then((resp) => setCourse(resp.data[0]))
+     }, [])
 
 
      const deleteCourse = (conceptID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
         if (window.confirm('Are you sure you want to save this thing into the database?')) {
-          axios.delete(`http://192.168.0.118:8080/conceptToCourse/${courseID}/${conceptID}`);
+          axios.delete(`http://192.168.0.118:8080/conceptToCourse/${courseID}/${conceptID}`,
+          {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
+        });
           toast.success("concept delete scuccesfully");
           // Save it!
           console.log('Nothing was deleted .');

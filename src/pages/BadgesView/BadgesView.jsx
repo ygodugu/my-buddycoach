@@ -11,7 +11,14 @@ const UserView = () => {
     const {badgeID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/badge/${badgeID}`)
+       axios.get(`http://192.168.0.118:8080/badge/${badgeID}`,
+       {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+        })
        .then((resp) => setBadge({...resp.data[0]}));
      }, [badgeID])
    

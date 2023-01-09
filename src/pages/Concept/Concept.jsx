@@ -11,7 +11,14 @@ const Concept = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/concepts");
+    const response = await axios.get("http://192.168.0.118:8080/concepts",
+    {
+      headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json',
+          "Authorization": `${localStorage.getItem('token')}`
+          },
+    });
     setData(response.data);
     console.log(response.data);
   };
@@ -22,7 +29,15 @@ const loadData = async () => {
    const deleteCourse = (conceptID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to save this thing into the database?')) {
-      axios.delete(`http://192.168.0.118:8080/course/${conceptID}`);
+      fetch(`http://192.168.0.118:8080/concept/${conceptID}`,   
+      {
+        method : "delete",
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      });
       toast.success("course delete scuccesfully");
       // Save it!
       console.log('Thing was saved to the database.');
@@ -36,7 +51,9 @@ const loadData = async () => {
       <div className="ConceptsList">
       <div style={{marginTop: "40px"}}>
         <div className="ConceptsTitleContainer">
-           <h1 className="ConceptsTitle">ConceptList</h1>
+          <Link to={`/Home`} className="link">
+              <h1 className="ConceptsTitle">ConceptList</h1>
+           </Link>
               <Link to="/AddConcept">
                  <button className="ConceptsAddButton">Add Concepts</button>
               </Link>

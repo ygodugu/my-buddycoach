@@ -25,10 +25,18 @@ const AddCourse = () => {
         console.log("courseName : " + courseName)
         console.log("courseDescription : " + courseDescription)
         console.log("courseLogo : " + courseLogo)
-       axios.post("http://192.168.0.118:8080/course", {  
-        courseName : courseName,
-        courseDescription : courseDescription,
-        courseLogo : courseLogo
+       fetch("http://192.168.0.118:8080/course", {  
+        method : "post",
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+              "Authorization": `${localStorage.getItem('token')}`
+              },
+        body: JSON.stringify ({
+            courseName : courseName,
+            courseDescription : courseDescription,
+            courseLogo : courseLogo 
+            }),
        })
       .then(() => {
         setState({courseName: "", courseDescription: "", courseLogo: "" });

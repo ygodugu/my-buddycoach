@@ -20,7 +20,14 @@ const UpdateCourse = () => {
     const {courseID} = useParams();
 
     useEffect(() => {
-      axios.get(`http://192.168.0.118:8080/course/${courseID}`)
+      axios.get(`http://192.168.0.118:8080/course/${courseID}`,
+      {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+    })
       .then((resp) => setState({...resp.data[0] }));
     }, [courseID])
   
@@ -33,10 +40,18 @@ const UpdateCourse = () => {
           console.log("courseName : " + courseName)
           console.log("courseDescription : " + courseDescription)
           console.log("courseLogo : " + courseLogo)
-          axios.put(`http://192.168.0.118:8080/course/${courseID}`, {    
-            courseName : courseName,
-            courseDescription : courseDescription,
-            courseLogo : courseLogo,
+          fetch(`http://192.168.0.118:8080/course/${courseID}`, { 
+            method : "put",
+              headers: {
+                  'Accept': '*/*',
+                  'Content-Type': 'application/json',
+                  "Authorization": `${localStorage.getItem('token')}`
+                  },
+              body: JSON.stringify ({
+                courseName : courseName,
+                courseDescription : courseDescription,
+                courseLogo : courseLogo, 
+              }),
            })
           .then(() => {
             setState({courseName: "", courseDescription: "", courseLogo: "" });

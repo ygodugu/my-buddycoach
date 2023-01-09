@@ -33,13 +33,21 @@ const AddUser = () => {
         console.log("emailID : " + emailID)
         console.log("mobileNumber : " + mobileNumber)
         console.log("dateOfBirth : " + dateOfBirth)
-       axios.post("http://192.168.0.118:8080/user", {  
-        firstName : firstName,
-        middleName : middleName,
-        lastName : lastName,
-        emailID : emailID,
-        mobileNumber : mobileNumber,
-        dateOfBirth : dateOfBirth
+       fetch("http://192.168.0.118:8080/user", {  
+        method : "post",
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+              "Authorization": `${localStorage.getItem('token')}`
+              },
+      body: JSON.stringify ({
+              firstName : firstName,
+              middleName : middleName,
+              lastName : lastName,
+              emailID : emailID,
+              mobileNumber : mobileNumber,
+              dateOfBirth : dateOfBirth 
+           }),
        })
       .then(() => {
         setState({firstName: "", middleName: "", lastName: "", emailID: "", mobileNumber: "", dateOfBirth: "" });

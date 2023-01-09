@@ -2,6 +2,7 @@ import React,{useState, useEffect}  from 'react'
 import "./badges.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {toast} from "react-toastify";
 import {DeleteForever,Visibility,BorderColor} from "@material-ui/icons"
 
 
@@ -10,17 +11,40 @@ const Badges = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/badges");
+    const response = await axios.get("http://192.168.0.118:8080/badges",
+    {
+      headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json',
+          "Authorization": `${localStorage.getItem('token')}`
+          },
+    });
     setData(response.data);
   };
    useEffect(() => {
     loadData();
    },[]);
 
+
    const deleteCourse = (badgeID) => {
-     if(window.confirm(" Are you sure that delete the badge ?"));
-     axios.delete(` http://192.168.0.118:8080/badge/${badgeID}`);
-     window.alert("concept delete scuccesfully");
+    //  if(window.alert(" Are you sure that delete the course ?"));
+    if (window.confirm(" Are you sure that delete the badge ?")) {
+      fetch(`http://192.168.0.118:8080/badge/${badgeID}`,
+      {
+        method : "delete",
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      });
+      toast.success("course delete scuccesfully");
+      // Save it!
+      console.log('Thing was saved to the database.');
+    } else {
+      // Do nothing!
+      console.log('Thing was not saved to the database.');
+    }
      setTimeout(() => loadData(), 500);
    }
 
@@ -29,7 +53,9 @@ const loadData = async () => {
     <div className="BadgesList">
       <div style={{marginTop: "40px"}}>
         <div className="BadgesTitleContainer">
-           <h1 className="BadgesTitle">BadgesList</h1>
+          <Link to={`/Home`} className="link">
+              <h1 className="BadgesTitle">BadgesList</h1>
+           </Link>
               <Link to="/AddBadges">
                  <button className="BadgesAddButton">Add Badges</button>
               </Link>

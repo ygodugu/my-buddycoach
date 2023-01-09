@@ -50,7 +50,14 @@ const AddConcept = () => {
       const loadData = async () => {
         // debugger
         // alert(10)
-      const resp = await axios.get(`http://192.168.0.118:8080/badgeToUser/${userID}`);
+      const resp = await axios.get(`http://192.168.0.118:8080/badgeToUser/${userID}`,
+      {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      });
     //    alert(20)
       setData(resp.data);
     //    alert(30)
@@ -71,8 +78,12 @@ const AddConcept = () => {
         // alert('badgeID',badgeid)
       const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+              "Authorization": `${localStorage.getItem('token')}`
+              },
+       body: JSON.stringify({ 
             userID : userID,
             badgeID  : badgeid,
         })
@@ -154,34 +165,41 @@ const AddConcept = () => {
                 </select>
                 </datalist>
           </form>
-          <div>
-            <button  className="buttonSubmit" type="button"
-            onClick={(event) => { handler(event); handleOpen();}}
-            >
-              Add Concepts
-            </button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              {body}
-            </Modal>
+          <div style={{
+              margin:"auto",
+              padding: "15px",
+              maxWidth:"400px",
+              alignItems:"center"
+            }}>
+            <div>
+              <button  className="buttonSubmit" type="button"
+              onClick={(event) => { handler(event); handleOpen();}}
+              >
+                Add Badges
+              </button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                {body}
+              </Modal>
+            </div>
+              {/* <button 
+                  className="buttonSubmit" 
+                  value="Save"
+                  onClick={handler} > 
+                  ADD Concept 
+              </button>  */}
+                <Link to={`/UserView/${userID}`}>
+                <button 
+                className="bttonGoback" 
+                type="button" 
+                value="Go Back">
+                Go Back</button>
+              </Link>
           </div>
-            {/* <button 
-                className="buttonSubmit" 
-                value="Save"
-                onClick={handler} > 
-                ADD Concept 
-            </button>  */}
-              <Link to={`/UserView/${userID}`}>
-              <button 
-              className="bttonGoback" 
-              type="button" 
-              value="Go Back">
-              Go Back</button>
-            </Link>
         </div>
     </div>
   )

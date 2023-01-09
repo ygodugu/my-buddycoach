@@ -20,8 +20,16 @@ const initialState = {
 
   const {badgeID} = useParams();
 
+ 
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/badge/${badgeID}`)
+    axios.get(`http://192.168.0.118:8080/badge/${badgeID}`,
+    {
+      headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json',
+          "Authorization": `${localStorage.getItem('token')}`
+          },
+    })
     .then((resp) => setState({...resp.data[0] }));
   }, [badgeID ])
 
@@ -35,11 +43,19 @@ const initialState = {
         console.log("badgeDescription : " + badgeDescription)
         console.log("badgeRules : " + badgeRules)
         console.log("badgeCount : " + badgeCount)
-        axios.put(`http://192.168.0.118:8080/badge/${badgeID}`, {     
-            badgeName : badgeName,
-            badgeDescription : badgeDescription,
-            badgeRules : badgeRules,
-            badgeCount : badgeCount
+        fetch(`http://192.168.0.118:8080/badge/${badgeID}`, { 
+          method : "put",
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify ({
+                  badgeName : badgeName,
+                  badgeDescription : badgeDescription,
+                  badgeRules : badgeRules,
+                  badgeCount : badgeCount
+              }),
          })
         .then(() => {
           setState({badgeName: "", badgeDescription: "", badgeRules: "", badgeCount: ""});

@@ -10,7 +10,14 @@ const User = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/users");
+    const response = await axios.get("http://192.168.0.118:8080/users",
+    {
+      headers: {
+          'Accept': '*/*',
+          'Content-Type': 'application/json',
+          "Authorization": `${localStorage.getItem('token')}`
+          },
+    });
     setData(response.data);
   };
    useEffect(() => {
@@ -20,7 +27,15 @@ const loadData = async () => {
    const deleteCourse = (userID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to delete User ?')) {
-      axios.delete(`http://192.168.0.118:8080/conceptToCourse/${userID}`);
+      fetch(`http://192.168.0.118:8080/user/${userID}`,
+      {
+        method : "delete",
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      });
       toast.success("user delete scuccesfully");
       // Save it!
       console.log('Nothing was deleted .');
@@ -35,7 +50,9 @@ const loadData = async () => {
     <div className="UserList">
       <div style={{marginTop: "40px"}}>
         <div className="UserTitleContainer">
-           <h1 className="UserTitle">UserList</h1>
+          <Link to={`/Home`} className="link">
+              <h1 className="UserTitle">UserList</h1>
+           </Link>
               <Link to="/AddUser">
                  <button className="UserAddButton">Add User</button>
               </Link>

@@ -51,7 +51,14 @@ const AddConcept = () => {
       const loadData = async () => {
         // debugger
         // alert(10)
-      const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`);
+      const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`,
+      {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+    });
       //  alert(20)
       setData(resp.data);
       //  alert(30)
@@ -67,12 +74,17 @@ const AddConcept = () => {
       <option key={item.conceptID}>{item.conceptName}</option> 
       );
 
-      const handler = () => {
+      const handler = (e) => {
+        e.preventDefault();
         // debugger
         // alert('conceptID',conceptid)
       const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+               "Authorization": `${localStorage.getItem('token')}`
+            },
         body: JSON.stringify({ 
           courseID : courseID,
           conceptID : conceptid
@@ -130,60 +142,68 @@ const AddConcept = () => {
   return (
     <div className="AddCourse">
       {/* {JSON.stringify(data)} */}
-        <div style={{marignTop:"40px"}}>
-          <form style={{
-            margin:"auto",
-            padding: "15px",
-            maxWidth:"400px",
-            alignItems:"center"
-          }}
-          >
-          <label htmlFor="conceptName">Search</label>
-                <input
-                  list="data1"
-                  type="text"
-                  id="conceptName"
-                  name="conceptName"
-                  placeholder="Search..."
-                  value={conceptName}
-                  onChange={ (e) => handleInputChange(e,data )}
-                  />
-                <datalist id="data1">
-                <select>
-                  {optionItems}
-                </select>
-                </datalist>
-          </form>
-          <div>
-            <button  className="buttonSubmit" type="button"
-            onClick={(event) => { handler(event); handleOpen();}}
+          <div style={{marignTop:"40px"}}>
+            <form style={{
+              margin:"auto",
+              padding: "15px",
+              maxWidth:"400px",
+              alignItems:"center"
+            }}
             >
-              Add Concepts
-            </button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              {body}
-            </Modal>
+            <label htmlFor="conceptName">Search</label>
+                  <input
+                    list="data1"
+                    type="text"
+                    id="conceptName"
+                    name="conceptName"
+                    placeholder="Search..."
+                    value={conceptName}
+                    onChange={ (e) => handleInputChange(e,data )}
+                    />
+                  <datalist id="data1">
+                  <select>
+                    {optionItems}
+                  </select>
+                  </datalist>
+            </form>
+            <div style={{
+              margin:"auto",
+              padding: "15px",
+              maxWidth:"400px",
+              alignItems:"center"
+            }}>
+                <div>
+                  <button  className="buttonSubmit"
+                   type="submit"
+                  onClick={(event) => { handler(event); handleOpen();}}
+                  >
+                    Add Concepts
+                  </button>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                  >
+                    {body}
+                  </Modal>
+                </div>
+                {/* <button 
+                    className="buttonSubmit" 
+                    value="Save"
+                    onClick={handler} > 
+                    ADD Concept 
+                </button>  */}
+                    <Link to={`/View/${courseID}`}>
+                    <button 
+                    className="bttonGoback" 
+                    type="button" 
+                    value="Go Back">
+                    Go Back</button>
+                  </Link>
+              </div>
           </div>
-          {/* <button 
-              className="buttonSubmit" 
-              value="Save"
-              onClick={handler} > 
-              ADD Concept 
-          </button>  */}
-              <Link to={`/View/${courseID}`}>
-              <button 
-              className="bttonGoback" 
-              type="button" 
-              value="Go Back">
-              Go Back</button>
-            </Link>
-        </div>
-    </div>
+      </div>
   )
 }
 

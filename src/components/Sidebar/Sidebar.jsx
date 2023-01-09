@@ -1,9 +1,8 @@
 import React from "react";
 import "./sidebar.css";
-import { LineStyle,Timeline,TrendingUp,
-    PermIdentity,AccountTree,LibraryBooks,BarChart,
-    MailOutline,DynamicFeed,ChatBubbleOutline,
-    WorkOutline,Report,HowToVote,Group,AcUnit,Assistant,School,} from "@material-ui/icons";
+import { LineStyle,
+    PermIdentity,LibraryBooks,BarChart,
+    MailOutline,AcUnit,Assistant,} from "@material-ui/icons";
 import { Link } from "react-router-dom";
  
 export default function Sidebar() {
@@ -19,14 +18,6 @@ export default function Sidebar() {
                     Home
                 </li>
                 </Link>
-                <li className="sidebarListItem">
-                    <Timeline className="sidebarIcons"/>
-                    Analytics
-                </li>
-                <li className="sidebarListItem">
-                    <TrendingUp className="sidebarIcons"/>
-                    sales
-                </li>
             </ul>
         </div>
         <div className="sidebarMenu">
@@ -38,10 +29,6 @@ export default function Sidebar() {
                         Users
                     </li>
                 </Link>
-                    <li className="sidebarListItem">
-                        <AccountTree className="sidebarIcons"/>
-                        Products
-                    </li>
                 <Link to={"/Course"} className="link">
                     <li className="sidebarListItem">
                         <LibraryBooks className="sidebarIcons"/>
@@ -71,18 +58,6 @@ export default function Sidebar() {
                         Achiever
                     </li>
                 </Link>
-                <li className="sidebarListItem">
-                <HowToVote className="sidebarIcons"/>
-                    voting
-                </li>
-                <li className="sidebarListItem">
-                    <Group className="sidebarIcons"/>
-                    Manage Team
-                </li>
-                    <li className="sidebarListItem">
-                        <School className="sidebarIcons"/>
-                        Education
-                    </li>
             </ul>
         </div>
         <div className="sidebarMenu">
@@ -94,31 +69,6 @@ export default function Sidebar() {
                         Mail
                     </li>
                 </Link>
-                <li className="sidebarListItem">
-                    <DynamicFeed className="sidebarIcons"/>
-                    Feedback
-                </li>
-                <li className="sidebarListItem">
-                    <ChatBubbleOutline className="sidebarIcons"/>
-                    Message
-                </li>
-            </ul>
-        </div>
-        <div className="sidebarMenu">
-            <h3 className="sidebarTitle"> Staff </h3>
-            <ul className="sidebarList">
-                <li className="sidebarListItem">
-                    <WorkOutline className="sidebarIcons"/>
-                    Manage
-                </li>
-                <li className="sidebarListItem">
-                    <Timeline className="sidebarIcons"/>
-                    Analytics
-                </li>
-                <li className="sidebarListItem">
-                    <Report className="sidebarIcons"/>
-                    Reports
-                </li>
             </ul>
         </div>
       </div>

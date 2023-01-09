@@ -10,7 +10,14 @@ const Course = () => {
    const [data, setData] = useState([]);
 
    const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/courses");
+    const response = await axios.get("http://192.168.0.118:8080/courses",
+        {
+          headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+              "Authorization": `${localStorage.getItem('token')}`
+              },
+        });
     setData(response.data);
   };
    useEffect(() => {
@@ -20,7 +27,15 @@ const Course = () => {
    const deleteCourse = (courseID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to save this thing into the database?')) {
-      axios.delete(`http://192.168.0.118:8080/course/${courseID}`);
+      fetch(`http://192.168.0.118:8080/course/${courseID}`,
+      {
+        method : "delete",
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      });
       toast.success("course delete scuccesfully");
       // Save it!
       console.log('Thing was saved to the database.');
@@ -35,7 +50,9 @@ const Course = () => {
     <div className="CourseList">
       <div style={{marginTop: "40px"}}>
         <div className="CourseTitleContainer">
-           <h1 className="CourseTitle">CourseList</h1>
+          <Link to={`/Home`} className="link">
+              <h1 className="CourseTitle">CourseList</h1>
+            </Link>
               <Link to="/AddCourse">
                  <button className="CourseAddButton">Add Cources</button>
               </Link>

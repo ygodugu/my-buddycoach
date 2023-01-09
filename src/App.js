@@ -31,6 +31,7 @@ import AddAchievers from "./pages/AddAchievers/AddAchievers";
 import UpdateAchievers from "./pages/UpdateAchievers/UpdateAchievers";
 import ViewAchievers from "./pages/ViewAchievers/ViewAchievers";
 import Form from "./Form";
+import LoginPage from "./components/LoginPages/LoginPage"
 
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
@@ -60,11 +61,14 @@ function App() {
     <BrowserRouter>
         <Router>
         <ToastContainer position="top-center" />
-                 <Topbar/>
+                 {/* <Topbar/> */}
+            <Route exact path="/">
+                <LoginPage/>
+            </Route>
             <div className="container">
-                <Sidebar/>
+                {/* <Sidebar/> */}
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/Home">
                     <Home/>
                 </Route>
                 <Route exact path="/Course">

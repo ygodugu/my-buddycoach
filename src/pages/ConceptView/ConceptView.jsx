@@ -12,7 +12,14 @@ const ConceptView = () => {
    
     useEffect(() => {
         debugger
-       axios.get(`http://192.168.0.118:8080/concept/${conceptID}`)
+       axios.get(`http://192.168.0.118:8080/concept/${conceptID}`,
+       {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+        })
        .then((resp) => setConcept({...resp.data[0]}));
      }, [conceptID])
    

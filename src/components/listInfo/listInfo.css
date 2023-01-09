@@ -1,53 +1,50 @@
-.box {
+.box2 {
     width: 70%;
     height: 25%;
 }
 
-/* .box:hover {
-    transform: scale();
-    transition-duration: 0.5s
-} */
-.featured{
+.listInfo{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 55px;
 }
-.featuredItem{
+.listInfoItem{
     flex: 1;
     margin: 0px 20px;
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid black;
     cursor: pointer;
+    border: 2px solid black;
     /* -webkit-box-shadow: 0px 0px 15px -10px #000000; 
     box-shadow: 0px 0px 15px -10px #000000; */
 }
-.featuredItemContainer{
+
+.listItemContainer{
     margin-left: 200px;
 }
 
-.featuredTitle{
+.listInfoTitle{
     font-size: 20px;
     margin-left: 20px;
 } 
 
-.featuredMoneyContainer{
+.listInfoMoneyContainer{
     margin: 10px 0px;
     display: flex;
     align-items: center;
 }
-.featuredMoney{
+.listInfoMoney{
     font-size: 30px;
     font-weight: 600;
     margin-left: 20px;
 }
-.featuredMoneyRate{
+.listInfoMoneyRate{
     display: flex;
     align-items: center;
     margin-left: 12px;
 }
-.featuredsub{
+.listInfosub{
     font-size: 15px;
     color: grey;
 }
@@ -56,12 +53,7 @@
     margin-bottom: 15px;
 }
 
-.Link{
-    text-decoration: none;
-    color: inherit;
-}
-
-.border{
+.borderList{
     border: 2px solid black;
     width: 50px;
     height: 45px;
@@ -74,26 +66,13 @@
     font-size: 10px;
     background-color: rgb(255, 255, 255)
 }
-.Name {
+.NameList {
     position: relative;
     cursor: pointer;
     margin-right: 10px;
 }
 
-.featuredIcon {
+.listInfoIcon {
     font-size: 23px !important;
     font-weight: 50px;
-}
-
-.LogOutButton{
-    width: 100px;
-    border: none;
-    padding: 5px;
-    background-color: teal;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 14px;
-    margin-top: 20px;
-    margin-left: 1100px;
 }

@@ -1,0 +1,61 @@
+.emailID,.password {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button2 {
+    width: 100%;
+    background-color: #40453e;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.logoImg2 {
+  margin-top: 52px;
+  margin-left: 450px;
+}
+
+.code1 {
+    margin-bottom: 10px;
+}
+
+.LogTo{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 165px;
+}
+
+.input-field{
+    width: 90%;
+    height: 15px;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+  }
+  
+  .input-field input{
+    width: 70%;
+    background-color: transparent;
+    border: hidden;
+    outline: none;
+    text-indent: 2px;
+}
+  
+  .input-field span{
+    cursor: pointer;
+  }

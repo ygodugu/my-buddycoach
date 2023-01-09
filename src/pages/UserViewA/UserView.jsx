@@ -16,7 +16,14 @@ const UserView = () => {
     const {userID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/user/${userID}?pageNumber=${pageNumber}&limit=${limit}`)
+       axios.get(`http://192.168.0.118:8080/user/${userID}?pageNumber=${pageNumber}&limit=${limit}`,
+       {
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            "Authorization": `${localStorage.getItem('token')}`
+            },
+      })
        .then((resp) => setUser(resp.data[0]));
      }, [pageNumber,limit])
 
@@ -24,8 +31,15 @@ const UserView = () => {
 
      const deleteCourse = (conceptID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
-        if (window.confirm('Are you sure you want to save this thing into the database?')) {
-          axios.delete(`http://192.168.0.118:8080/conceptToCourse/${userID}/${conceptID}`);
+        if (window.confirm('Are you sure you want to delete the concept ')) {
+          axios.delete(`http://192.168.0.118:8080/conceptToUser/${userID}/${conceptID}`,
+          {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
+          });
           toast.success("concept delete scuccesfully");
           // Save it!
           console.log('Nothing was deleted .');
@@ -39,7 +53,14 @@ const UserView = () => {
        const deleteBadge = (badgeID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
         if (window.confirm('Are you sure you want to deleteBadge?')) {
-          axios.delete(`http://192.168.0.118:8080/badgeToUser/${userID}/${badgeID}`);
+          axios.delete(`http://192.168.0.118:8080/badgeToUser/${userID}/${badgeID}`,
+          {
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                "Authorization": `${localStorage.getItem('token')}`
+                },
+          });
           toast.success("badge delete scuccesfully");
           // Save it!
         } else {
@@ -112,9 +133,9 @@ const UserView = () => {
                                     <th scope='row'>{concept.conceptID}</th>
                                     <td>{concept.conceptName}</td>
                                 <td>
-                                    <Link to={`/UpdateConcept/${concept.conceptID}`}>
+                                    {/* <Link to={`/UpdateConcept/${concept.conceptID}`}>
                                         <button className="btn btn-edit"><BorderColor className="Icons" /></button>
-                                    </Link>
+                                    </Link> */}
                                         <button className="btn btn-delete" onClick={() => deleteCourse(concept.conceptID) }><DeleteForever className="Icons" /></button>
                                     <Link to={`/ConceptView/${concept.conceptID}`}>
                                         <button className="btn btn-view"><Visibility className="Icons"/></button>
@@ -160,9 +181,9 @@ const UserView = () => {
                                         <th scope='row'>{badge.badgeID}</th>
                                         <td>{badge.badgeName}</td>
                                     <td>
-                                        <Link to={`/UpdateConcept/${badge.badgeID}`}>
+                                        {/* <Link to={`/UpdateConcept/${badge.badgeID}`}>
                                             <button className="btn btn-edit"><BorderColor className="Icons" /></button>
-                                        </Link>
+                                        </Link> */}
                                             <button className="btn btn-delete" onClick={() => deleteBadge(badge.badgeID) }><DeleteForever className="Icons" /></button>
                                         <Link to={`/ConceptView/${badge.badgeID}`}>
                                             <button className="btn btn-view"><Visibility className="Icons"/></button>
