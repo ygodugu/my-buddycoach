@@ -9,23 +9,27 @@ const UserView = () => {
 
     const [user, setUser] = useState({});
 
-    const [pageNumber, setpageNumber] =useState(1);
+    const [pageNumberOfConcepts, setPageNumberOfConcepts] =useState(1);
 
-    const [ limit, setLimit] =useState(5);
+    const [ limitOfConcepts, setLimitOfConcepts] =useState(5);
+
+    const [pageNumberOfBadges, setPageNumberOfBadges] =useState(1);
+
+    const [ limitOfBadges, setLimitOfBadges] =useState(5);
 
     const {userID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/user/${userID}?pageNumber=${pageNumber}&limit=${limit}`,
+       axios.get(`http://192.168.0.118:8080/user/${userID}?pageNumberOfConcepts=${pageNumberOfConcepts}&limitOfConcepts=${limitOfConcepts}&pageNumberOfBadges=${pageNumberOfBadges}&limitOfBadges=${limitOfBadges}`,
        {
         headers: {
             'Accept': '*/*',
             'Content-Type': 'application/json',
             "Authorization": `${localStorage.getItem('token')}`
-            },
+            }
       })
        .then((resp) => setUser(resp.data[0]));
-     }, [pageNumber,limit])
+     }, [pageNumberOfConcepts,limitOfConcepts,pageNumberOfBadges,limitOfBadges])
 
      console.log(user)
 
@@ -150,10 +154,10 @@ const UserView = () => {
         </div>
             <div style={{marginTop:"40px",marginBottom:"40px" }}>  
                 <button className="PreviousButton"
-                onClick={() => {setpageNumber(count => count - 1)}}
+                onClick={() => {setPageNumberOfConcepts(count => count - 1)}}
                 >Previous</button>
                 <button className="NextButton"
-                onClick={() => {setpageNumber(count => count + 1)}}
+                onClick={() => {setPageNumberOfConcepts(count => count + 1)}}
                 >Next</button>
             </div>
 
@@ -198,10 +202,10 @@ const UserView = () => {
             </div>
             <div style={{marginTop:"40px",marginBottom:"40px" }}>  
                 <button className="PreviousButton"
-                onClick={() => {setpageNumber(count => count - 1)}}
+                onClick={() => {setPageNumberOfBadges(count => count - 1)}}
                 >Previous</button>
                 <button className="NextButton"
-                onClick={() => {setpageNumber(count => count + 1)}}
+                onClick={() => {setPageNumberOfBadges(count => count + 1)}}
                 >Next</button>
             </div>
         </div>

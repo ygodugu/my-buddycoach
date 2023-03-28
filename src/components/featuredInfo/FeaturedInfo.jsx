@@ -38,7 +38,7 @@ export default function FeaturedInfo() {
       })
       // remove token from local storage and redirect to login page 
       localStorage.clear();
-      history.push("/")
+      history.push("/LoginPage")
     } catch (error) {
       console.log(error);
     }

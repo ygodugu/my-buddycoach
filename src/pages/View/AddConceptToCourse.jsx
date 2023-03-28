@@ -174,6 +174,7 @@ const AddConcept = () => {
             }}>
                 <div>
                   <button  className="buttonSubmit"
+                  id="addconceptToCourseButton"
                    type="submit"
                   onClick={(event) => { handler(event); handleOpen();}}
                   >
@@ -196,6 +197,7 @@ const AddConcept = () => {
                 </button>  */}
                     <Link to={`/View/${courseID}`}>
                     <button 
+                    id="gobackButtonConceptsToCourse"
                     className="bttonGoback" 
                     type="button" 
                     value="Go Back">

@@ -31,7 +31,8 @@ import AddAchievers from "./pages/AddAchievers/AddAchievers";
 import UpdateAchievers from "./pages/UpdateAchievers/UpdateAchievers";
 import ViewAchievers from "./pages/ViewAchievers/ViewAchievers";
 import Form from "./Form";
-import LoginPage from "./components/LoginPages/LoginPage"
+import LoginPage from "./components/LoginPages/LoginPage";
+import RegistrationAdmin from "./components/RegistrationAdmin/RegistrationAdmin"
 
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
@@ -63,6 +64,9 @@ function App() {
         <ToastContainer position="top-center" />
                  {/* <Topbar/> */}
             <Route exact path="/">
+                <RegistrationAdmin/>
+            </Route>
+            <Route exact path="/LoginPage">
                 <LoginPage/>
             </Route>
             <div className="container">

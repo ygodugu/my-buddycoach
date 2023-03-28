@@ -24,6 +24,8 @@ const loadData = async () => {
     loadData();
    },[]);
 
+   console.log(data)
+
    const deleteCourse = (userID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to delete User ?')) {

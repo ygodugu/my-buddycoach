@@ -172,7 +172,7 @@ const AddConcept = () => {
               alignItems:"center"
             }}>
             <div>
-              <button  className="buttonSubmit" type="button"
+              <button  className="buttonSubmit" type="button" id="addBagdgeButton"
               onClick={(event) => { handler(event); handleOpen();}}
               >
                 Add Badges
@@ -194,6 +194,7 @@ const AddConcept = () => {
               </button>  */}
                 <Link to={`/UserView/${userID}`}>
                 <button 
+                id="GobackButtonBadges"
                 className="bttonGoback" 
                 type="button" 
                 value="Go Back">

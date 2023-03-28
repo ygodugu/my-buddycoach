@@ -38,7 +38,7 @@ export default function CoursesInfo() {
         
         {/* users detailes and count of users list  */}
         <div className='box2'>
-          <Link to={"/Home"} className="Link">
+          <Link to={"/MailSender"} className="Link">
             <div className="listInfoItem">
               <div className='NameList'>
                 <div className='borderList'>

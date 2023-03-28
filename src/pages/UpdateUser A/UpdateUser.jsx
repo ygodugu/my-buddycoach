@@ -145,7 +145,7 @@ const UpdateUser = () => {
         headers: {
             'Accept': '*/*',
             'Content-Type': 'application/json',
-            "Authorization": `${localStorage.getItem('token')}`
+            "Authorization": `${localStorage.getItem('token')}` 
             },
     });
     setState(resp.data);

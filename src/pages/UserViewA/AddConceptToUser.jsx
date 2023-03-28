@@ -175,7 +175,7 @@ const AddConceptToUser = () => {
               alignItems:"center"
             }}>
           <div>
-              <button  className="buttonSubmit" type="button"
+              <button  className="buttonSubmit" type="button" id="addconceptsButton"
               onClick={(event) => { handler(event); handleOpen();}}
               >
                 Add Concepts
@@ -196,6 +196,7 @@ const AddConceptToUser = () => {
                 ADD Concept </button>  */}
                 <Link to={`/UserView/${userID}`}>
                 <button 
+                id="gobackButtonConcepts"
                 className="bttonGoback" 
                 type="button" 
                 value="Go Back">

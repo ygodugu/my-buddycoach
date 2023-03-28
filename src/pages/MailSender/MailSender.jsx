@@ -20,17 +20,13 @@ const MailSender = () => {
 
   return (
     <div className="UpdateBadges">
-        <div style={{marignTop:"50px",
-            width : "50%",
-            backgroundImage : `url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000')`,
-            backgroundPosition : "center",
-            backgroundSize : "cover"
-            }}>
-            <h1 style={{marginTop : "25px"}}>Contact Form </h1>
+        <div>
+            <h1 style={{marginTop : "25px", marginLeft:"12px" }}>Contact Form </h1>
             <form style={{
                 margin : "auto",
                 padding: "15px",
                 maxWidth:"400px",
+                backgroundColor: "lightblue",
                 alignItems:"center"
             }}
             onSubmit={handleSubmit}
@@ -53,7 +49,7 @@ const MailSender = () => {
             <textarea id="message" name="message" rows="4" cols="50"></textarea>
             <input type="submit" value="send"/>
 
-            <Link to="/">
+            <Link to="/Home">
                 <input  type="button" value="Go Back"/>
             </Link>
 
