@@ -12,6 +12,7 @@ const initialState = {
     emailID:"",
     mobileNumber:"",
     password:"",
+    userType:""
   };
 
 function RegistrationAdmin() {
@@ -24,12 +25,12 @@ function RegistrationAdmin() {
 
     const history = useHistory ();
  
-    const {firstName,lastName,emailID,mobileNumber,password} = state;
+    const {firstName,lastName,emailID,mobileNumber,password,userType} = state;
 
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        if( !firstName || !lastName || !emailID  || !password) {
+        if( !firstName || !lastName || !emailID  || !password ||!userType) {
         window.alert("please provied the values into each input feild")
         } else {
             if (e) {
@@ -38,15 +39,17 @@ function RegistrationAdmin() {
             console.log("emailID : " + emailID)
             console.log("mobileNumber : " + mobileNumber)
             console.log("password : " + password)
+            console.log("userType : " + userType)
         axios.post("http://192.168.0.118:8080/register", {  
             firstName : firstName,
             lastName : lastName,
             emailID : emailID,
             mobileNumber : mobileNumber,
-            password : password
+            password : password,
+            userType : userType
         })
         .then(() => {
-            setState({firstName: "", lastName: "", emailID: "", mobileNumber: "", password: "" });
+            setState({firstName: "", lastName: "", emailID: "", mobileNumber: "", password: "", userType: "" });
         })
         .catch((err) => (err.response.data));
         window.alert("Your Registration is completed please Login")
@@ -89,6 +92,13 @@ function RegistrationAdmin() {
                     alignItems:"center",
                 }}>
                 <h3 className="code">Registration</h3>
+                <label className="label">UserType</label>
+                    <div className="control">
+                        <select name="userType" id="userType"  className="userType" onChange = {(e) => handleInputChange(e)}> 
+                            <option value="ADMIN">ADMIN</option> 
+                            <option value="ASPIRANT">ASPIRANT</option> 
+                        </select> 
+                    </div>
                 <label className="label">FirstName</label>
                     <div className="control">
                         <input

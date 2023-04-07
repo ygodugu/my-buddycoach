@@ -139,22 +139,22 @@ const UpdateUser = () => {
 
     const {userID} = useParams();
 
-    const loadData = async () => {
-      const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`,
-      {
-        headers: {
-            'Accept': '*/*',
-            'Content-Type': 'application/json',
-            "Authorization": `${localStorage.getItem('token')}` 
-            },
-    });
-    setState(resp.data);
-      JSON.stringify(resp.data)
-      console.log(resp.data) 
-       };
-      useEffect(() => {
-        loadData();
-      },[]);
+    // const loadData = async () => {
+    //   const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`,
+    //   {
+    //     headers: {
+    //         'Accept': '*/*',
+    //         'Content-Type': 'application/json',
+    //         "Authorization": `${localStorage.getItem('token')}` 
+    //         },
+    // });
+    // setState(resp.data);
+    //   JSON.stringify(resp.data)
+    //   console.log(resp.data) 
+    //    };
+    //   useEffect(() => {
+    //     loadData();
+    //   },[]);
 
 
 
