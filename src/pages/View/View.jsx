@@ -18,7 +18,7 @@ function View() {
     const {courseID} = useParams();
     
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/course/${courseID}`,
+       axios.get(`http://192.168.0.101:8080/course/${courseID}`,
        {
         headers: {
             'Accept': '*/*',
@@ -37,7 +37,7 @@ function View() {
      const deleteCourse = (conceptID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
         if (window.confirm('Are you sure you want to save this thing into the database?')) {
-          axios.delete(`http://192.168.0.118:8080/conceptToCourse/${courseID}/${conceptID}`,
+          axios.delete(`http://192.168.0.101:8080/conceptToCourse/${courseID}/${conceptID}`,
           {
             headers: {
                 'Accept': '*/*',

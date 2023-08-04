@@ -22,7 +22,7 @@ const initialState = {
 
  
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/badge/${badgeID}`,
+    axios.get(`http://192.168.0.101:8080/badge/${badgeID}`,
     {
       headers: {
           'Accept': '*/*',
@@ -43,7 +43,7 @@ const initialState = {
         console.log("badgeDescription : " + badgeDescription)
         console.log("badgeRules : " + badgeRules)
         console.log("badgeCount : " + badgeCount)
-        fetch(`http://192.168.0.118:8080/badge/${badgeID}`, { 
+        fetch(`http://192.168.0.101:8080/badge/${badgeID}`, { 
           method : "put",
             headers: {
                 'Accept': '*/*',

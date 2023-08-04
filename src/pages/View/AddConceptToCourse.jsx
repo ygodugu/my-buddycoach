@@ -51,7 +51,7 @@ const AddConcept = () => {
       const loadData = async () => {
         // debugger
         // alert(10)
-      const resp = await axios.get(`http://192.168.0.118:8080/conceptToCourse`,
+      const resp = await axios.get(`http://192.168.0.101:8080/conceptToCourse`,
       {
         headers: {
             'Accept': '*/*',
@@ -90,7 +90,7 @@ const AddConcept = () => {
           conceptID : conceptid
         })
         };
-          fetch('http://192.168.0.118:8080/conceptToCourse', requestOptions)
+          fetch('http://192.168.0.101:8080/conceptToCourse', requestOptions)
           .then(response => response.json())
           .then(data => console.log(data.conceptid));
           }

@@ -140,7 +140,7 @@ const UpdateUser = () => {
     const {userID} = useParams();
 
     // const loadData = async () => {
-    //   const resp = await axios.get(`http://192.168.0.118:8080/profile/${userID}`,
+    //   const resp = await axios.get(`http://192.168.0.112:8080/profile/${userID}`,
     //   {
     //     headers: {
     //         'Accept': '*/*',
@@ -159,7 +159,7 @@ const UpdateUser = () => {
 
 
     // useEffect(() => {
-    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
+    //     axios.get(`http://192.168.0.112:8080/profile/${userID}`)
     //     .then((resp) => {setGetData(resp.data[0]);console.log(getData)})
     //   }, [])
 
@@ -167,7 +167,7 @@ const UpdateUser = () => {
     // debugger
 
     //   useEffect(() => {
-    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`,
+    //     axios.get(`http://192.168.0.112:8080/profile/${userID}`,
     //     {
     //       headers: {
     //           'Accept': '*/*',
@@ -180,7 +180,7 @@ const UpdateUser = () => {
     
 
     // useEffect(() => {
-    //     axios.get(`http://192.168.0.118:8080/profile/${userID}`)
+    //     axios.get(`http://192.168.0.112:8080/profile/${userID}`)
     //     .then((resp) => setGetData({...resp.data[0] }));
     //     console.log(getData)
     // }, [userID]);
@@ -253,7 +253,7 @@ const UpdateUser = () => {
         console.log( "longTerm : " + longTerm)
         console.log("strengths : " + strengths)
         console.log("weakness : " + weakness )
-        axios.put(`http://192.168.0.118:8080/user/${userID}`, {
+        axios.put(`http://192.168.0.112:8080/user/${userID}`, {
             headers: {
                 'Accept': '*/*',
                 'Content-Type': 'application/json',

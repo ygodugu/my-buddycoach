@@ -40,7 +40,7 @@ function RegistrationAdmin() {
             console.log("mobileNumber : " + mobileNumber)
             console.log("password : " + password)
             console.log("userType : " + userType)
-        axios.post("http://192.168.0.118:8080/register", {  
+        axios.post("http://192.168.0.101:8080/register", {  
             firstName : firstName,
             lastName : lastName,
             emailID : emailID,

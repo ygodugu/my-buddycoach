@@ -11,7 +11,7 @@ export default function FeaturedInfo() {
   const history = useHistory ();
 
   const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/users",
+    const response = await axios.get("http://192.168.0.101:8080/users",
     {
       headers: {
           'Accept': '*/*',
@@ -27,7 +27,7 @@ export default function FeaturedInfo() {
 
    const logout = async () => {
     try {
-      const response = await axios("http://192.168.0.118:8080/logout", 
+      const response = await axios("http://192.168.0.121:8080/logout", 
         {
           method: "Put",
           headers: {

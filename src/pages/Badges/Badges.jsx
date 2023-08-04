@@ -11,7 +11,7 @@ const Badges = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/badges",
+    const response = await axios.get("http://192.168.0.101:8080/badges",
     {
       headers: {
           'Accept': '*/*',
@@ -29,7 +29,7 @@ const loadData = async () => {
    const deleteCourse = (badgeID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm(" Are you sure that delete the badge ?")) {
-      fetch(`http://192.168.0.118:8080/badge/${badgeID}`,
+      fetch(`http://192.168.0.101:8080/badge/${badgeID}`,
       {
         method : "delete",
         headers: {

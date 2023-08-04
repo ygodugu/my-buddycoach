@@ -11,7 +11,7 @@ const Concept = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/concepts",
+    const response = await axios.get("http://192.168.0.101:8080/concepts",
     {
       headers: {
           'Accept': '*/*',
@@ -29,7 +29,7 @@ const loadData = async () => {
    const deleteCourse = (conceptID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to save this thing into the database?')) {
-      fetch(`http://192.168.0.118:8080/concept/${conceptID}`,   
+      fetch(`http://192.168.0.101:8080/concept/${conceptID}`,   
       {
         method : "delete",
         headers: {

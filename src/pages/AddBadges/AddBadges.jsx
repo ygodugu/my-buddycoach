@@ -28,7 +28,7 @@ const AddBadges = () => {
         console.log("conceptDescription : " + badgeDescription)
         console.log("conceptLogo : " + badgeRules)
         console.log("badgeCount : " + badgeCount)
-      fetch("http://192.168.0.118:8080/badge", { 
+      fetch("http://192.168.0.101:8080/badge", { 
         method : "post" ,
           headers: {
               'Accept': '*/*',

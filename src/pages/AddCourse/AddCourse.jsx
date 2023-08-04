@@ -25,7 +25,7 @@ const AddCourse = () => {
         console.log("courseName : " + courseName)
         console.log("courseDescription : " + courseDescription)
         console.log("courseLogo : " + courseLogo)
-       fetch("http://192.168.0.118:8080/course", {  
+       fetch("http://192.168.0.101:8080/course", {  
         method : "post",
           headers: {
               'Accept': '*/*',

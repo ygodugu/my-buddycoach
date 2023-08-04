@@ -10,7 +10,7 @@ const User = () => {
 const [data, setData] = useState([]);
 
 const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/users",
+    const response = await axios.get("http://192.168.0.101:8080/users",
     {
       headers: {
           'Accept': '*/*',
@@ -29,7 +29,7 @@ const loadData = async () => {
    const deleteCourse = (userID) => {
     //  if(window.alert(" Are you sure that delete the course ?"));
     if (window.confirm('Are you sure you want to delete User ?')) {
-      fetch(`http://192.168.0.118:8080/user/${userID}`,
+      fetch(`http://192.168.0.101:8080/user/${userID}`,
       {
         method : "delete",
         headers: {

@@ -33,7 +33,7 @@ const AddUser = () => {
         console.log("emailID : " + emailID)
         console.log("mobileNumber : " + mobileNumber)
         console.log("dateOfBirth : " + dateOfBirth)
-       fetch("http://192.168.0.118:8080/user", {  
+       fetch("http://192.168.0.101:8080/user", {  
         method : "post",
           headers: {
               'Accept': '*/*',

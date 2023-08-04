@@ -10,7 +10,7 @@ export default function CoursesInfo() {
   const [courses, setCourses] = useState([]);
 
   const loadData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/courses",
+    const response = await axios.get("http://192.168.0.101:8080/courses",
     {
       headers: {
           'Accept': '*/*',
@@ -27,7 +27,7 @@ export default function CoursesInfo() {
    const [concepts, setConcepts] = useState([]);
 
    const ConceptsData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/concepts",
+    const response = await axios.get("http://192.168.0.101:8080/concepts",
     {
       headers: {
           'Accept': '*/*',
@@ -44,7 +44,7 @@ export default function CoursesInfo() {
    const [badges, setBadges] = useState([]);
 
    const BadgesData = async () => {
-    const response = await axios.get("http://192.168.0.118:8080/badges",
+    const response = await axios.get("http://192.168.0.101:8080/badges",
     {
       headers: {
           'Accept': '*/*',

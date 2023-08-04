@@ -11,7 +11,7 @@ const UserView = () => {
     const {badgeID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/badge/${badgeID}`,
+       axios.get(`http://192.168.0.101:8080/badge/${badgeID}`,
        {
         headers: {
             'Accept': '*/*',

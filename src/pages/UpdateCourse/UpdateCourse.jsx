@@ -20,7 +20,7 @@ const UpdateCourse = () => {
     const {courseID} = useParams();
 
     useEffect(() => {
-      axios.get(`http://192.168.0.118:8080/course/${courseID}`,
+      axios.get(`http://192.168.0.101:8080/course/${courseID}`,
       {
         headers: {
             'Accept': '*/*',
@@ -40,7 +40,7 @@ const UpdateCourse = () => {
           console.log("courseName : " + courseName)
           console.log("courseDescription : " + courseDescription)
           console.log("courseLogo : " + courseLogo)
-          fetch(`http://192.168.0.118:8080/course/${courseID}`, { 
+          fetch(`http://192.168.0.101:8080/course/${courseID}`, { 
             method : "put",
               headers: {
                   'Accept': '*/*',

@@ -20,7 +20,7 @@ const UserView = () => {
     const {userID} = useParams();
    
     useEffect(() => {
-       axios.get(`http://192.168.0.118:8080/user/${userID}?pageNumberOfConcepts=${pageNumberOfConcepts}&limitOfConcepts=${limitOfConcepts}&pageNumberOfBadges=${pageNumberOfBadges}&limitOfBadges=${limitOfBadges}`,
+       axios.get(`http://192.168.0.101:8080/user/${userID}?pageNumberOfConcepts=${pageNumberOfConcepts}&limitOfConcepts=${limitOfConcepts}&pageNumberOfBadges=${pageNumberOfBadges}&limitOfBadges=${limitOfBadges}`,
        {
         headers: {
             'Accept': '*/*',
@@ -36,7 +36,7 @@ const UserView = () => {
      const deleteCourse = (conceptID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
         if (window.confirm('Are you sure you want to delete the concept ')) {
-          axios.delete(`http://192.168.0.118:8080/conceptToUser/${userID}/${conceptID}`,
+          axios.delete(`http://192.168.0.101:8080/conceptToUser/${userID}/${conceptID}`,
           {
             headers: {
                 'Accept': '*/*',
@@ -57,7 +57,7 @@ const UserView = () => {
        const deleteBadge = (badgeID) => {
         //  if(window.alert(" Are you sure that delete the course ?"));
         if (window.confirm('Are you sure you want to deleteBadge?')) {
-          axios.delete(`http://192.168.0.118:8080/badgeToUser/${userID}/${badgeID}`,
+          axios.delete(`http://192.168.0.101:8080/badgeToUser/${userID}/${badgeID}`,
           {
             headers: {
                 'Accept': '*/*',

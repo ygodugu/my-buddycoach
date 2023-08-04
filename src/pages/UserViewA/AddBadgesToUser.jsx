@@ -50,7 +50,7 @@ const AddConcept = () => {
       const loadData = async () => {
         // debugger
         // alert(10)
-      const resp = await axios.get(`http://192.168.0.118:8080/badgeToUser/${userID}`,
+      const resp = await axios.get(`http://192.168.0.101:8080/badgeToUser/${userID}`,
       {
         headers: {
             'Accept': '*/*',
@@ -88,7 +88,7 @@ const AddConcept = () => {
             badgeID  : badgeid,
         })
         };
-          fetch('http://192.168.0.118:8080/badgeToUser', requestOptions)
+          fetch('http://192.168.0.101:8080/badgeToUser', requestOptions)
           .then(response => response.json())
           .then(data => console.log(data.badgeid));
           }

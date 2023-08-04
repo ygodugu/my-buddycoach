@@ -23,7 +23,7 @@ const initialState = {
   const {conceptID} = useParams();
 
   useEffect(() => {
-    axios.get(`http://192.168.0.118:8080/concept/${conceptID}`,
+    axios.get(`http://192.168.0.101:8080/concept/${conceptID}`,
     {
       headers: {
           'Accept': '*/*',
@@ -45,7 +45,7 @@ const initialState = {
         console.log("conceptLogo : " + conceptLogo)
         console.log("resourceLink : " + resourceLink)
         console.log("quizLink : " + quizLink)
-        fetch(`http://192.168.0.118:8080/concept/${conceptID}`, {
+        fetch(`http://192.168.0.101:8080/concept/${conceptID}`, {
           method : "put",  
             headers: {
                 'Accept': '*/*',

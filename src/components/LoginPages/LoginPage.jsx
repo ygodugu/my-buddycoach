@@ -25,7 +25,7 @@ export default function Login() {
         if(!emailID  || !password) {
             window.alert("Please Fill The Mandatory Feilds ")
             } else {
-        axios.post("http://192.168.0.118:8080/login", {
+        axios.post("http://192.168.0.101:8080/login", {
                 emailID: emailID,
                 password: password,
             })

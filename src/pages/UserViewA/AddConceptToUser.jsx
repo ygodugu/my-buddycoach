@@ -53,7 +53,7 @@ const AddConceptToUser = () => {
   const loadData = async () => {
     // debugger
     // alert(10)
-   const resp = await axios.get(`http://192.168.0.118:8080/conceptToUser/${userID}`,
+   const resp = await axios.get(`http://192.168.0.101:8080/conceptToUser/${userID}`,
    {
     headers: {
         'Accept': '*/*',
@@ -92,7 +92,7 @@ const AddConceptToUser = () => {
       conceptID : conceptid
     })
     };
-    fetch('http://192.168.0.118:8080/conceptToUser', requestOptions)
+    fetch('http://192.168.0.101:8080/conceptToUser', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data.conceptid));
   }

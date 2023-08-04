@@ -30,7 +30,7 @@ const AddConcept = () => {
         console.log("conceptLogo : " + conceptLogo)
         console.log("resourceLink : " + resourceLink)
         console.log("quizLink : " + quizLink)
-       fetch("http://192.168.0.118:8080/concept", { 
+       fetch("http://192.168.0.101:8080/concept", { 
         method : "post",
           headers: {
               'Accept': '*/*',

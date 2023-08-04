@@ -32,7 +32,8 @@ import UpdateAchievers from "./pages/UpdateAchievers/UpdateAchievers";
 import ViewAchievers from "./pages/ViewAchievers/ViewAchievers";
 import Form from "./Form";
 import LoginPage from "./components/LoginPages/LoginPage";
-import RegistrationAdmin from "./components/RegistrationAdmin/RegistrationAdmin"
+import RegistrationAdmin from "./components/RegistrationAdmin/RegistrationAdmin";
+import PageNotFound from "./PageNotFound";
 
 function App() {
     const [loggedIn, setloggedIn] = useState(false);
